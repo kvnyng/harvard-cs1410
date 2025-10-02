@@ -1,0 +1,20 @@
+0.7
+2020.2
+Oct 14 2022
+05:07:14
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/CS1410_lab1a.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okBTPipeIn.v,1757699566,verilog,,/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okCoreHarness.v,,okBTPipeIn,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okBTPipeOut.v,1757699566,verilog,,/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okWireIn.v,,okBTPipeOut,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okCoreHarness.v,1757699566,verilog,,/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okTriggerIn.v,,fifo_generator_v13_2_0;okCore;okCoreHarness;ok_tfifo;xpm_cdc_async_rst,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okLibrary.v,1757699566,verilog,,/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okRegisterBridge.v,,okHost;okWireOR,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okLibrary.vhd,1757699566,vhdl,,,,frontpanel;okhost;okwireor,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okPipeIn.v,1757699566,verilog,,/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okBTPipeIn.v,,okPipeIn,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okPipeOut.v,1757699566,verilog,,/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okTriggerOut.v,,okPipeOut,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okRegisterBridge.v,1757699566,verilog,,/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okPipeIn.v,,okRegisterBridge,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okTriggerIn.v,1757699566,verilog,,/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okBTPipeOut.v,,okTriggerIn,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okTriggerOut.v,1757699566,verilog,,,,okTriggerOut,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okWireIn.v,1757699566,verilog,,/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okWireOut.v,,okWireIn,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okWireOut.v,1757699566,verilog,,/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/OK_library/okPipeOut.v,,okWireOut,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/source/STUDENT_blackbox.sv,1758253073,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/source/blackbox_wrapper.sv,,blackbox,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/source/blackbox_wrapper.sv,1758306035,systemVerilog,,,,blackbox_wrapper,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/tb/STUDENT_blackbox_tb.sv,1758253578,systemVerilog,,,,blackbox_tb,,uvm,,,,,,

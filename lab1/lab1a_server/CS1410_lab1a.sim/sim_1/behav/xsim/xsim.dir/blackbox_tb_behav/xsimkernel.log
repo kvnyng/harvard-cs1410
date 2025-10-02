@@ -1,0 +1,7 @@
+Running: xsim.dir/blackbox_tb_behav/xsimk -simmode gui -wdb blackbox_tb_behav.wdb -simrunnum 0 -socket 43525
+Design successfully loaded
+Design Loading Memory Usage: 28932 KB (Peak: 29052 KB)
+Design Loading CPU Usage: 80 ms
+Simulation completed
+Simulation Memory Usage: 110668 KB (Peak: 168200 KB)
+Simulation CPU Usage: 90 ms

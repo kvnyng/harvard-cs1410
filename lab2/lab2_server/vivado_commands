@@ -1,0 +1,9 @@
+# Compile in System Verilog
+xvlog -sv source/mux_2x1.sv tb/mux_tb.sv
+
+# Create the simulation snapshot
+xelab mux_tb -s mux_tb_sim -debug typical
+You're naming the simulation snapsho through the -s flag
+
+# Run the simulation snapshot
+xsim mux_tb_sim -R

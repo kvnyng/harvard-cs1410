@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/source/STUDENT_blackbox.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module blackbox
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/source/blackbox_wrapper.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module blackbox_wrapper
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/tb/STUDENT_blackbox_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module blackbox_tb

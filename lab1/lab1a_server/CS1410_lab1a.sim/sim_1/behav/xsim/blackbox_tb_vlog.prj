@@ -1,0 +1,26 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../source/STUDENT_blackbox.sv" \
+"../../../../source/blackbox_wrapper.sv" \
+
+verilog xil_defaultlib  \
+"../../../../OK_library/okLibrary.v" \
+"../../../../OK_library/okRegisterBridge.v" \
+"../../../../OK_library/okPipeIn.v" \
+"../../../../OK_library/okBTPipeIn.v" \
+"../../../../OK_library/okCoreHarness.v" \
+"../../../../OK_library/okTriggerIn.v" \
+"../../../../OK_library/okBTPipeOut.v" \
+"../../../../OK_library/okWireIn.v" \
+"../../../../OK_library/okWireOut.v" \
+"../../../../OK_library/okPipeOut.v" \
+"../../../../OK_library/okTriggerOut.v" \
+
+sv xil_defaultlib  \
+"../../../../tb/STUDENT_blackbox_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

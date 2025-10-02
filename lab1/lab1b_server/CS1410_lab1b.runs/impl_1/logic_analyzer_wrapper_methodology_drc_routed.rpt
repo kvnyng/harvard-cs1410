@@ -1,0 +1,1434 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date         : Fri Sep 19 03:39:19 2025
+| Host         : sec-academic-1.int.seas.harvard.edu running 64-bit unknown
+| Command      : report_methodology -file logic_analyzer_wrapper_methodology_drc_routed.rpt -pb logic_analyzer_wrapper_methodology_drc_routed.pb -rpx logic_analyzer_wrapper_methodology_drc_routed.rpx
+| Design       : logic_analyzer_wrapper
+| Device       : xc7a75tfgg484-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 271
++-----------+------------------+------------------------------------------------------+------------+
+| Rule      | Severity         | Description                                          | Violations |
++-----------+------------------+------------------------------------------------------+------------+
+| TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree   | 1          |
+| TIMING-6  | Critical Warning | No common primary clock between related clocks       | 3          |
+| TIMING-7  | Critical Warning | No common node between related clocks                | 3          |
+| TIMING-17 | Critical Warning | Non-clocked sequential cell                          | 1          |
+| TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin            | 1          |
+| LUTAR-1   | Warning          | LUT drives async reset alert                         | 2          |
+| TIMING-9  | Warning          | Unknown CDC Logic                                    | 1          |
+| TIMING-16 | Warning          | Large setup violation                                | 255        |
+| TIMING-18 | Warning          | Missing input or output delay                        | 1          |
+| TIMING-28 | Warning          | Auto-derived clock referenced by a timing constraint | 1          |
+| XDCH-1    | Warning          | Hold option missing in multicycle path constraint    | 2          |
++-----------+------------------+------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-4#1 Critical Warning
+Invalid primary clock redefinition on a clock tree  
+Invalid clock redefinition on a clock tree. The primary clock fclk_gen/inst/clk_in1 is defined downstream of clock sys_clk and overrides its insertion delay and/or waveform definition
+Related violations: <none>
+
+TIMING-6#1 Critical Warning
+No common primary clock between related clocks  
+The clocks clk_out1_clk_wiz_0 and mmcm0_clk0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks mmcm0_clk0]
+Related violations: <none>
+
+TIMING-6#2 Critical Warning
+No common primary clock between related clocks  
+The clocks clk_out1_clk_wiz_0 and sys_clk are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks sys_clk]
+Related violations: <none>
+
+TIMING-6#3 Critical Warning
+No common primary clock between related clocks  
+The clocks sys_clk and clk_out1_clk_wiz_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks sys_clk] -to [get_clocks clk_out1_clk_wiz_0]
+Related violations: <none>
+
+TIMING-7#1 Critical Warning
+No common node between related clocks  
+The clocks clk_out1_clk_wiz_0 and mmcm0_clk0 are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks mmcm0_clk0]
+Related violations: <none>
+
+TIMING-7#2 Critical Warning
+No common node between related clocks  
+The clocks clk_out1_clk_wiz_0 and sys_clk are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks sys_clk]
+Related violations: <none>
+
+TIMING-7#3 Critical Warning
+No common node between related clocks  
+The clocks sys_clk and clk_out1_clk_wiz_0 are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks sys_clk] -to [get_clocks clk_out1_clk_wiz_0]
+Related violations: <none>
+
+TIMING-17#1 Critical Warning
+Non-clocked sequential cell  
+The clock pin okHI/core0/core0/a0/d0/dna0/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-27#1 Critical Warning
+Invalid primary clock on hierarchical pin  
+A primary clock fclk_gen/inst/clk_in1 is created on an inappropriate internal pin fclk_gen/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
+Related violations: <none>
+
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell okHI/core0/core0/a0/cb0/U0/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[3]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[4]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[5]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[0]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[1]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[2]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[3]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[4]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[5]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[0]/PRE,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[1]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[2]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[3]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[4]/CLR,
+okHI/core0/core0/a0/cb0/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[5]/CLR
+ (the first 15 of 26 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell okHI/core0/core0/l9ca09c625f64b90bed25f2b6c26f6e53[3]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) okHI/core0/core0/a0/l4f8cd1ab062f5571ff66db47e3d281bf_reg[2]/PRE,
+okHI/core0/core0/a0/l4f8cd1ab062f5571ff66db47e3d281bf_reg[3]/PRE,
+okHI/core0/core0/a0/l4f8cd1ab062f5571ff66db47e3d281bf_reg[4]/PRE,
+okHI/core0/core0/a0/l4f8cd1ab062f5571ff66db47e3d281bf_reg[5]/PRE,
+okHI/core0/core0/a0/l4f8cd1ab062f5571ff66db47e3d281bf_reg[6]/PRE,
+okHI/core0/core0/a0/l4f8cd1ab062f5571ff66db47e3d281bf_reg[7]/PRE,
+okHI/core0/core0/a0/l4f8cd1ab062f5571ff66db47e3d281bf_reg[8]/PRE,
+okHI/core0/core0/a0/l4f8cd1ab062f5571ff66db47e3d281bf_reg[9]/CLR,
+okHI/core0/core0/a0/l8733ba0cb25077d8c78e1b1549a80eef_reg/CLR,
+okHI/core0/core0/a0/l90ce46b343647bab4d280b5afc506219_reg/CLR,
+okHI/core0/core0/a0/l9ca09c625f64b90bed25f2b6c26f6e53_reg[0]/CLR,
+okHI/core0/core0/a0/l9ca09c625f64b90bed25f2b6c26f6e53_reg[1]/CLR,
+okHI/core0/core0/a0/l9ca09c625f64b90bed25f2b6c26f6e53_reg[2]/CLR,
+okHI/core0/core0/a0/l9ca09c625f64b90bed25f2b6c26f6e53_reg[3]/CLR,
+okHI/core0/core0/a0/le7badcf1256ff8aabbffe7a6a1b38b5f_reg/CLR
+ (the first 15 of 60 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+TIMING-9#1 Warning
+Unknown CDC Logic  
+One or more asynchronous Clock Domain Crossing has been detected between 2 clock domains through a set_false_path or a set_clock_groups or set_max_delay -datapath_only constraint but no double-registers logic synchronizer has been found on the side of the capture clock. It is recommended to run report_cdc for a complete and detailed CDC coverage. Please consider using XPM_CDC to avoid Critical severities
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -122.934 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[5]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -146.686 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[6]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -171.135 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[7]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -196.652 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[8]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -20.389 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -224.184 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[9]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -251.771 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[10]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -277.879 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[11]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#9 Warning
+Large setup violation  
+There is a large setup violation of -305.180 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[12]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#10 Warning
+Large setup violation  
+There is a large setup violation of -332.448 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[13]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#11 Warning
+Large setup violation  
+There is a large setup violation of -358.774 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[14]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#12 Warning
+Large setup violation  
+There is a large setup violation of -384.730 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[15]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#13 Warning
+Large setup violation  
+There is a large setup violation of -4.591 ns between la_inst/shift_reg_reg[12][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#14 Warning
+Large setup violation  
+There is a large setup violation of -4.688 ns between la_inst/shift_reg_reg[2][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#15 Warning
+Large setup violation  
+There is a large setup violation of -4.721 ns between la_inst/shift_reg_reg[2][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#16 Warning
+Large setup violation  
+There is a large setup violation of -4.722 ns between la_inst/shift_reg_reg[8][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#17 Warning
+Large setup violation  
+There is a large setup violation of -4.735 ns between la_inst/shift_reg_reg[12][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#18 Warning
+Large setup violation  
+There is a large setup violation of -4.737 ns between la_inst/shift_reg_reg[4][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#19 Warning
+Large setup violation  
+There is a large setup violation of -4.742 ns between la_inst/shift_reg_reg[9][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#20 Warning
+Large setup violation  
+There is a large setup violation of -4.742 ns between la_inst/shift_reg_reg[9][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#21 Warning
+Large setup violation  
+There is a large setup violation of -4.744 ns between la_inst/shift_reg_reg[8][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#22 Warning
+Large setup violation  
+There is a large setup violation of -4.752 ns between la_inst/shift_reg_reg[4][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#23 Warning
+Large setup violation  
+There is a large setup violation of -4.765 ns between la_inst/shift_reg_reg[2][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#24 Warning
+Large setup violation  
+There is a large setup violation of -4.770 ns between la_inst/shift_reg_reg[2][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#25 Warning
+Large setup violation  
+There is a large setup violation of -4.773 ns between la_inst/shift_reg_reg[13][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#26 Warning
+Large setup violation  
+There is a large setup violation of -4.773 ns between la_inst/shift_reg_reg[9][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#27 Warning
+Large setup violation  
+There is a large setup violation of -4.774 ns between la_inst/shift_reg_reg[1][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#28 Warning
+Large setup violation  
+There is a large setup violation of -4.775 ns between la_inst/shift_reg_reg[3][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#29 Warning
+Large setup violation  
+There is a large setup violation of -4.776 ns between la_inst/shift_reg_reg[1][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#30 Warning
+Large setup violation  
+There is a large setup violation of -4.778 ns between la_inst/shift_reg_reg[12][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#31 Warning
+Large setup violation  
+There is a large setup violation of -4.778 ns between la_inst/shift_reg_reg[1][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#32 Warning
+Large setup violation  
+There is a large setup violation of -4.779 ns between la_inst/shift_reg_reg[5][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#33 Warning
+Large setup violation  
+There is a large setup violation of -4.780 ns between la_inst/shift_reg_reg[0][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#34 Warning
+Large setup violation  
+There is a large setup violation of -4.780 ns between la_inst/shift_reg_reg[10][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#35 Warning
+Large setup violation  
+There is a large setup violation of -4.782 ns between la_inst/shift_reg_reg[0][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#36 Warning
+Large setup violation  
+There is a large setup violation of -4.788 ns between la_inst/shift_reg_reg[6][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#37 Warning
+Large setup violation  
+There is a large setup violation of -4.789 ns between la_inst/shift_reg_reg[4][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#38 Warning
+Large setup violation  
+There is a large setup violation of -4.791 ns between la_inst/shift_reg_reg[5][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#39 Warning
+Large setup violation  
+There is a large setup violation of -4.793 ns between la_inst/shift_reg_reg[13][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#40 Warning
+Large setup violation  
+There is a large setup violation of -4.793 ns between la_inst/shift_reg_reg[1][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#41 Warning
+Large setup violation  
+There is a large setup violation of -4.794 ns between la_inst/shift_reg_reg[10][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#42 Warning
+Large setup violation  
+There is a large setup violation of -4.796 ns between la_inst/shift_reg_reg[3][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#43 Warning
+Large setup violation  
+There is a large setup violation of -4.797 ns between la_inst/shift_reg_reg[4][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#44 Warning
+Large setup violation  
+There is a large setup violation of -4.798 ns between la_inst/shift_reg_reg[2][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#45 Warning
+Large setup violation  
+There is a large setup violation of -4.799 ns between la_inst/shift_reg_reg[13][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#46 Warning
+Large setup violation  
+There is a large setup violation of -4.801 ns between la_inst/shift_reg_reg[2][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#47 Warning
+Large setup violation  
+There is a large setup violation of -4.801 ns between la_inst/shift_reg_reg[5][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#48 Warning
+Large setup violation  
+There is a large setup violation of -4.801 ns between la_inst/shift_reg_reg[5][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#49 Warning
+Large setup violation  
+There is a large setup violation of -4.803 ns between la_inst/shift_reg_reg[0][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#50 Warning
+Large setup violation  
+There is a large setup violation of -4.803 ns between la_inst/shift_reg_reg[4][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#51 Warning
+Large setup violation  
+There is a large setup violation of -4.804 ns between la_inst/shift_reg_reg[2][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#52 Warning
+Large setup violation  
+There is a large setup violation of -4.804 ns between la_inst/shift_reg_reg[6][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#53 Warning
+Large setup violation  
+There is a large setup violation of -4.804 ns between la_inst/shift_reg_reg[7][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#54 Warning
+Large setup violation  
+There is a large setup violation of -4.805 ns between la_inst/shift_reg_reg[0][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#55 Warning
+Large setup violation  
+There is a large setup violation of -4.805 ns between la_inst/shift_reg_reg[11][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#56 Warning
+Large setup violation  
+There is a large setup violation of -4.806 ns between la_inst/shift_reg_reg[0][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#57 Warning
+Large setup violation  
+There is a large setup violation of -4.806 ns between la_inst/shift_reg_reg[11][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#58 Warning
+Large setup violation  
+There is a large setup violation of -4.808 ns between la_inst/shift_reg_reg[10][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#59 Warning
+Large setup violation  
+There is a large setup violation of -4.816 ns between la_inst/shift_reg_reg[1][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#60 Warning
+Large setup violation  
+There is a large setup violation of -4.818 ns between la_inst/shift_reg_reg[13][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#61 Warning
+Large setup violation  
+There is a large setup violation of -4.818 ns between la_inst/shift_reg_reg[5][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#62 Warning
+Large setup violation  
+There is a large setup violation of -4.818 ns between la_inst/shift_reg_reg[5][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#63 Warning
+Large setup violation  
+There is a large setup violation of -4.820 ns between la_inst/shift_reg_reg[0][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#64 Warning
+Large setup violation  
+There is a large setup violation of -4.826 ns between la_inst/shift_reg_reg[11][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#65 Warning
+Large setup violation  
+There is a large setup violation of -4.830 ns between la_inst/shift_reg_reg[0][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#66 Warning
+Large setup violation  
+There is a large setup violation of -4.831 ns between la_inst/shift_reg_reg[1][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#67 Warning
+Large setup violation  
+There is a large setup violation of -4.831 ns between la_inst/shift_reg_reg[6][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#68 Warning
+Large setup violation  
+There is a large setup violation of -4.832 ns between la_inst/shift_reg_reg[11][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#69 Warning
+Large setup violation  
+There is a large setup violation of -4.832 ns between la_inst/shift_reg_reg[1][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#70 Warning
+Large setup violation  
+There is a large setup violation of -4.832 ns between la_inst/shift_reg_reg[8][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#71 Warning
+Large setup violation  
+There is a large setup violation of -4.833 ns between la_inst/shift_reg_reg[12][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#72 Warning
+Large setup violation  
+There is a large setup violation of -4.837 ns between la_inst/shift_reg_reg[14][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#73 Warning
+Large setup violation  
+There is a large setup violation of -4.839 ns between la_inst/shift_reg_reg[11][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#74 Warning
+Large setup violation  
+There is a large setup violation of -4.839 ns between la_inst/shift_reg_reg[1][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#75 Warning
+Large setup violation  
+There is a large setup violation of -4.842 ns between la_inst/shift_reg_reg[1][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#76 Warning
+Large setup violation  
+There is a large setup violation of -4.844 ns between la_inst/shift_reg_reg[1][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#77 Warning
+Large setup violation  
+There is a large setup violation of -4.846 ns between la_inst/shift_reg_reg[13][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#78 Warning
+Large setup violation  
+There is a large setup violation of -4.848 ns between la_inst/shift_reg_reg[9][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#79 Warning
+Large setup violation  
+There is a large setup violation of -4.853 ns between la_inst/shift_reg_reg[6][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#80 Warning
+Large setup violation  
+There is a large setup violation of -4.860 ns between la_inst/shift_reg_reg[8][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#81 Warning
+Large setup violation  
+There is a large setup violation of -4.873 ns between la_inst/shift_reg_reg[6][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#82 Warning
+Large setup violation  
+There is a large setup violation of -4.884 ns between la_inst/shift_reg_reg[7][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#83 Warning
+Large setup violation  
+There is a large setup violation of -4.888 ns between la_inst/shift_reg_reg[6][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#84 Warning
+Large setup violation  
+There is a large setup violation of -4.889 ns between la_inst/shift_reg_reg[10][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#85 Warning
+Large setup violation  
+There is a large setup violation of -4.891 ns between la_inst/shift_reg_reg[11][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#86 Warning
+Large setup violation  
+There is a large setup violation of -4.893 ns between la_inst/shift_reg_reg[4][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#87 Warning
+Large setup violation  
+There is a large setup violation of -4.893 ns between la_inst/shift_reg_reg[5][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#88 Warning
+Large setup violation  
+There is a large setup violation of -4.893 ns between la_inst/shift_reg_reg[7][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#89 Warning
+Large setup violation  
+There is a large setup violation of -4.894 ns between la_inst/shift_reg_reg[14][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#90 Warning
+Large setup violation  
+There is a large setup violation of -4.895 ns between la_inst/shift_reg_reg[14][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#91 Warning
+Large setup violation  
+There is a large setup violation of -4.895 ns between la_inst/shift_reg_reg[1][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#92 Warning
+Large setup violation  
+There is a large setup violation of -4.897 ns between la_inst/shift_reg_reg[7][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#93 Warning
+Large setup violation  
+There is a large setup violation of -4.904 ns between la_inst/shift_reg_reg[12][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#94 Warning
+Large setup violation  
+There is a large setup violation of -4.907 ns between la_inst/shift_reg_reg[2][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#95 Warning
+Large setup violation  
+There is a large setup violation of -4.908 ns between la_inst/shift_reg_reg[6][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#96 Warning
+Large setup violation  
+There is a large setup violation of -4.909 ns between la_inst/shift_reg_reg[12][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#97 Warning
+Large setup violation  
+There is a large setup violation of -4.909 ns between la_inst/shift_reg_reg[4][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#98 Warning
+Large setup violation  
+There is a large setup violation of -4.910 ns between la_inst/shift_reg_reg[1][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#99 Warning
+Large setup violation  
+There is a large setup violation of -4.912 ns between la_inst/shift_reg_reg[3][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#100 Warning
+Large setup violation  
+There is a large setup violation of -4.912 ns between la_inst/shift_reg_reg[8][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#101 Warning
+Large setup violation  
+There is a large setup violation of -4.913 ns between la_inst/shift_reg_reg[6][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#102 Warning
+Large setup violation  
+There is a large setup violation of -4.915 ns between la_inst/shift_reg_reg[3][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#103 Warning
+Large setup violation  
+There is a large setup violation of -4.915 ns between la_inst/shift_reg_reg[9][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#104 Warning
+Large setup violation  
+There is a large setup violation of -4.918 ns between la_inst/shift_reg_reg[8][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#105 Warning
+Large setup violation  
+There is a large setup violation of -4.920 ns between la_inst/shift_reg_reg[5][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#106 Warning
+Large setup violation  
+There is a large setup violation of -4.921 ns between la_inst/shift_reg_reg[10][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#107 Warning
+Large setup violation  
+There is a large setup violation of -4.921 ns between la_inst/shift_reg_reg[6][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#108 Warning
+Large setup violation  
+There is a large setup violation of -4.925 ns between la_inst/shift_reg_reg[10][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#109 Warning
+Large setup violation  
+There is a large setup violation of -4.926 ns between la_inst/shift_reg_reg[10][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#110 Warning
+Large setup violation  
+There is a large setup violation of -4.926 ns between la_inst/shift_reg_reg[14][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#111 Warning
+Large setup violation  
+There is a large setup violation of -4.927 ns between la_inst/shift_reg_reg[3][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#112 Warning
+Large setup violation  
+There is a large setup violation of -4.927 ns between la_inst/shift_reg_reg[5][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#113 Warning
+Large setup violation  
+There is a large setup violation of -4.930 ns between la_inst/shift_reg_reg[0][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#114 Warning
+Large setup violation  
+There is a large setup violation of -4.930 ns between la_inst/shift_reg_reg[7][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#115 Warning
+Large setup violation  
+There is a large setup violation of -4.931 ns between la_inst/shift_reg_reg[10][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#116 Warning
+Large setup violation  
+There is a large setup violation of -4.931 ns between la_inst/shift_reg_reg[10][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#117 Warning
+Large setup violation  
+There is a large setup violation of -4.933 ns between la_inst/shift_reg_reg[11][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#118 Warning
+Large setup violation  
+There is a large setup violation of -4.934 ns between la_inst/shift_reg_reg[11][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#119 Warning
+Large setup violation  
+There is a large setup violation of -4.936 ns between la_inst/shift_reg_reg[0][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#120 Warning
+Large setup violation  
+There is a large setup violation of -4.937 ns between la_inst/shift_reg_reg[0][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#121 Warning
+Large setup violation  
+There is a large setup violation of -4.937 ns between la_inst/shift_reg_reg[10][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#122 Warning
+Large setup violation  
+There is a large setup violation of -4.937 ns between la_inst/shift_reg_reg[14][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#123 Warning
+Large setup violation  
+There is a large setup violation of -4.938 ns between la_inst/shift_reg_reg[1][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#124 Warning
+Large setup violation  
+There is a large setup violation of -4.939 ns between la_inst/shift_reg_reg[5][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#125 Warning
+Large setup violation  
+There is a large setup violation of -4.939 ns between la_inst/shift_reg_reg[8][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#126 Warning
+Large setup violation  
+There is a large setup violation of -4.942 ns between la_inst/shift_reg_reg[14][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#127 Warning
+Large setup violation  
+There is a large setup violation of -4.943 ns between la_inst/shift_reg_reg[3][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#128 Warning
+Large setup violation  
+There is a large setup violation of -4.945 ns between la_inst/shift_reg_reg[14][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#129 Warning
+Large setup violation  
+There is a large setup violation of -4.945 ns between la_inst/shift_reg_reg[9][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#130 Warning
+Large setup violation  
+There is a large setup violation of -4.946 ns between la_inst/shift_reg_reg[12][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#131 Warning
+Large setup violation  
+There is a large setup violation of -4.951 ns between la_inst/shift_reg_reg[7][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#132 Warning
+Large setup violation  
+There is a large setup violation of -4.952 ns between la_inst/shift_reg_reg[8][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#133 Warning
+Large setup violation  
+There is a large setup violation of -4.954 ns between la_inst/shift_reg_reg[7][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#134 Warning
+Large setup violation  
+There is a large setup violation of -4.954 ns between la_inst/shift_reg_reg[9][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#135 Warning
+Large setup violation  
+There is a large setup violation of -4.957 ns between la_inst/shift_reg_reg[9][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#136 Warning
+Large setup violation  
+There is a large setup violation of -4.959 ns between la_inst/shift_reg_reg[13][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#137 Warning
+Large setup violation  
+There is a large setup violation of -4.961 ns between la_inst/shift_reg_reg[7][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#138 Warning
+Large setup violation  
+There is a large setup violation of -4.963 ns between la_inst/shift_reg_reg[10][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#139 Warning
+Large setup violation  
+There is a large setup violation of -4.964 ns between la_inst/shift_reg_reg[14][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#140 Warning
+Large setup violation  
+There is a large setup violation of -4.964 ns between la_inst/shift_reg_reg[3][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#141 Warning
+Large setup violation  
+There is a large setup violation of -4.964 ns between la_inst/shift_reg_reg[7][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#142 Warning
+Large setup violation  
+There is a large setup violation of -4.966 ns between la_inst/shift_reg_reg[4][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#143 Warning
+Large setup violation  
+There is a large setup violation of -4.966 ns between la_inst/shift_reg_reg[6][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#144 Warning
+Large setup violation  
+There is a large setup violation of -4.967 ns between la_inst/shift_reg_reg[8][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#145 Warning
+Large setup violation  
+There is a large setup violation of -4.968 ns between la_inst/shift_reg_reg[10][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#146 Warning
+Large setup violation  
+There is a large setup violation of -4.969 ns between la_inst/shift_reg_reg[3][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#147 Warning
+Large setup violation  
+There is a large setup violation of -4.970 ns between la_inst/shift_reg_reg[5][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#148 Warning
+Large setup violation  
+There is a large setup violation of -4.971 ns between la_inst/shift_reg_reg[11][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#149 Warning
+Large setup violation  
+There is a large setup violation of -4.971 ns between la_inst/shift_reg_reg[4][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#150 Warning
+Large setup violation  
+There is a large setup violation of -4.973 ns between la_inst/shift_reg_reg[3][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#151 Warning
+Large setup violation  
+There is a large setup violation of -4.973 ns between la_inst/shift_reg_reg[3][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#152 Warning
+Large setup violation  
+There is a large setup violation of -4.974 ns between la_inst/shift_reg_reg[8][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#153 Warning
+Large setup violation  
+There is a large setup violation of -4.975 ns between la_inst/shift_reg_reg[13][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#154 Warning
+Large setup violation  
+There is a large setup violation of -4.976 ns between la_inst/shift_reg_reg[14][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#155 Warning
+Large setup violation  
+There is a large setup violation of -4.978 ns between la_inst/shift_reg_reg[13][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#156 Warning
+Large setup violation  
+There is a large setup violation of -4.980 ns between la_inst/shift_reg_reg[9][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#157 Warning
+Large setup violation  
+There is a large setup violation of -4.981 ns between la_inst/shift_reg_reg[11][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#158 Warning
+Large setup violation  
+There is a large setup violation of -4.984 ns between la_inst/shift_reg_reg[6][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#159 Warning
+Large setup violation  
+There is a large setup violation of -4.985 ns between la_inst/shift_reg_reg[12][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#160 Warning
+Large setup violation  
+There is a large setup violation of -4.988 ns between la_inst/shift_reg_reg[8][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#161 Warning
+Large setup violation  
+There is a large setup violation of -4.997 ns between la_inst/shift_reg_reg[2][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#162 Warning
+Large setup violation  
+There is a large setup violation of -4.998 ns between la_inst/shift_reg_reg[2][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#163 Warning
+Large setup violation  
+There is a large setup violation of -46.078 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[2]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#164 Warning
+Large setup violation  
+There is a large setup violation of -5.005 ns between la_inst/shift_reg_reg[11][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#165 Warning
+Large setup violation  
+There is a large setup violation of -5.007 ns between la_inst/shift_reg_reg[0][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#166 Warning
+Large setup violation  
+There is a large setup violation of -5.011 ns between la_inst/shift_reg_reg[11][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#167 Warning
+Large setup violation  
+There is a large setup violation of -5.012 ns between la_inst/shift_reg_reg[13][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#168 Warning
+Large setup violation  
+There is a large setup violation of -5.012 ns between la_inst/shift_reg_reg[13][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#169 Warning
+Large setup violation  
+There is a large setup violation of -5.013 ns between la_inst/shift_reg_reg[12][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#170 Warning
+Large setup violation  
+There is a large setup violation of -5.017 ns between la_inst/shift_reg_reg[6][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#171 Warning
+Large setup violation  
+There is a large setup violation of -5.019 ns between la_inst/shift_reg_reg[12][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#172 Warning
+Large setup violation  
+There is a large setup violation of -5.020 ns between la_inst/shift_reg_reg[10][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#173 Warning
+Large setup violation  
+There is a large setup violation of -5.021 ns between la_inst/shift_reg_reg[10][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#174 Warning
+Large setup violation  
+There is a large setup violation of -5.022 ns between la_inst/shift_reg_reg[2][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#175 Warning
+Large setup violation  
+There is a large setup violation of -5.022 ns between la_inst/shift_reg_reg[5][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#176 Warning
+Large setup violation  
+There is a large setup violation of -5.023 ns between la_inst/shift_reg_reg[2][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#177 Warning
+Large setup violation  
+There is a large setup violation of -5.023 ns between la_inst/shift_reg_reg[6][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#178 Warning
+Large setup violation  
+There is a large setup violation of -5.025 ns between la_inst/shift_reg_reg[8][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#179 Warning
+Large setup violation  
+There is a large setup violation of -5.026 ns between la_inst/shift_reg_reg[7][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#180 Warning
+Large setup violation  
+There is a large setup violation of -5.029 ns between la_inst/shift_reg_reg[7][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#181 Warning
+Large setup violation  
+There is a large setup violation of -5.031 ns between la_inst/shift_reg_reg[6][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#182 Warning
+Large setup violation  
+There is a large setup violation of -5.032 ns between la_inst/shift_reg_reg[13][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#183 Warning
+Large setup violation  
+There is a large setup violation of -5.034 ns between la_inst/shift_reg_reg[9][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#184 Warning
+Large setup violation  
+There is a large setup violation of -5.035 ns between la_inst/shift_reg_reg[12][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#185 Warning
+Large setup violation  
+There is a large setup violation of -5.035 ns between la_inst/shift_reg_reg[9][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#186 Warning
+Large setup violation  
+There is a large setup violation of -5.036 ns between la_inst/shift_reg_reg[11][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#187 Warning
+Large setup violation  
+There is a large setup violation of -5.036 ns between la_inst/shift_reg_reg[14][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#188 Warning
+Large setup violation  
+There is a large setup violation of -5.036 ns between la_inst/shift_reg_reg[7][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#189 Warning
+Large setup violation  
+There is a large setup violation of -5.037 ns between la_inst/shift_reg_reg[7][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#190 Warning
+Large setup violation  
+There is a large setup violation of -5.040 ns between la_inst/shift_reg_reg[0][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#191 Warning
+Large setup violation  
+There is a large setup violation of -5.040 ns between la_inst/shift_reg_reg[3][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#192 Warning
+Large setup violation  
+There is a large setup violation of -5.042 ns between la_inst/shift_reg_reg[5][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#193 Warning
+Large setup violation  
+There is a large setup violation of -5.042 ns between la_inst/shift_reg_reg[7][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#194 Warning
+Large setup violation  
+There is a large setup violation of -5.043 ns between la_inst/shift_reg_reg[13][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#195 Warning
+Large setup violation  
+There is a large setup violation of -5.043 ns between la_inst/shift_reg_reg[8][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#196 Warning
+Large setup violation  
+There is a large setup violation of -5.044 ns between la_inst/shift_reg_reg[10][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#197 Warning
+Large setup violation  
+There is a large setup violation of -5.045 ns between la_inst/shift_reg_reg[12][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#198 Warning
+Large setup violation  
+There is a large setup violation of -5.045 ns between la_inst/shift_reg_reg[12][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#199 Warning
+Large setup violation  
+There is a large setup violation of -5.045 ns between la_inst/shift_reg_reg[1][6]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#200 Warning
+Large setup violation  
+There is a large setup violation of -5.045 ns between la_inst/shift_reg_reg[4][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#201 Warning
+Large setup violation  
+There is a large setup violation of -5.047 ns between la_inst/shift_reg_reg[12][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#202 Warning
+Large setup violation  
+There is a large setup violation of -5.047 ns between la_inst/shift_reg_reg[7][10]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#203 Warning
+Large setup violation  
+There is a large setup violation of -5.048 ns between la_inst/shift_reg_reg[1][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#204 Warning
+Large setup violation  
+There is a large setup violation of -5.049 ns between la_inst/shift_reg_reg[8][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#205 Warning
+Large setup violation  
+There is a large setup violation of -5.053 ns between la_inst/shift_reg_reg[4][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#206 Warning
+Large setup violation  
+There is a large setup violation of -5.060 ns between la_inst/shift_reg_reg[1][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[1].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#207 Warning
+Large setup violation  
+There is a large setup violation of -5.060 ns between la_inst/shift_reg_reg[8][0]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#208 Warning
+Large setup violation  
+There is a large setup violation of -5.060 ns between la_inst/shift_reg_reg[9][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#209 Warning
+Large setup violation  
+There is a large setup violation of -5.065 ns between la_inst/shift_reg_reg[14][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#210 Warning
+Large setup violation  
+There is a large setup violation of -5.066 ns between la_inst/shift_reg_reg[4][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#211 Warning
+Large setup violation  
+There is a large setup violation of -5.068 ns between la_inst/shift_reg_reg[13][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#212 Warning
+Large setup violation  
+There is a large setup violation of -5.069 ns between la_inst/shift_reg_reg[12][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#213 Warning
+Large setup violation  
+There is a large setup violation of -5.069 ns between la_inst/shift_reg_reg[6][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#214 Warning
+Large setup violation  
+There is a large setup violation of -5.070 ns between la_inst/shift_reg_reg[5][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#215 Warning
+Large setup violation  
+There is a large setup violation of -5.072 ns between la_inst/shift_reg_reg[9][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#216 Warning
+Large setup violation  
+There is a large setup violation of -5.077 ns between la_inst/shift_reg_reg[0][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#217 Warning
+Large setup violation  
+There is a large setup violation of -5.078 ns between la_inst/shift_reg_reg[4][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#218 Warning
+Large setup violation  
+There is a large setup violation of -5.080 ns between la_inst/shift_reg_reg[11][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#219 Warning
+Large setup violation  
+There is a large setup violation of -5.081 ns between la_inst/shift_reg_reg[3][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#220 Warning
+Large setup violation  
+There is a large setup violation of -5.082 ns between la_inst/shift_reg_reg[2][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#221 Warning
+Large setup violation  
+There is a large setup violation of -5.091 ns between la_inst/shift_reg_reg[0][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#222 Warning
+Large setup violation  
+There is a large setup violation of -5.091 ns between la_inst/shift_reg_reg[5][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#223 Warning
+Large setup violation  
+There is a large setup violation of -5.097 ns between la_inst/shift_reg_reg[3][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#224 Warning
+Large setup violation  
+There is a large setup violation of -5.101 ns between la_inst/shift_reg_reg[2][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#225 Warning
+Large setup violation  
+There is a large setup violation of -5.103 ns between la_inst/shift_reg_reg[14][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#226 Warning
+Large setup violation  
+There is a large setup violation of -5.103 ns between la_inst/shift_reg_reg[7][15]/C (clocked by clk_out1_clk_wiz_0) and genblk2[7].ok_wo_inst/wirehold_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#227 Warning
+Large setup violation  
+There is a large setup violation of -5.104 ns between la_inst/shift_reg_reg[14][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#228 Warning
+Large setup violation  
+There is a large setup violation of -5.104 ns between la_inst/shift_reg_reg[4][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#229 Warning
+Large setup violation  
+There is a large setup violation of -5.105 ns between la_inst/shift_reg_reg[14][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#230 Warning
+Large setup violation  
+There is a large setup violation of -5.107 ns between la_inst/shift_reg_reg[13][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#231 Warning
+Large setup violation  
+There is a large setup violation of -5.107 ns between la_inst/shift_reg_reg[2][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#232 Warning
+Large setup violation  
+There is a large setup violation of -5.107 ns between la_inst/shift_reg_reg[4][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#233 Warning
+Large setup violation  
+There is a large setup violation of -5.108 ns between la_inst/shift_reg_reg[3][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#234 Warning
+Large setup violation  
+There is a large setup violation of -5.108 ns between la_inst/shift_reg_reg[3][13]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#235 Warning
+Large setup violation  
+There is a large setup violation of -5.115 ns between la_inst/shift_reg_reg[11][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#236 Warning
+Large setup violation  
+There is a large setup violation of -5.117 ns between la_inst/shift_reg_reg[10][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[10].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#237 Warning
+Large setup violation  
+There is a large setup violation of -5.120 ns between la_inst/shift_reg_reg[0][4]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#238 Warning
+Large setup violation  
+There is a large setup violation of -5.125 ns between la_inst/shift_reg_reg[4][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[4].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#239 Warning
+Large setup violation  
+There is a large setup violation of -5.126 ns between la_inst/shift_reg_reg[0][9]/C (clocked by clk_out1_clk_wiz_0) and genblk2[0].ok_wo_inst/wirehold_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#240 Warning
+Large setup violation  
+There is a large setup violation of -5.127 ns between la_inst/shift_reg_reg[11][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[11].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#241 Warning
+Large setup violation  
+There is a large setup violation of -5.129 ns between la_inst/shift_reg_reg[2][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[2].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#242 Warning
+Large setup violation  
+There is a large setup violation of -5.134 ns between la_inst/shift_reg_reg[9][14]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#243 Warning
+Large setup violation  
+There is a large setup violation of -5.138 ns between la_inst/shift_reg_reg[13][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#244 Warning
+Large setup violation  
+There is a large setup violation of -5.149 ns between la_inst/shift_reg_reg[14][1]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#245 Warning
+Large setup violation  
+There is a large setup violation of -5.153 ns between la_inst/shift_reg_reg[14][5]/C (clocked by clk_out1_clk_wiz_0) and genblk2[14].ok_wo_inst/wirehold_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#246 Warning
+Large setup violation  
+There is a large setup violation of -5.155 ns between la_inst/shift_reg_reg[13][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[13].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#247 Warning
+Large setup violation  
+There is a large setup violation of -5.185 ns between la_inst/shift_reg_reg[9][12]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#248 Warning
+Large setup violation  
+There is a large setup violation of -5.220 ns between la_inst/shift_reg_reg[8][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[8].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#249 Warning
+Large setup violation  
+There is a large setup violation of -5.227 ns between la_inst/shift_reg_reg[5][2]/C (clocked by clk_out1_clk_wiz_0) and genblk2[5].ok_wo_inst/wirehold_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#250 Warning
+Large setup violation  
+There is a large setup violation of -5.237 ns between la_inst/shift_reg_reg[9][8]/C (clocked by clk_out1_clk_wiz_0) and genblk2[9].ok_wo_inst/wirehold_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#251 Warning
+Large setup violation  
+There is a large setup violation of -5.251 ns between la_inst/shift_reg_reg[6][11]/C (clocked by clk_out1_clk_wiz_0) and genblk2[6].ok_wo_inst/wirehold_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#252 Warning
+Large setup violation  
+There is a large setup violation of -5.256 ns between la_inst/shift_reg_reg[12][7]/C (clocked by clk_out1_clk_wiz_0) and genblk2[12].ok_wo_inst/wirehold_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#253 Warning
+Large setup violation  
+There is a large setup violation of -5.437 ns between la_inst/shift_reg_reg[3][3]/C (clocked by clk_out1_clk_wiz_0) and genblk2[3].ok_wo_inst/wirehold_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#254 Warning
+Large setup violation  
+There is a large setup violation of -71.727 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[3]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#255 Warning
+Large setup violation  
+There is a large setup violation of -97.283 ns between la_inst/trig_begin_d2_reg/C (clocked by clk_out1_clk_wiz_0) and la_inst/buf_reg_reg[4]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on okAA relative to clock(s) okUH0
+Related violations: <none>
+
+TIMING-28#1 Warning
+Auto-derived clock referenced by a timing constraint  
+The auto-derived clock mmcm0_clk0 is referenced by name inside timing constraint (see constraint position 15 in the Timing Constraint window in Vivado IDE). It is recommended to reference an auto-derived clock by the pin name attached to the clock: get_clocks -of_objects [get_pins okHI/mmcm0/CLKOUT0]
+Related violations: <none>
+
+XDCH-1#1 Warning
+Hold option missing in multicycle path constraint  
+A multicycle constraint has been set to override the setup relationship, but no multicycle constraint has been defined to change the hold relationship. As a result, the default hold for those paths is derived from the setup and may not be evaluated as expected.
+set_multicycle_path -setup -from [get_ports {okUHU[*]}] 2
+/home/khyang/harvard/cs1410_lab/lab1/lab1b_server/constraints/xem7310.xdc (Line: 78)
+Related violations: <none>
+
+XDCH-1#2 Warning
+Hold option missing in multicycle path constraint  
+A multicycle constraint has been set to override the setup relationship, but no multicycle constraint has been defined to change the hold relationship. As a result, the default hold for those paths is derived from the setup and may not be evaluated as expected.
+set_multicycle_path -setup -from [get_ports {okUH[*]}] 2
+/home/khyang/harvard/cs1410_lab/lab1/lab1b_server/constraints/xem7310.xdc (Line: 74)
+Related violations: <none>
+
+

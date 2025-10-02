@@ -1,0 +1,7 @@
+0.7
+2020.2
+Oct 14 2022
+05:07:14
+/home/khyang/harvard/cs1410_lab/lab0/lab0_server/CS1410_lab0.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab0/lab0_server/source/mux.sv,1757092805,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab0/lab0_server/tb/mux_tb.sv,,mux,,uvm,,,,,,
+/home/khyang/harvard/cs1410_lab/lab0/lab0_server/tb/mux_tb.sv,1757092805,systemVerilog,,,,mux_tb,,uvm,,,,,,

@@ -1,0 +1,1 @@
+"mux_tb" -s "mux_tb_sim" -debug "typical" 

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Fri Sep 19 02:16:12 2025
+# Process ID: 3740581
+# Current directory: /home/khyang/harvard/cs1410_lab/lab1/lab1b_server/CS1410_lab1b.runs/impl_1
+# Command line: vivado -log logic_analyzer_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source logic_analyzer_wrapper.tcl -notrace
+# Log file: /home/khyang/harvard/cs1410_lab/lab1/lab1b_server/CS1410_lab1b.runs/impl_1/logic_analyzer_wrapper.vdi
+# Journal file: /home/khyang/harvard/cs1410_lab/lab1/lab1b_server/CS1410_lab1b.runs/impl_1/vivado.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 3399.985 MHz, CPU Physical cores: 26, Host memory: 539830 MB
+#-----------------------------------------------------------
+source logic_analyzer_wrapper.tcl -notrace

@@ -1,0 +1,10 @@
+Time resolution is 1 ps
+CORRECT: f(0,0,0) = 0
+CORRECT: f(0,0,1) = 0
+CORRECT: f(0,1,0) = 1
+CORRECT: f(0,1,1) = 0
+CORRECT: f(1,0,0) = 1
+CORRECT: f(1,0,1) = 0
+CORRECT: f(1,1,0) = 0
+CORRECT: f(1,1,1) = 0
+$finish called at time : 8 ns : File "/home/khyang/harvard/cs1410_lab/lab1/lab1a_server/tb/STUDENT_blackbox_tb.sv" Line 44
