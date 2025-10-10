@@ -1,85 +1,131 @@
 `include "alu.svh"
 `timescale 1ns/1ps
 
+// =============================================================================
+// 32-BIT ARITHMETIC LOGIC UNIT (ALU)
+// =============================================================================
+// 
+// This module implements a 32-bit ALU supporting the following operations:
+// - AND: 32-bit bitwise AND
+// - ADD: 32-bit signed addition using ripple-carry adder
+// - SUB: 32-bit signed subtraction using two's complement
+// - SLT: Set Less Than using MSB XOR overflow logic
+// - SRL: Shift Right Logical (zero-fill)
+// - SRA: Shift Right Arithmetic (sign-fill)
+// - SLL: Shift Left Logical (zero-fill)
+// 
+// The ALU also generates three flags:
+// - zero: Set when result is zero (for all operations except 3'b111)
+// - equal: Set when inputs are equal (for all operations except 3'b111)
+// - overflow: Set for signed overflow in ADD/SUB operations
+// =============================================================================
+
 module STUDENT_alu
-    (
-        input logic [31:0] x,               // 1st input
-        input logic [31:0] y,               // 2nd input
-        input logic [2:0] op,               // 3-bit op code
-        output logic [31:0] z,              // output
-        output logic zero, equal, overflow  // flags
+(
+    input logic [31:0] x,               // First operand
+    input logic [31:0] y,               // Second operand
+    input logic [2:0] op,               // 3-bit operation code
+    output logic [31:0] z,              // 32-bit result
+    output logic zero, equal, overflow  // Status flags
+);
+
+    // =========================================================================
+    // OPERATION OUTPUT SIGNALS
+    // =========================================================================
+    // Each operation produces its own 32-bit result that gets selected by the
+    // output multiplexer based on the operation code.
+    
+    logic [31:0] z_and;  // AND operation result
+    logic [31:0] z_add;  // ADD operation result
+    logic [31:0] z_sub;  // SUB operation result
+    logic [31:0] z_slt;  // SLT operation result
+    logic [31:0] z_srl;  // SRL operation result
+    logic [31:0] z_sra;  // SRA operation result
+    logic [31:0] z_sll;  // SLL operation result
+
+    // =========================================================================
+    // ARITHMETIC AND LOGICAL OPERATIONS
+    // =========================================================================
+
+    // AND Operation: 32-bit bitwise AND
+    and32 and_unit (.x(x), .y(y), .z(z_and));
+
+    // ADD Operation: 32-bit signed addition using ripple-carry adder
+    logic carry_out_add, overflow_add;
+    rca32 adder_unit (
+        .a(x), 
+        .b(y), 
+        .carry_in(1'b0), 
+        .sum(z_add), 
+        .carry_out(carry_out_add), 
+        .overflow(overflow_add)
     );
 
-
-    // TODO Part A -- 8:1 mux, AND, ADD (with ripple-carry adder), SUB, flags, SLT
-    // mux is at the bottom of the file.
-
-    // submodule outputs
-    logic [31:0] z_and;
-    logic [31:0] z_add;
-    logic [31:0] z_sub;
-    logic [31:0] z_slt;
-    logic [31:0] z_srl;
-    logic [31:0] z_sra;
-    logic [31:0] z_sll;
-
-    // Set the z outputs that are not yet implemented to 0
-    assign z_srl = 32'd0;
-    assign z_sra = 32'd0;
-    assign z_sll = 32'd0;
-
-    // AND
-    and32 and_unit (.x(x), .y(y), .z(z_and));  // Note the syntax for inputs/outputs to the instantiated module.
-
-    // ADD (RCA)
-    // TODO: instantiate adder module
-    logic carry_out_add, overflow_add;
-    rca32 adder_unit (.a(x), .b(y), .carry_in(1'b0), .sum(z_add), .carry_out(carry_out_add), .overflow(overflow_add));
-
-    // SUB
-    // TODO: instantiate subtractor. Can you think of a way to implement the subtractor by reusing the adder module?
+    // SUB Operation: 32-bit signed subtraction using two's complement
+    // Implementation: x - y = x + (~y + 1) = x + ~y + 1
     logic carry_out_sub, overflow_sub;
     logic [31:0] y_twos_complement;
     not32 not_unit (.x(y), .z(y_twos_complement));
-    rca32 subtractor_unit (.a(x), .b(y_twos_complement), .carry_in(1'b1), .sum(z_sub), .carry_out(carry_out_sub), .overflow(overflow_sub));
+    rca32 subtractor_unit (
+        .a(x), 
+        .b(y_twos_complement), 
+        .carry_in(1'b1), 
+        .sum(z_sub), 
+        .carry_out(carry_out_sub), 
+        .overflow(overflow_sub)
+    );
 
-    // SLT
-    // Use the MSB and overflow from the subtractor to implement SLT
+    // SLT Operation: Set Less Than using MSB XOR overflow logic
+    // Uses the MSB and overflow from the subtractor to implement SLT
     slt_32bit slt_unit (.msb(z_sub[31]), .overflow(overflow_sub), .result(z_slt));
+
+    // =========================================================================
+    // SHIFT OPERATIONS
+    // =========================================================================
+
+    // SRL Operation: Shift Right Logical (zero-fill)
+    srl srl_unit (.x(x), .y(y), .z(z_srl));
+
+    // SRA Operation: Shift Right Arithmetic (sign-fill)
+    sra sra_unit (.x(x), .y(y), .z(z_sra));
+
+    // SLL Operation: Shift Left Logical (zero-fill)
+    sll sll_unit (.x(x), .y(y), .z(z_sll));
+
+    // =========================================================================
+    // OUTPUT SELECTION
+    // =========================================================================
+    // 8:1 multiplexer selects the appropriate operation result based on op code
+    // Input order: {32'd0, z_sll, z_sra, z_srl, z_slt, z_sub, z_add, z_and}
+    // Corresponds to op codes: 111, 110, 101, 100, 011, 010, 001, 000
     
-    // TODO Part B -- SRL, SRA, SLL, ADD (with carry-lookahead adder)
+    mux_8x32 mux_8x32_inst (
+        .in({32'd0, z_sll, z_sra, z_srl, z_slt, z_sub, z_add, z_and}), 
+        .sel(op), 
+        .out(z)
+    );
 
-    // SRL
-    // TODO: instantiate srl module
+    // =========================================================================
+    // FLAG GENERATION
+    // =========================================================================
 
-    // SRA
-    // TODO: instantiate sra module
+    // Overflow Flag: Set for signed overflow in ADD/SUB operations
+    // Input order matches op codes: {111, 110, 101, 100, 011, 010, 001, 000}
+    mux_8x1 mux_8x1_overflow_inst (
+        .in({1'b0, 1'b0, 1'b0, 1'b0, 1'b0, overflow_sub, overflow_add, 1'b0}), 
+        .sel(op), 
+        .out(overflow)
+    );
 
-    // SLL
-    // TODO: instantiate sll module
-
-    // ADD (CLA)
-    // TODO: instantiate cla adder. Comment out the ripple-carry adder instantiation from Part A
-
-    // MUX 8:1 to select the output z from the submodule outputs
-    // The code given here only outputs z_and. How can you condition the output based on the operation?
-    // Be sure to use the macros (such as `ALU_AND) for the op codes, as defined in alu.svh. 
-    mux_8x32 mux_8x32_inst (.in({32'd0, z_sll, z_sra, z_srl, z_slt, z_sub, z_add, z_and}), .sel(op), .out(z));
-
-    // FLAGS
-    // TODO: implement flag logic
-    // Overflow based on the add and sub operations
-    mux_8x1 mux_8x1_overflow_inst (.in({1'b0, 1'b0, 1'b0, 1'b0, 1'b0, overflow_sub, overflow_add, 1'b0}), .sel(op), .out(overflow));
-
-    // Check if the op code is 3'b111 using AND gates. Then run zero_checker and equal_checker through two 2x1 muxes to select the output.
+    // Zero and Equal Flags: Set for all operations except 3'b111
+    // If op code is 3'b111, flags are set to 0; otherwise, they reflect the operation result
+    
     logic op_is_111;
     and and_gate_op_is_111 (op_is_111, op[2], op[1], op[0]);
 
     wire zero_out, equal_out;
-    // check_zero32 zero_checker (.z(z), .zero(zero_out));
-    // check_equal32 equal_checker (.x(x), .y(y), .equal(equal_out));
-    assign zero_out = (z == 32'd0);
-    assign equal_out = (x == y);
+    assign zero_out = (z == 32'd0);  // Zero flag: result is zero
+    assign equal_out = (x == y);     // Equal flag: inputs are equal
     
     mux_2x1 mux_2x1_zero_inst (.in({1'b0, zero_out}), .sel(op_is_111), .out(zero));
     mux_2x1 mux_2x1_equal_inst (.in({1'b0, equal_out}), .sel(op_is_111), .out(equal));

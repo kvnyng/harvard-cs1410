@@ -1,9 +1,29 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/primitives32.sv" into library work
+INFO: [VRFC 10-311] analyzing module and32
+INFO: [VRFC 10-311] analyzing module not32
+INFO: [VRFC 10-311] analyzing module or32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv" into library work
+INFO: [VRFC 10-311] analyzing module half_adder
+INFO: [VRFC 10-311] analyzing module full_adder
+INFO: [VRFC 10-311] analyzing module rca32
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux.sv" into library work
 INFO: [VRFC 10-311] analyzing module mux_2x1
 INFO: [VRFC 10-311] analyzing module mux_4x1
 INFO: [VRFC 10-311] analyzing module mux_8x1
 INFO: [VRFC 10-311] analyzing module mux_8x32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/flags.sv" into library work
+INFO: [VRFC 10-311] analyzing module check_zero32
+INFO: [VRFC 10-311] analyzing module check_equal32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/slt.sv" into library work
+INFO: [VRFC 10-311] analyzing module slt_32bit
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/srl.sv" into library work
 INFO: [VRFC 10-311] analyzing module srl
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/srl_tb.sv" into library work
-INFO: [VRFC 10-311] analyzing module srl_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/sra.sv" into library work
+INFO: [VRFC 10-311] analyzing module sra
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/sll.sv" into library work
+INFO: [VRFC 10-311] analyzing module sll
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.sv" into library work
+INFO: [VRFC 10-311] analyzing module STUDENT_alu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv" into library work
+INFO: [VRFC 10-311] analyzing module alu_tb

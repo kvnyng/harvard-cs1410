@@ -10,12 +10,10 @@
  * 1. AND (ALU_AND - 3'b000): 32-bit bitwise AND between x and y
  * 2. ADD (ALU_ADD - 3'b001): 32-bit signed addition using RCA
  * 3. SUB (ALU_SUB - 3'b010): 32-bit signed subtraction using two's complement
- * 
- * NOT IMPLEMENTED (Expected to output 32'd0):
- * - SLT (ALU_SLT - 3'b011)
- * - SRL (ALU_SRL - 3'b100) 
- * - SRA (ALU_SRA - 3'b101)
- * - SLL (ALU_SLL - 3'b110)
+ * 4. SLT (ALU_SLT - 3'b011): Set Less Than using MSB XOR overflow logic
+ * 5. SRL (ALU_SRL - 3'b100): Shift Right Logical (zero-fill)
+ * 6. SRA (ALU_SRA - 3'b101): Shift Right Arithmetic (sign-fill)
+ * 7. SLL (ALU_SLL - 3'b110): Shift Left Logical (zero-fill)
  * 
  * TESTING STRATEGY:
  * 1. CORNER CASE TESTING:
@@ -53,7 +51,8 @@ module alu_tb;
     
     // Error counters
     int and_errors = 0, add_errors = 0, sub_errors = 0, slt_errors = 0;
-    int unimplemented_errors = 0, flag_errors = 0;
+    int srl_errors = 0, sra_errors = 0, sll_errors = 0;
+    int flag_errors = 0;
     int total_tests = 0;
     
     // Instantiate ALU module
@@ -313,21 +312,181 @@ module alu_tb;
         total_tests++;
     endtask
     
-    // Test task for unimplemented operations (should output 32'd0)
-    task test_unimplemented(input [2:0] test_op, input [31:0] test_x, input [31:0] test_y);
+    // Test task for SRL operation
+    task test_srl(input [31:0] test_x, input [31:0] test_y);
+        logic [31:0] expected_z;
+        logic expected_zero, expected_equal, expected_overflow;
+        logic [4:0] shift_amount;
+        
+        shift_amount = test_y[4:0]; // Only use lower 5 bits for shift amount
+        expected_z = test_x >> shift_amount; // Logical right shift
+        expected_zero = (expected_z == 32'h00000000);
+        expected_equal = (test_x == test_y);
+        expected_overflow = 1'b0; // SRL doesn't set overflow flag
+        
         assign x = test_x;
         assign y = test_y;
-        assign op = test_op;
+        assign op = `ALU_SRL;
         #10; // Wait for propagation
-
-        if (z !== 32'd0) begin
-            $display("ERROR: Unimplemented operation %b should output 32'd0 at time %t", test_op, $time);
-            $display("  Operation: %b (unimplemented)", test_op);
+        
+        if (z !== expected_z) begin
+            $display("ERROR: SRL operation failed at time %t", $time);
+            $display("  Operation: SRL (3'b100)");
             $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
-            $display("  Input y = 0x%08h (%032b) = %d", test_y, test_y, $signed(test_y));
-            $display("  Expected z = 0x%08h (%032b) = %d", 32'd0, 32'd0, 0);
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Expected z = 0x%08h (%032b) = %d", expected_z, expected_z, $signed(expected_z));
             $display("  Got      z = 0x%08h (%032b) = %d", z, z, $signed(z));
-            unimplemented_errors++;
+            srl_errors++;
+        end
+        
+        if (zero !== expected_zero) begin
+            $display("ERROR: SRL zero flag failed at time %t", $time);
+            $display("  Operation: SRL (3'b100)");
+            $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Result z = 0x%08h (%032b) = %d", z, z, $signed(z));
+            $display("  Expected zero = %b, Got = %b", expected_zero, zero);
+            flag_errors++;
+        end
+        
+        if (equal !== expected_equal) begin
+            $display("ERROR: SRL equal flag failed at time %t", $time);
+            $display("  Operation: SRL (3'b100)");
+            $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Result z = 0x%08h (%032b) = %d", z, z, $signed(z));
+            $display("  Expected equal = %b, Got = %b", expected_equal, equal);
+            flag_errors++;
+        end
+        
+        if (overflow !== expected_overflow) begin
+            $display("ERROR: SRL overflow flag failed at time %t", $time);
+            $display("  Operation: SRL (3'b100)");
+            $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Result z = 0x%08h (%032b) = %d", z, z, $signed(z));
+            $display("  Expected overflow = %b, Got = %b", expected_overflow, overflow);
+            flag_errors++;
+        end
+        
+        total_tests++;
+    endtask
+    
+    // Test task for SRA operation
+    task test_sra(input [31:0] test_x, input [31:0] test_y);
+        logic [31:0] expected_z;
+        logic expected_zero, expected_equal, expected_overflow;
+        logic [4:0] shift_amount;
+        
+        shift_amount = test_y[4:0]; // Only use lower 5 bits for shift amount
+        expected_z = $signed(test_x) >>> shift_amount; // Arithmetic right shift
+        expected_zero = (expected_z == 32'h00000000);
+        expected_equal = (test_x == test_y);
+        expected_overflow = 1'b0; // SRA doesn't set overflow flag
+        
+        assign x = test_x;
+        assign y = test_y;
+        assign op = `ALU_SRA;
+        #10; // Wait for propagation
+        
+        if (z !== expected_z) begin
+            $display("ERROR: SRA operation failed at time %t", $time);
+            $display("  Operation: SRA (3'b101)");
+            $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Expected z = 0x%08h (%032b) = %d", expected_z, expected_z, $signed(expected_z));
+            $display("  Got      z = 0x%08h (%032b) = %d", z, z, $signed(z));
+            sra_errors++;
+        end
+        
+        if (zero !== expected_zero) begin
+            $display("ERROR: SRA zero flag failed at time %t", $time);
+            $display("  Operation: SRA (3'b101)");
+            $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Result z = 0x%08h (%032b) = %d", z, z, $signed(z));
+            $display("  Expected zero = %b, Got = %b", expected_zero, zero);
+            flag_errors++;
+        end
+        
+        if (equal !== expected_equal) begin
+            $display("ERROR: SRA equal flag failed at time %t", $time);
+            $display("  Operation: SRA (3'b101)");
+            $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Result z = 0x%08h (%032b) = %d", z, z, $signed(z));
+            $display("  Expected equal = %b, Got = %b", expected_equal, equal);
+            flag_errors++;
+        end
+        
+        if (overflow !== expected_overflow) begin
+            $display("ERROR: SRA overflow flag failed at time %t", $time);
+            $display("  Operation: SRA (3'b101)");
+            $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Result z = 0x%08h (%032b) = %d", z, z, $signed(z));
+            $display("  Expected overflow = %b, Got = %b", expected_overflow, overflow);
+            flag_errors++;
+        end
+        
+        total_tests++;
+    endtask
+    
+    // Test task for SLL operation
+    task test_sll(input [31:0] test_x, input [31:0] test_y);
+        logic [31:0] expected_z;
+        logic expected_zero, expected_equal, expected_overflow;
+        logic [4:0] shift_amount;
+        
+        shift_amount = test_y[4:0]; // Only use lower 5 bits for shift amount
+        expected_z = test_x << shift_amount; // Logical left shift
+        expected_zero = (expected_z == 32'h00000000);
+        expected_equal = (test_x == test_y);
+        expected_overflow = 1'b0; // SLL doesn't set overflow flag
+        
+        assign x = test_x;
+        assign y = test_y;
+        assign op = `ALU_SLL;
+        #10; // Wait for propagation
+        
+        if (z !== expected_z) begin
+            $display("ERROR: SLL operation failed at time %t", $time);
+            $display("  Operation: SLL (3'b110)");
+            $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Expected z = 0x%08h (%032b) = %d", expected_z, expected_z, $signed(expected_z));
+            $display("  Got      z = 0x%08h (%032b) = %d", z, z, $signed(z));
+            sll_errors++;
+        end
+        
+        if (zero !== expected_zero) begin
+            $display("ERROR: SLL zero flag failed at time %t", $time);
+            $display("  Operation: SLL (3'b110)");
+            $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Result z = 0x%08h (%032b) = %d", z, z, $signed(z));
+            $display("  Expected zero = %b, Got = %b", expected_zero, zero);
+            flag_errors++;
+        end
+        
+        if (equal !== expected_equal) begin
+            $display("ERROR: SLL equal flag failed at time %t", $time);
+            $display("  Operation: SLL (3'b110)");
+            $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Result z = 0x%08h (%032b) = %d", z, z, $signed(z));
+            $display("  Expected equal = %b, Got = %b", expected_equal, equal);
+            flag_errors++;
+        end
+        
+        if (overflow !== expected_overflow) begin
+            $display("ERROR: SLL overflow flag failed at time %t", $time);
+            $display("  Operation: SLL (3'b110)");
+            $display("  Input x = 0x%08h (%032b) = %d", test_x, test_x, $signed(test_x));
+            $display("  Input y = 0x%08h (%032b) = %d (shift=%d)", test_y, test_y, $signed(test_y), shift_amount);
+            $display("  Result z = 0x%08h (%032b) = %d", z, z, $signed(z));
+            $display("  Expected overflow = %b, Got = %b", expected_overflow, overflow);
+            flag_errors++;
         end
         
         total_tests++;
@@ -441,11 +600,71 @@ module alu_tb;
         test_add(32'h12345678, 32'h12345678);  // Should set equal flag
         test_sub(32'h12345678, 32'h12345678);  // Should set equal flag
         
-        // Test unimplemented operations
-        $display("\nTesting unimplemented operations (should output 32'd0)...");
-        test_unimplemented(`ALU_SRL, 32'h12345678, 32'h00000004);
-        test_unimplemented(`ALU_SRA, 32'h12345678, 32'h00000004);
-        test_unimplemented(`ALU_SLL, 32'h12345678, 32'h00000004);
+        // Test SRL operations
+        $display("\nTesting SRL (Shift Right Logical) operations...");
+        $display("Basic SRL tests:");
+        test_srl(32'h12345678, 32'h00000000);  // No shift
+        test_srl(32'h12345678, 32'h00000001);  // Shift by 1
+        test_srl(32'h12345678, 32'h00000002);  // Shift by 2
+        test_srl(32'h12345678, 32'h00000004);  // Shift by 4
+        test_srl(32'h12345678, 32'h00000008);  // Shift by 8
+        test_srl(32'h12345678, 32'h00000010);  // Shift by 16
+        test_srl(32'h12345678, 32'h00000020);  // Shift by 32 (y[4:0]=0, so no shift)
+        
+        $display("SRL edge cases:");
+        test_srl(32'h80000000, 32'h00000001);  // MSB set, shift by 1
+        test_srl(32'h00000001, 32'h00000001);  // LSB set, shift by 1
+        test_srl(32'h00000000, 32'h00000005);  // Zero input
+        test_srl(32'hFFFFFFFF, 32'h00000001);  // All 1s, shift by 1
+        test_srl(32'h12345678, 32'h0000001F);  // Shift by 31
+        test_srl(32'h12345678, 32'h000000FF);  // Shift by 255 (y[4:0]=31)
+        
+        // Test SRA operations
+        $display("\nTesting SRA (Shift Right Arithmetic) operations...");
+        $display("Basic SRA tests (positive numbers - same as SRL):");
+        test_sra(32'h12345678, 32'h00000000);  // No shift
+        test_sra(32'h12345678, 32'h00000001);  // Shift by 1
+        test_sra(32'h12345678, 32'h00000002);  // Shift by 2
+        test_sra(32'h12345678, 32'h00000004);  // Shift by 4
+        test_sra(32'h12345678, 32'h00000008);  // Shift by 8
+        test_sra(32'h12345678, 32'h00000010);  // Shift by 16
+        
+        $display("SRA edge cases (negative numbers - sign-preserving):");
+        test_sra(32'h80000000, 32'h00000001);  // -2147483648 >> 1 = -1073741824
+        test_sra(32'h80000000, 32'h00000002);  // -2147483648 >> 2 = -536870912
+        test_sra(32'h80000000, 32'h00000004);  // -2147483648 >> 4 = -134217728
+        test_sra(32'h80000000, 32'h00000008);  // -2147483648 >> 8 = -8388608
+        test_sra(32'h80000000, 32'h00000010);  // -2147483648 >> 16 = -32768
+        test_sra(32'h80000000, 32'h0000001F);  // -2147483648 >> 31 = -1
+        test_sra(32'hFFFFFFFF, 32'h00000001);  // -1 >> 1 = -1
+        test_sra(32'hFFFFFFFE, 32'h00000001);  // -2 >> 1 = -1
+        test_sra(32'h7FFFFFFF, 32'h00000001);  // Max positive >> 1
+        
+        // Test SLL operations
+        $display("\nTesting SLL (Shift Left Logical) operations...");
+        $display("Basic SLL tests:");
+        test_sll(32'h12345678, 32'h00000000);  // No shift
+        test_sll(32'h12345678, 32'h00000001);  // Shift by 1
+        test_sll(32'h12345678, 32'h00000002);  // Shift by 2
+        test_sll(32'h12345678, 32'h00000004);  // Shift by 4
+        test_sll(32'h12345678, 32'h00000008);  // Shift by 8
+        test_sll(32'h12345678, 32'h00000010);  // Shift by 16
+        test_sll(32'h12345678, 32'h00000020);  // Shift by 32 (y[4:0]=0, so no shift)
+        
+        $display("SLL edge cases:");
+        test_sll(32'h80000000, 32'h00000001);  // MSB set, shift by 1 (overflow)
+        test_sll(32'h00000001, 32'h00000001);  // LSB set, shift by 1
+        test_sll(32'h00000000, 32'h00000005);  // Zero input
+        test_sll(32'hFFFFFFFF, 32'h00000001);  // All 1s, shift by 1
+        test_sll(32'h12345678, 32'h0000001F);  // Shift by 31 (should be 0)
+        test_sll(32'h00000001, 32'h0000001F);  // 1 << 31 = 0x80000000
+        test_sll(32'h00000001, 32'h0000001E);  // 1 << 30 = 0x40000000
+        test_sll(32'h7FFFFFFF, 32'h00000001);  // Max positive << 1 (overflow)
+        
+        $display("SLL overflow cases:");
+        test_sll(32'h40000000, 32'h00000001);  // 0x40000000 << 1 = 0x80000000
+        test_sll(32'h20000000, 32'h00000001);  // 0x20000000 << 1 = 0x40000000
+        test_sll(32'h10000000, 32'h00000001);  // 0x10000000 << 1 = 0x20000000
         
         // Random pattern tests
         $display("\nTesting random patterns...");
@@ -457,6 +676,9 @@ module alu_tb;
             test_add(rand_x, rand_y);
             test_sub(rand_x, rand_y);
             test_slt(rand_x, rand_y);
+            test_srl(rand_x, rand_y);
+            test_sra(rand_x, rand_y);
+            test_sll(rand_x, rand_y);
         end
         
         // Print final results
@@ -467,11 +689,13 @@ module alu_tb;
         $display("ADD errors: %d", add_errors);
         $display("SUB errors: %d", sub_errors);
         $display("SLT errors: %d", slt_errors);
-        $display("Unimplemented operation errors: %d", unimplemented_errors);
+        $display("SRL errors: %d", srl_errors);
+        $display("SRA errors: %d", sra_errors);
+        $display("SLL errors: %d", sll_errors);
         $display("Flag errors: %d", flag_errors);
         
         if (and_errors == 0 && add_errors == 0 && sub_errors == 0 && slt_errors == 0 &&
-            unimplemented_errors == 0 && flag_errors == 0) begin
+            srl_errors == 0 && sra_errors == 0 && sll_errors == 0 && flag_errors == 0) begin
             $display("ALL TESTS PASSED! ✓");
         end else begin
             $display("SOME TESTS FAILED! ✗");

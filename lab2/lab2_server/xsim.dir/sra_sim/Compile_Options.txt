@@ -1,0 +1,1 @@
+-debug "typical" "sra_tb" -s "sra_sim" 

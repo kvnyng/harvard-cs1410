@@ -34,7 +34,9 @@ module full_adder (
     input  logic b,           // Second input bit  
     input  logic carry_in,    // Carry input from previous stage
     output logic sum,         // Sum output
-    output logic carry_out    // Carry output
+    output logic carry_out,   // Carry output
+    output logic generate_out, // Generate output
+    output logic propagate_out // Propagate output
 );
 
     // Internal signals for intermediate calculations
@@ -43,19 +45,19 @@ module full_adder (
     logic xor_result_and_cin; // (a XOR b) AND carry_in
 
     // Calculate a XOR b
-    xor xor_ab_gate (a_xor_b, a, b);
+    xor xor_ab_gate (propagate_out, a, b);
     
     // Calculate a AND b
-    and and_ab_gate (a_and_b, a, b);
+    and and_ab_gate (generate_out, a, b);
 
     // Sum = (a XOR b) XOR carry_in
-    xor sum_gate (sum, a_xor_b, carry_in);
+    xor sum_gate (sum, propagate_out, carry_in);
     
     // Calculate (a XOR b) AND carry_in
-    and and_cin_gate (xor_result_and_cin, a_xor_b, carry_in);
+    and and_cin_gate (xor_result_and_cin, propagate_out, carry_in);
 
     // Carry out = (a AND b) OR ((a XOR b) AND carry_in)
-    or carry_out_gate (carry_out, a_and_b, xor_result_and_cin);
+    or carry_out_gate (carry_out, generate_out, xor_result_and_cin);
     
 endmodule
 

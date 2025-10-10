@@ -2,112 +2,66 @@
 # xsim v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Thu Oct  9 22:58:58 2025
-# Process ID: 477196
+# Start of session at: Thu Oct  9 23:46:07 2025
+# Process ID: 720255
 # Current directory: /home/khyang/harvard/cs1410_lab/lab2/lab2_server
-# Command line: xsim -mode tcl -source {xsim.dir/srl_sim/xsim_script.tcl}
+# Command line: xsim -mode tcl -source {xsim.dir/alu_sim/xsim_script.tcl}
 # Log file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.log
 # Journal file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.jou
-# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1199.993 MHz, CPU Physical cores: 27, Host memory: 539830 MB
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1199.980 MHz, CPU Physical cores: 26, Host memory: 539830 MB
 #-----------------------------------------------------------
-source xsim.dir/srl_sim/xsim_script.tcl
-# xsim {srl_sim} -autoloadwcfg -runall
+source xsim.dir/alu_sim/xsim_script.tcl
+# xsim {alu_sim} -autoloadwcfg -runall
 Time resolution is 1 ps
 run -all
-Starting SRL module testbench...
+Starting ALU testbench for implemented operations...
 =====================================
-Testing SRL: x=0x12345678, y=0x00000000 (shift= 0)
-  Expected: 0x12345678
-  Got:      0x12345678
-  PASS: SRL test passed
 
-Testing SRL: x=0x12345678, y=0x00000001 (shift= 1)
-  Expected: 0x091a2b3c
-  Got:      0x091a2b3c
-  PASS: SRL test passed
+Testing AND operation...
 
-Testing SRL: x=0x12345678, y=0x00000002 (shift= 2)
-  Expected: 0x048d159e
-  Got:      0x048d159e
-  PASS: SRL test passed
+Testing ADD operation...
+Testing ADD overflow cases...
+Testing ADD no-overflow cases...
 
-Testing SRL: x=0x12345678, y=0x00000004 (shift= 4)
-  Expected: 0x01234567
-  Got:      0x01234567
-  PASS: SRL test passed
+Testing SUB operation...
+Testing SUB overflow cases...
+Testing SUB no-overflow cases...
 
-Testing SRL: x=0x12345678, y=0x00000008 (shift= 8)
-  Expected: 0x00123456
-  Got:      0x00123456
-  PASS: SRL test passed
+Testing SLT operation...
+Testing SLT signed comparison cases...
+Testing SLT edge cases...
+Testing SLT overflow cases...
 
-Testing SRL: x=0x12345678, y=0x00000010 (shift=16)
-  Expected: 0x00001234
-  Got:      0x00001234
-  PASS: SRL test passed
+Testing edge cases...
 
-Testing SRL: x=0x12345678, y=0x00000020 (shift= 0)
-  Expected: 0x12345678
-  Got:      0x12345678
-  PASS: SRL test passed
+Testing SRL (Shift Right Logical) operations...
+Basic SRL tests:
+SRL edge cases:
 
-Testing SRL: x=0xffffffff, y=0x00000001 (shift= 1)
-  Expected: 0x7fffffff
-  Got:      0x7fffffff
-  PASS: SRL test passed
+Testing SRA (Shift Right Arithmetic) operations...
+Basic SRA tests (positive numbers - same as SRL):
+SRA edge cases (negative numbers - sign-preserving):
 
-Testing SRL: x=0xffffffff, y=0x00000002 (shift= 2)
-  Expected: 0x3fffffff
-  Got:      0x3fffffff
-  PASS: SRL test passed
+Testing SLL (Shift Left Logical) operations...
+Basic SLL tests:
+SLL edge cases:
+SLL overflow cases:
 
-Testing SRL: x=0xffffffff, y=0x00000004 (shift= 4)
-  Expected: 0x0fffffff
-  Got:      0x0fffffff
-  PASS: SRL test passed
-
-Testing SRL: x=0xffffffff, y=0x00000008 (shift= 8)
-  Expected: 0x00ffffff
-  Got:      0x00ffffff
-  PASS: SRL test passed
-
-Testing SRL: x=0xffffffff, y=0x00000010 (shift=16)
-  Expected: 0x0000ffff
-  Got:      0x0000ffff
-  PASS: SRL test passed
-
-Testing SRL: x=0xffffffff, y=0x00000020 (shift= 0)
-  Expected: 0xffffffff
-  Got:      0xffffffff
-  PASS: SRL test passed
-
-Testing SRL: x=0x80000000, y=0x00000001 (shift= 1)
-  Expected: 0x40000000
-  Got:      0x40000000
-  PASS: SRL test passed
-
-Testing SRL: x=0x00000001, y=0x00000001 (shift= 1)
-  Expected: 0x00000000
-  Got:      0x00000000
-  PASS: SRL test passed
-
-Testing SRL: x=0x00000000, y=0x00000005 (shift= 5)
-  Expected: 0x00000000
-  Got:      0x00000000
-  PASS: SRL test passed
-
-Testing SRL: x=0x12345678, y=0x0000001f (shift=31)
-  Expected: 0x00000000
-  Got:      0x00000000
-  PASS: SRL test passed
-
-Testing SRL: x=0x12345678, y=0x000000ff (shift=31)
-  Expected: 0x00000000
-  Got:      0x00000000
-  PASS: SRL test passed
+Testing random patterns...
 
 =====================================
-SRL module testbench completed
-$finish called at time : 180 ns : File "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/srl_tb.sv" Line 60
+Test Results Summary:
+Total tests run:         239
+AND errors:           0
+ADD errors:           0
+SUB errors:           0
+SLT errors:           0
+SRL errors:           0
+SRA errors:           0
+SLL errors:           0
+Flag errors:           0
+ALL TESTS PASSED! ✓
+=====================================
+$finish called at time : 2390 ns : File "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv" Line 705
 exit
-INFO: [Common 17-206] Exiting xsim at Thu Oct  9 22:59:02 2025...
+INFO: [Common 17-206] Exiting xsim at Thu Oct  9 23:46:11 2025...

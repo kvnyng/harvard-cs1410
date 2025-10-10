@@ -8,8 +8,10 @@
 # 1. AND - 32-bit bitwise AND operation
 # 2. ADD - 32-bit signed addition using RCA
 # 3. SUB - 32-bit signed subtraction using two's complement
-# 
-# Unimplemented operations (SLT, SRL, SRA, SLL) are tested to ensure they output 32'd0
+# 4. SLT - Set Less Than using MSB XOR overflow logic
+# 5. SRL - Shift Right Logical (zero-fill)
+# 6. SRA - Shift Right Arithmetic (sign-fill)
+# 7. SLL - Shift Left Logical (zero-fill)
 # 
 # Usage: ./build_alu_tests.sh
 # =============================================================================
@@ -32,7 +34,7 @@ echo "TESTING ALU MODULE"
 echo "=========================================="
 
 echo "Compiling ALU module and testbench..."
-xvlog -sv source/alu.svh source/primitives32.sv source/adder.sv source/mux.sv source/flags.sv source/slt.sv source/alu.sv tb/alu_tb.sv
+xvlog -sv source/alu.svh source/primitives32.sv source/adder.sv source/mux.sv source/flags.sv source/slt.sv source/srl.sv source/sra.sv source/sll.sv source/alu.sv tb/alu_tb.sv
 
 if [ $? -eq 0 ]; then
     echo "✓ Compilation successful"
@@ -72,9 +74,10 @@ echo "Implemented operations tested:"
 echo "  - AND: 32-bit bitwise AND"
 echo "  - ADD: 32-bit signed addition (RCA)"
 echo "  - SUB: 32-bit signed subtraction (two's complement)"
-echo ""
-echo "Unimplemented operations verified:"
-echo "  - SLT, SRL, SRA, SLL: All output 32'd0 as expected"
+echo "  - SLT: Set Less Than (MSB XOR overflow logic)"
+echo "  - SRL: Shift Right Logical (zero-fill)"
+echo "  - SRA: Shift Right Arithmetic (sign-fill)"
+echo "  - SLL: Shift Left Logical (zero-fill)"
 echo ""
 echo "Flag testing:"
 echo "  - Zero flag: Tested for all operations"
