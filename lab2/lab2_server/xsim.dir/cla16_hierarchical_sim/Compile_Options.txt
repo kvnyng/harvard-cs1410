@@ -1,0 +1,1 @@
+-debug "typical" "cla16_hierarchical_tb" -s "cla16_hierarchical_sim" 

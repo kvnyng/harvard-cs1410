@@ -1,0 +1,62 @@
+#-----------------------------------------------------------
+# xsim v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Fri Oct 10 17:10:59 2025
+# Process ID: 1013616
+# Current directory: /home/khyang/harvard/cs1410_lab/lab2/lab2_server
+# Command line: xsim -mode tcl -source {xsim.dir/cla32_comprehensive_sim/xsim_script.tcl}
+# Log file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.log
+# Journal file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1199.359 MHz, CPU Physical cores: 25, Host memory: 539830 MB
+#-----------------------------------------------------------
+source xsim.dir/cla32_comprehensive_sim/xsim_script.tcl
+# xsim {cla32_comprehensive_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Starting CLA32 Comprehensive Arithmetic Test...
+Testing all addition and subtraction tasks
+=====================================
+
+=== TEST 1: BASIC ADDITION ===
+
+=== TEST 2: BASIC SUBTRACTION ===
+
+=== TEST 3: ZERO OPERATIONS ===
+
+=== TEST 4: MAXIMUM VALUES ===
+
+=== TEST 5: OVERFLOW CASES ===
+
+=== TEST 6: NO OVERFLOW CASES ===
+
+=== TEST 7: CARRY PROPAGATION ===
+
+=== TEST 8: LARGE NUMBERS ===
+
+=== TEST 9: RANDOM PATTERNS ===
+
+=== TEST 10: EDGE CASES ===
+
+=== TEST 11: POWER OF 2 OPERATIONS ===
+
+=== TEST 12: ALTERNATING BIT PATTERNS ===
+
+=== TEST 13: SEQUENTIAL NUMBERS ===
+
+=== TEST 14: BOUNDARY VALUES ===
+
+=====================================
+COMPREHENSIVE TEST RESULTS SUMMARY:
+=====================================
+Total tests run:           95
+Sum errors:            0
+Carry out errors:            0
+Overflow errors:            0
+
+🎉 ALL TESTS PASSED! 🎉
+CLA32 is working correctly for all arithmetic operations!
+=====================================
+$finish called at time : 950 ns : File "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/cla32_comprehensive_tb.sv" Line 242
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 10 17:11:03 2025...

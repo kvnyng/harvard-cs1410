@@ -1,0 +1,1 @@
+-debug "typical" "cla32_tb" -s "cla32_sim" 

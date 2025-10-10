@@ -1,0 +1,7 @@
+Running: xsim.dir/cla16_hierarchical_sim/xsimk -runall -simmode gui -wdb cla16_hierarchical_sim.wdb -simrunnum 0 -socket 41023
+Design successfully loaded
+Design Loading Memory Usage: 29036 KB (Peak: 29092 KB)
+Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 119484 KB (Peak: 168304 KB)
+Simulation CPU Usage: 20 ms

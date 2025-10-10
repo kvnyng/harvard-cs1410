@@ -1,0 +1,503 @@
+#-----------------------------------------------------------
+# xsim v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Fri Oct 10 17:10:03 2025
+# Process ID: 1010974
+# Current directory: /home/khyang/harvard/cs1410_lab/lab2/lab2_server
+# Command line: xsim -mode tcl -source {xsim.dir/cla16_hierarchical_sim/xsim_script.tcl}
+# Log file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.log
+# Journal file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1199.996 MHz, CPU Physical cores: 27, Host memory: 539830 MB
+#-----------------------------------------------------------
+source xsim.dir/cla16_hierarchical_sim/xsim_script.tcl
+# xsim {cla16_hierarchical_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Starting CLA16 Hierarchical Carry Look-Ahead Test...
+Testing arithmetic correctness with hierarchical carry look-ahead
+=====================================
+
+=== TEST 1: BASIC ADDITION ===
+ERROR: Basic Addition 10+11 - CLA16 sum failed at time                30000
+  Input a = 0x000a (   10) =     10
+  Input b = 0x000b (   11) =     11
+  Carry in = 0
+  Expected sum = 0x0015 (   21) =     21
+  Got      sum = 0x0005 (    5) =      5
+ERROR: Basic Addition 255+1 - CLA16 sum failed at time                40000
+  Input a = 0x00ff (  255) =    255
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected sum = 0x0100 (  256) =    256
+  Got      sum = 0x00f0 (  240) =    240
+ERROR: Basic Addition 65535+1 - CLA16 sum failed at time                50000
+  Input a = 0xffff (65535) =     -1
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: Basic Addition 65535+1 - CLA16 carry_out failed at time                50000
+  Input a = 0xffff (65535) =     -1
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Basic Addition MAX_INT+1 - CLA16 sum failed at time                60000
+  Input a = 0x7fff (32767) =  32767
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected sum = 0x8000 (32768) = -32768
+  Got      sum = 0x7ff0 (32752) =  32752
+ERROR: Basic Addition MAX_INT+1 - CLA16 overflow failed at time                60000
+  Input a = 0x7fff (32767) =  32767
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected overflow = 1
+  Got      overflow = 0
+
+=== TEST 2: BASIC SUBTRACTION ===
+ERROR: Subtraction 5-2 - CLA16 sum failed at time                70000
+  Input a = 0x0005 (    5) =      5
+  Input b = 0xfffe (65534) =     -2
+  Carry in = 0
+  Expected sum = 0x0003 (    3) =      3
+  Got      sum = 0xfff3 (65523) =    -13
+ERROR: Subtraction 5-2 - CLA16 carry_out failed at time                70000
+  Input a = 0x0005 (    5) =      5
+  Input b = 0xfffe (65534) =     -2
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Subtraction 10-10 - CLA16 sum failed at time                80000
+  Input a = 0x000a (   10) =     10
+  Input b = 0xfff6 (65526) =    -10
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: Subtraction 10-10 - CLA16 carry_out failed at time                80000
+  Input a = 0x000a (   10) =     10
+  Input b = 0xfff6 (65526) =    -10
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Subtraction 15-15 - CLA16 sum failed at time                90000
+  Input a = 0x000f (   15) =     15
+  Input b = 0xfff1 (65521) =    -15
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: Subtraction 15-15 - CLA16 carry_out failed at time                90000
+  Input a = 0x000f (   15) =     15
+  Input b = 0xfff1 (65521) =    -15
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Subtraction 100-100 - CLA16 sum failed at time               100000
+  Input a = 0x0064 (  100) =    100
+  Input b = 0xff9c (65436) =   -100
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: Subtraction 100-100 - CLA16 carry_out failed at time               100000
+  Input a = 0x0064 (  100) =    100
+  Input b = 0xff9c (65436) =   -100
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Subtraction 1-1 - CLA16 sum failed at time               120000
+  Input a = 0x0001 (    1) =      1
+  Input b = 0xffff (65535) =     -1
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: Subtraction 1-1 - CLA16 carry_out failed at time               120000
+  Input a = 0x0001 (    1) =      1
+  Input b = 0xffff (65535) =     -1
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+
+=== TEST 3: ZERO OPERATIONS ===
+
+=== TEST 4: MAXIMUM VALUES ===
+ERROR: Min Negative + Min Negative - CLA16 carry_out failed at time               220000
+  Input a = 0x8000 (32768) = -32768
+  Input b = 0x8000 (32768) = -32768
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+
+=== TEST 5: OVERFLOW CASES ===
+ERROR: Overflow: MAX+1 - CLA16 sum failed at time               250000
+  Input a = 0x7fff (32767) =  32767
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected sum = 0x8000 (32768) = -32768
+  Got      sum = 0x7ff0 (32752) =  32752
+ERROR: Overflow: MAX+1 - CLA16 overflow failed at time               250000
+  Input a = 0x7fff (32767) =  32767
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected overflow = 1
+  Got      overflow = 0
+ERROR: Overflow: MAX-1+2 - CLA16 sum failed at time               260000
+  Input a = 0x7ffe (32766) =  32766
+  Input b = 0x0002 (    2) =      2
+  Carry in = 0
+  Expected sum = 0x8000 (32768) = -32768
+  Got      sum = 0x7ff0 (32752) =  32752
+ERROR: Overflow: MAX-1+2 - CLA16 overflow failed at time               260000
+  Input a = 0x7ffe (32766) =  32766
+  Input b = 0x0002 (    2) =      2
+  Carry in = 0
+  Expected overflow = 1
+  Got      overflow = 0
+ERROR: Overflow: MIN+(-1) - CLA16 carry_out failed at time               280000
+  Input a = 0x8000 (32768) = -32768
+  Input b = 0xffff (65535) =     -1
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Overflow: MIN+1+(-2) - CLA16 carry_out failed at time               290000
+  Input a = 0x8001 (32769) = -32767
+  Input b = 0xfffe (65534) =     -2
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Overflow: MIN+MIN - CLA16 carry_out failed at time               300000
+  Input a = 0x8000 (32768) = -32768
+  Input b = 0x8000 (32768) = -32768
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+
+=== TEST 6: NO OVERFLOW CASES ===
+ERROR: No Overflow: MIN+1+(-1) - CLA16 sum failed at time               330000
+  Input a = 0x8001 (32769) = -32767
+  Input b = 0xffff (65535) =     -1
+  Carry in = 0
+  Expected sum = 0x8000 (32768) = -32768
+  Got      sum = 0x7ff0 (32752) =  32752
+ERROR: No Overflow: MIN+1+(-1) - CLA16 carry_out failed at time               330000
+  Input a = 0x8001 (32769) = -32767
+  Input b = 0xffff (65535) =     -1
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: No Overflow: MIN+1+(-1) - CLA16 overflow failed at time               330000
+  Input a = 0x8001 (32769) = -32767
+  Input b = 0xffff (65535) =     -1
+  Carry in = 0
+  Expected overflow = 0
+  Got      overflow = 1
+ERROR: No Overflow: (-1)+1 - CLA16 sum failed at time               360000
+  Input a = 0xffff (65535) =     -1
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: No Overflow: (-1)+1 - CLA16 carry_out failed at time               360000
+  Input a = 0xffff (65535) =     -1
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+
+=== TEST 7: CARRY PROPAGATION ===
+ERROR: Carry Propagation: 1+(-1) - CLA16 sum failed at time               370000
+  Input a = 0x0001 (    1) =      1
+  Input b = 0xffff (65535) =     -1
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: Carry Propagation: 1+(-1) - CLA16 carry_out failed at time               370000
+  Input a = 0x0001 (    1) =      1
+  Input b = 0xffff (65535) =     -1
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Carry Propagation: 2+(-2) - CLA16 sum failed at time               380000
+  Input a = 0x0002 (    2) =      2
+  Input b = 0xfffe (65534) =     -2
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: Carry Propagation: 2+(-2) - CLA16 carry_out failed at time               380000
+  Input a = 0x0002 (    2) =      2
+  Input b = 0xfffe (65534) =     -2
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Carry Propagation: 3+(-3) - CLA16 sum failed at time               390000
+  Input a = 0x0003 (    3) =      3
+  Input b = 0xfffd (65533) =     -3
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: Carry Propagation: 3+(-3) - CLA16 carry_out failed at time               390000
+  Input a = 0x0003 (    3) =      3
+  Input b = 0xfffd (65533) =     -3
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Carry Propagation: 4+(-4) - CLA16 sum failed at time               400000
+  Input a = 0x0004 (    4) =      4
+  Input b = 0xfffc (65532) =     -4
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: Carry Propagation: 4+(-4) - CLA16 carry_out failed at time               400000
+  Input a = 0x0004 (    4) =      4
+  Input b = 0xfffc (65532) =     -4
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Carry Propagation: 5+(-5) - CLA16 sum failed at time               410000
+  Input a = 0x0005 (    5) =      5
+  Input b = 0xfffb (65531) =     -5
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: Carry Propagation: 5+(-5) - CLA16 carry_out failed at time               410000
+  Input a = 0x0005 (    5) =      5
+  Input b = 0xfffb (65531) =     -5
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Carry Propagation: 16+(-16) - CLA16 sum failed at time               420000
+  Input a = 0x0010 (   16) =     16
+  Input b = 0xfff0 (65520) =    -16
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xff00 (65280) =   -256
+ERROR: Carry Propagation: 16+(-16) - CLA16 carry_out failed at time               420000
+  Input a = 0x0010 (   16) =     16
+  Input b = 0xfff0 (65520) =    -16
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+
+=== TEST 8: LARGE NUMBERS ===
+ERROR: Large Numbers: 0x1234+0x9ABC - CLA16 sum failed at time               430000
+  Input a = 0x1234 ( 4660) =   4660
+  Input b = 0x9abc (39612) = -25924
+  Carry in = 0
+  Expected sum = 0xacf0 (44272) = -21264
+  Got      sum = 0xace0 (44256) = -21280
+ERROR: Large Numbers: 0xDEAD+0xBEEF - CLA16 sum failed at time               440000
+  Input a = 0xdead (57005) =  -8531
+  Input b = 0xbeef (48879) = -16657
+  Carry in = 0
+  Expected sum = 0x9d9c (40348) = -25188
+  Got      sum = 0x8c8c (35980) = -29556
+ERROR: Large Numbers: 0xDEAD+0xBEEF - CLA16 carry_out failed at time               440000
+  Input a = 0xdead (57005) =  -8531
+  Input b = 0xbeef (48879) = -16657
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Large Numbers: 0xCAFE+0xFEED - CLA16 sum failed at time               450000
+  Input a = 0xcafe (51966) = -13570
+  Input b = 0xfeed (65261) =   -275
+  Carry in = 0
+  Expected sum = 0xc9eb (51691) = -13845
+  Got      sum = 0xb8db (47323) = -18213
+ERROR: Large Numbers: 0xCAFE+0xFEED - CLA16 carry_out failed at time               450000
+  Input a = 0xcafe (51966) = -13570
+  Input b = 0xfeed (65261) =   -275
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Large Numbers: 0xFACE+0xB00B - CLA16 sum failed at time               460000
+  Input a = 0xface (64206) =  -1330
+  Input b = 0xb00b (45067) = -20469
+  Carry in = 0
+  Expected sum = 0xaad9 (43737) = -21799
+  Got      sum = 0xaac9 (43721) = -21815
+ERROR: Large Numbers: 0xFACE+0xB00B - CLA16 carry_out failed at time               460000
+  Input a = 0xface (64206) =  -1330
+  Input b = 0xb00b (45067) = -20469
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+
+=== TEST 9: RANDOM PATTERNS ===
+ERROR: Random: 0x3524+0x5E81+Carry - CLA16 sum failed at time               490000
+  Input a = 0x3524 (13604) =  13604
+  Input b = 0x5e81 (24193) =  24193
+  Carry in = 1
+  Expected sum = 0x93a6 (37798) = -27738
+  Got      sum = 0x94b6 (38070) = -27466
+ERROR: Random: 0x3524+0x5E81+Carry - CLA16 carry_out failed at time               490000
+  Input a = 0x3524 (13604) =  13604
+  Input b = 0x5e81 (24193) =  24193
+  Carry in = 1
+  Expected carry_out = 0
+  Got      carry_out = 1
+ERROR: Random: 0x5663+0x7B0D+Carry - CLA16 sum failed at time               500000
+  Input a = 0x5663 (22115) =  22115
+  Input b = 0x7b0d (31501) =  31501
+  Carry in = 1
+  Expected sum = 0xd171 (53617) = -11919
+  Got      sum = 0xd271 (53873) = -11663
+ERROR: Random: 0x5663+0x7B0D+Carry - CLA16 carry_out failed at time               500000
+  Input a = 0x5663 (22115) =  22115
+  Input b = 0x7b0d (31501) =  31501
+  Carry in = 1
+  Expected carry_out = 0
+  Got      carry_out = 1
+ERROR: Random: 0x8465+0x5212+Carry - CLA16 sum failed at time               510000
+  Input a = 0x8465 (33893) = -31643
+  Input b = 0x5212 (21010) =  21010
+  Carry in = 1
+  Expected sum = 0xd678 (54904) = -10632
+  Got      sum = 0xe788 (59272) =  -6264
+ERROR: Random: 0x8465+0x5212+Carry - CLA16 carry_out failed at time               510000
+  Input a = 0x8465 (33893) = -31643
+  Input b = 0x5212 (21010) =  21010
+  Carry in = 1
+  Expected carry_out = 0
+  Got      carry_out = 1
+ERROR: Random: 0xCD0D+0xF176+Carry - CLA16 sum failed at time               520000
+  Input a = 0xcd0d (52493) = -13043
+  Input b = 0xf176 (61814) =  -3722
+  Carry in = 1
+  Expected sum = 0xbe84 (48772) = -16764
+  Got      sum = 0xcf84 (53124) = -12412
+ERROR: Random: 0x57ED+0xF78C+Carry - CLA16 carry_out failed at time               530000
+  Input a = 0x57ed (22509) =  22509
+  Input b = 0xf78c (63372) =  -2164
+  Carry in = 1
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Random: 0x24C6+0x84C5 - CLA16 sum failed at time               540000
+  Input a = 0x24c6 ( 9414) =   9414
+  Input b = 0x84c5 (33989) = -31547
+  Carry in = 0
+  Expected sum = 0xa98b (43403) = -22133
+  Got      sum = 0xa88b (43147) = -22389
+
+=== TEST 10: EDGE CASES ===
+ERROR: Edge: 1+0+Carry - CLA16 sum failed at time               550000
+  Input a = 0x0001 (    1) =      1
+  Input b = 0x0000 (    0) =      0
+  Carry in = 1
+  Expected sum = 0x0002 (    2) =      2
+  Got      sum = 0x0012 (   18) =     18
+ERROR: Edge: 0+1+Carry - CLA16 sum failed at time               560000
+  Input a = 0x0000 (    0) =      0
+  Input b = 0x0001 (    1) =      1
+  Carry in = 1
+  Expected sum = 0x0002 (    2) =      2
+  Got      sum = 0x0012 (   18) =     18
+ERROR: Edge: MAX+0+Carry - CLA16 carry_out failed at time               590000
+  Input a = 0x7fff (32767) =  32767
+  Input b = 0x0000 (    0) =      0
+  Carry in = 1
+  Expected carry_out = 0
+  Got      carry_out = 1
+
+=== TEST 11: POWER OF 2 OPERATIONS ===
+ERROR: Power of 2: 8+8 - CLA16 sum failed at time               640000
+  Input a = 0x0008 (    8) =      8
+  Input b = 0x0008 (    8) =      8
+  Carry in = 0
+  Expected sum = 0x0010 (   16) =     16
+  Got      sum = 0x0000 (    0) =      0
+ERROR: Power of 2: 128+128 - CLA16 sum failed at time               680000
+  Input a = 0x0080 (  128) =    128
+  Input b = 0x0080 (  128) =    128
+  Carry in = 0
+  Expected sum = 0x0100 (  256) =    256
+  Got      sum = 0x0000 (    0) =      0
+
+=== TEST 12: ALTERNATING BIT PATTERNS ===
+ERROR: Alternating: 0xAAAA+0xAAAA - CLA16 sum failed at time               720000
+  Input a = 0xaaaa (43690) = -21846
+  Input b = 0xaaaa (43690) = -21846
+  Carry in = 0
+  Expected sum = 0x5554 (21844) =  21844
+  Got      sum = 0x4444 (17476) =  17476
+ERROR: Alternating: 0xAAAA+0xAAAA - CLA16 carry_out failed at time               720000
+  Input a = 0xaaaa (43690) = -21846
+  Input b = 0xaaaa (43690) = -21846
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Alternating: 0xCCCC+0xCCCC - CLA16 sum failed at time               760000
+  Input a = 0xcccc (52428) = -13108
+  Input b = 0xcccc (52428) = -13108
+  Carry in = 0
+  Expected sum = 0x9998 (39320) = -26216
+  Got      sum = 0x8888 (34952) = -30584
+ERROR: Alternating: 0xCCCC+0xCCCC - CLA16 carry_out failed at time               760000
+  Input a = 0xcccc (52428) = -13108
+  Input b = 0xcccc (52428) = -13108
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+
+=== TEST 13: SEQUENTIAL NUMBERS ===
+ERROR: Sequential: 10+11 - CLA16 sum failed at time               830000
+  Input a = 0x000a (   10) =     10
+  Input b = 0x000b (   11) =     11
+  Carry in = 0
+  Expected sum = 0x0015 (   21) =     21
+  Got      sum = 0x0005 (    5) =      5
+ERROR: Sequential: 1000+1001 - CLA16 sum failed at time               850000
+  Input a = 0x03e8 ( 1000) =   1000
+  Input b = 0x03e9 ( 1001) =   1001
+  Carry in = 0
+  Expected sum = 0x07d1 ( 2001) =   2001
+  Got      sum = 0x06c1 ( 1729) =   1729
+
+=== TEST 14: BOUNDARY VALUES ===
+ERROR: Boundary: MAX+1 - CLA16 sum failed at time               880000
+  Input a = 0x7fff (32767) =  32767
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected sum = 0x8000 (32768) = -32768
+  Got      sum = 0x7ff0 (32752) =  32752
+ERROR: Boundary: MAX+1 - CLA16 overflow failed at time               880000
+  Input a = 0x7fff (32767) =  32767
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected overflow = 1
+  Got      overflow = 0
+ERROR: Boundary: MIN+(-1) - CLA16 carry_out failed at time               890000
+  Input a = 0x8000 (32768) = -32768
+  Input b = 0xffff (65535) =     -1
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+ERROR: Boundary: (-1)+1 - CLA16 sum failed at time               910000
+  Input a = 0xffff (65535) =     -1
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected sum = 0x0000 (    0) =      0
+  Got      sum = 0xfff0 (65520) =    -16
+ERROR: Boundary: (-1)+1 - CLA16 carry_out failed at time               910000
+  Input a = 0xffff (65535) =     -1
+  Input b = 0x0001 (    1) =      1
+  Carry in = 0
+  Expected carry_out = 1
+  Got      carry_out = 0
+
+=====================================
+HIERARCHICAL CLA16 TEST RESULTS SUMMARY:
+=====================================
+Total tests run:           91
+Sum errors:           38
+Carry out errors:           30
+Overflow errors:            5
+
+❌ SOME TESTS FAILED! ❌
+CLA16 hierarchical carry look-ahead has issues.
+  -          38 sum calculation errors
+  -          30 carry out errors
+  -           5 overflow detection errors
+=====================================
+$finish called at time : 910 ns : File "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/cla16_hierarchical_tb.sv" Line 238
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 10 17:10:07 2025...

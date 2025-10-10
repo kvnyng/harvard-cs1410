@@ -1,0 +1,54 @@
+#-----------------------------------------------------------
+# xsim v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Fri Oct 10 17:11:14 2025
+# Process ID: 1014377
+# Current directory: /home/khyang/harvard/cs1410_lab/lab2/lab2_server
+# Command line: xsim -mode tcl -source {xsim.dir/cla16_sim/xsim_script.tcl}
+# Log file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.log
+# Journal file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1199.953 MHz, CPU Physical cores: 30, Host memory: 539830 MB
+#-----------------------------------------------------------
+source xsim.dir/cla16_sim/xsim_script.tcl
+# xsim {cla16_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Starting CLA16 (16-bit Carry Look-Ahead Adder) testbench...
+Focus: Testing propagate and generate signals
+=====================================
+Testing corner cases...
+Testing propagate signal logic...
+Testing generate signal logic...
+Testing single bit patterns...
+Testing alternating bit patterns...
+Testing specific propagate/generate combinations...
+Testing with carry_in...
+Testing signed arithmetic edge cases...
+Testing no-overflow cases...
+Testing specific hex patterns...
+Testing carry propagation...
+Testing random patterns...
+
+=== DEDICATED PROPAGATE AND GENERATE SIGNAL TESTS ===
+Testing key combinations for propagate and generate signals...
+Completed dedicated propagate and generate signal testing.
+
+=====================================
+Test Results Summary:
+Total tests run:          81
+Sum errors:           0
+Carry out errors:           0
+Overflow errors:           0
+Propagate signal errors:           0
+Generate signal errors:           0
+
+NOTE: This testbench focuses on testing the propagate and generate signals.
+The propagate and generate signals are the main focus of this test.
+PROPAGATE AND GENERATE SIGNAL TESTS PASSED! ✓
+The propagate and generate logic is working correctly.
+ALL TESTS PASSED! ✓
+=====================================
+$finish called at time : 810 ns : File "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/cla16_tb.sv" Line 334
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 10 17:11:18 2025...

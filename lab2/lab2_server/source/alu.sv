@@ -104,13 +104,15 @@ module STUDENT_alu
 
     // ADD Operation: 32-bit signed addition using carry look-ahead adder
     logic carry_out_add, overflow_add;
-    cla cla_unit (
+    cla32 cla_unit (
         .a(x), 
         .b(y), 
         .carry_in(1'b0), 
         .sum(z_add), 
         .carry_out(carry_out_add), 
-        .overflow(overflow_add)
+        .overflow(overflow_add),
+        .generate_out(), 
+        .propagate_out()
     );
 
     // SUB Operation: 32-bit signed subtraction using carry look-ahead adder
@@ -118,13 +120,15 @@ module STUDENT_alu
     logic carry_out_sub, overflow_sub;
     logic [31:0] y_twos_complement;
     not32 not_unit (.x(y), .z(y_twos_complement));
-    cla cla_unit_sub (
+    cla32 cla_unit_sub (
         .a(x), 
         .b(y_twos_complement), 
         .carry_in(1'b1), 
         .sum(z_sub), 
         .carry_out(carry_out_sub), 
-        .overflow(overflow_sub)
+        .overflow(overflow_sub),
+        .generate_out(), 
+        .propagate_out()
     );
 
 

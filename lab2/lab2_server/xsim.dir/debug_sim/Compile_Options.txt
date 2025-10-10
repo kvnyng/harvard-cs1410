@@ -1,1 +1,1 @@
-"debug_equal" -s "debug_sim" 
+-debug "typical" "debug_cla4" -s "debug_sim" 
