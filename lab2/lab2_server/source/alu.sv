@@ -7,12 +7,19 @@
 // 
 // This module implements a 32-bit ALU supporting the following operations:
 // - AND: 32-bit bitwise AND
-// - ADD: 32-bit signed addition using ripple-carry adder
-// - SUB: 32-bit signed subtraction using two's complement
+// - ADD: 32-bit signed addition using carry look-ahead adder (CLA)
+// - SUB: 32-bit signed subtraction using carry look-ahead adder (CLA)
 // - SLT: Set Less Than using MSB XOR overflow logic
 // - SRL: Shift Right Logical (zero-fill)
 // - SRA: Shift Right Arithmetic (sign-fill)
 // - SLL: Shift Left Logical (zero-fill)
+// 
+// ADDER IMPLEMENTATIONS:
+// - Ripple-Carry Adder (RCA): Available but commented out for comparison
+// - Carry Look-Ahead Adder (CLA): Currently active implementation
+//   * Computes all carries in parallel for faster addition
+//   * Uses generate and propagate signals for true carry look-ahead
+//   * Eliminates carry propagation delay compared to RCA
 // 
 // The ALU also generates three flags:
 // - zero: Set when result is zero (for all operations except 3'b111)
@@ -44,15 +51,60 @@ module STUDENT_alu
     logic [31:0] z_sll;  // SLL operation result
 
     // =========================================================================
-    // ARITHMETIC AND LOGICAL OPERATIONS
+    // LOGICAL OPERATIONS
     // =========================================================================
 
     // AND Operation: 32-bit bitwise AND
     and32 and_unit (.x(x), .y(y), .z(z_and));
 
-    // ADD Operation: 32-bit signed addition using ripple-carry adder
+    // =========================================================================
+    // RIPPLE-CARRY ADDER (RCA) IMPLEMENTATION
+    // =========================================================================
+    // The following RCA implementation is commented out but available for comparison.
+    // RCA characteristics:
+    // - Sequential carry propagation from LSB to MSB
+    // - Simple implementation with predictable timing
+    // - Higher delay due to carry chain propagation
+    // - Suitable for smaller bit widths or when area is more important than speed
+
+    // // ADD Operation: 32-bit signed addition using ripple-carry adder
+    // logic carry_out_add, overflow_add;
+    // rca32 adder_unit (
+    //     .a(x), 
+    //     .b(y), 
+    //     .carry_in(1'b0), 
+    //     .sum(z_add), 
+    //     .carry_out(carry_out_add), 
+    //     .overflow(overflow_add)
+    // );
+
+    // // SUB Operation: 32-bit signed subtraction using two's complement
+    // // Implementation: x - y = x + (~y + 1) = x + ~y + 1
+    // logic carry_out_sub, overflow_sub;
+    // logic [31:0] y_twos_complement;
+    // not32 not_unit (.x(y), .z(y_twos_complement));
+    // rca32 subtractor_unit (
+    //     .a(x), 
+    //     .b(y_twos_complement), 
+    //     .carry_in(1'b1), 
+    //     .sum(z_sub), 
+    //     .carry_out(carry_out_sub), 
+    //     .overflow(overflow_sub)
+    // );
+
+    // =========================================================================
+    // CARRY LOOK-AHEAD ADDER (CLA) IMPLEMENTATION
+    // =========================================================================
+    // The following CLA implementation is currently active and provides:
+    // - Parallel carry computation for all bit positions
+    // - Faster addition compared to RCA due to reduced carry propagation delay
+    // - Uses generate (G) and propagate (P) signals for true carry look-ahead
+    // - More complex logic but better performance for 32-bit operations
+    // - CLA equation: C[i] = G[i-1] + P[i-1] * C[i-1]
+
+    // ADD Operation: 32-bit signed addition using carry look-ahead adder
     logic carry_out_add, overflow_add;
-    rca32 adder_unit (
+    cla cla_unit (
         .a(x), 
         .b(y), 
         .carry_in(1'b0), 
@@ -61,12 +113,12 @@ module STUDENT_alu
         .overflow(overflow_add)
     );
 
-    // SUB Operation: 32-bit signed subtraction using two's complement
+    // SUB Operation: 32-bit signed subtraction using carry look-ahead adder
     // Implementation: x - y = x + (~y + 1) = x + ~y + 1
     logic carry_out_sub, overflow_sub;
     logic [31:0] y_twos_complement;
     not32 not_unit (.x(y), .z(y_twos_complement));
-    rca32 subtractor_unit (
+    cla cla_unit_sub (
         .a(x), 
         .b(y_twos_complement), 
         .carry_in(1'b1), 
@@ -74,6 +126,7 @@ module STUDENT_alu
         .carry_out(carry_out_sub), 
         .overflow(overflow_sub)
     );
+
 
     // SLT Operation: Set Less Than using MSB XOR overflow logic
     // Uses the MSB and overflow from the subtractor to implement SLT

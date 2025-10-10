@@ -4,7 +4,6 @@ Running: /software/xilinx-tools-2022/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab -
 Multi-threading is on. Using 94 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3645] port 'generate_out' remains unconnected for this instance [/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv:84]
 Completed static elaboration
 Starting simulation data flow analysis
 WARNING: [XSIM 43-4328] File: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv Line: 80 : Sensitivity on input argument "test_x" of task "test_and" may never get triggered.
@@ -24,8 +23,7 @@ WARNING: [XSIM 43-4328] File: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/t
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module work.and32
-Compiling module work.full_adder
-Compiling module work.rca32_default
+Compiling module work.cla
 Compiling module work.not32
 Compiling module work.slt_32bit
 Compiling module work.mux_2x1

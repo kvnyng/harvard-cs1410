@@ -8,7 +8,8 @@ module cla
     input logic [31:0] b,
     input logic carry_in,
     output logic [31:0] sum,
-    output logic carry_out
+    output logic carry_out,
+    output logic overflow
 );
 
     // Generate and propagate signals for each bit
@@ -54,4 +55,8 @@ module cla
     // Final carry out
     assign carry_out = internal_carry[32];
 
+    // Overflow detection for signed arithmetic:
+    // Overflow occurs when carry into MSB differs from carry out of MSB
+    xor overflow_gate (overflow, internal_carry[31], internal_carry[32]);
+    
 endmodule

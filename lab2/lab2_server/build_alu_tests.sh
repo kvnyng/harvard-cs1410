@@ -6,8 +6,8 @@
 # 
 # This script compiles and tests the ALU module for implemented operations:
 # 1. AND - 32-bit bitwise AND operation
-# 2. ADD - 32-bit signed addition using RCA
-# 3. SUB - 32-bit signed subtraction using two's complement
+# 2. ADD - 32-bit signed addition using CLA (Carry Look-Ahead Adder)
+# 3. SUB - 32-bit signed subtraction using CLA (Carry Look-Ahead Adder)
 # 4. SLT - Set Less Than using MSB XOR overflow logic
 # 5. SRL - Shift Right Logical (zero-fill)
 # 6. SRA - Shift Right Arithmetic (sign-fill)
@@ -34,7 +34,7 @@ echo "TESTING ALU MODULE"
 echo "=========================================="
 
 echo "Compiling ALU module and testbench..."
-xvlog -sv source/alu.svh source/primitives32.sv source/adder.sv source/mux.sv source/flags.sv source/slt.sv source/srl.sv source/sra.sv source/sll.sv source/alu.sv tb/alu_tb.sv
+xvlog -sv source/alu.svh source/primitives32.sv source/adder.sv source/mux.sv source/flags.sv source/slt.sv source/srl.sv source/sra.sv source/sll.sv source/cla.sv source/alu.sv tb/alu_tb.sv
 
 if [ $? -eq 0 ]; then
     echo "✓ Compilation successful"
@@ -72,8 +72,8 @@ echo "✓ ALU module: PASSED"
 echo ""
 echo "Implemented operations tested:"
 echo "  - AND: 32-bit bitwise AND"
-echo "  - ADD: 32-bit signed addition (RCA)"
-echo "  - SUB: 32-bit signed subtraction (two's complement)"
+echo "  - ADD: 32-bit signed addition (CLA)"
+echo "  - SUB: 32-bit signed subtraction (CLA)"
 echo "  - SLT: Set Less Than (MSB XOR overflow logic)"
 echo "  - SRL: Shift Right Logical (zero-fill)"
 echo "  - SRA: Shift Right Arithmetic (sign-fill)"

@@ -23,6 +23,8 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_l
 INFO: [VRFC 10-311] analyzing module sra
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/sll.sv" into library work
 INFO: [VRFC 10-311] analyzing module sll
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/cla.sv" into library work
+INFO: [VRFC 10-311] analyzing module cla
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.sv" into library work
 INFO: [VRFC 10-311] analyzing module STUDENT_alu
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv" into library work
