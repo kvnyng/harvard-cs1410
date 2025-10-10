@@ -1,0 +1,7 @@
+Running: xsim.dir/flags_sim/xsimk -runall -simmode gui -wdb flags_sim.wdb -simrunnum 0 -socket 38931
+Design successfully loaded
+Design Loading Memory Usage: 29008 KB (Peak: 29128 KB)
+Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 110744 KB (Peak: 168276 KB)
+Simulation CPU Usage: 20 ms

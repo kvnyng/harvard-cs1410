@@ -1,6 +1,6 @@
 Vivado Simulator v2022.2
 Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
-Running: /software/xilinx-tools-2022/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab mux_tb -s mux_tb_sim -debug typical 
+Running: /software/xilinx-tools-2022/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab -debug typical srl_tb -s srl_sim 
 Multi-threading is on. Using 94 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -9,5 +9,6 @@ Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module work.mux_2x1
-Compiling module work.mux_tb
-Built simulation snapshot mux_tb_sim
+Compiling module work.srl_default
+Compiling module work.srl_tb
+Built simulation snapshot srl_sim

@@ -2,5 +2,20 @@
 2020.2
 Oct 14 2022
 05:07:14
-/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux_2x1.sv,1759448463,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/mux_tb.sv,,mux_2x1,,,,,,,,
-/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/mux_tb.sv,1759448106,systemVerilog,,,,mux_tb,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv,1760056609,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux.sv,,full_adder;half_adder;rca32,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.sv,1760061509,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh,STUDENT_alu,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh,1760054817,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/primitives32.sv,,,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/flags.sv,1760061134,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/slt.sv,,check_equal32;check_zero32,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux.sv,1760058861,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/srl.sv,,mux_2x1;mux_4x1;mux_8x1;mux_8x32,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/primitives32.sv,1760058824,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv,,and32;not32;or32,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/slt.sv,1760061357,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.sv,,slt_32bit,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/srl.sv,1760065094,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/srl_tb.sv,,srl,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv,1760060362,systemVerilog,,,,alu_tb,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/flags_tb.sv,1760059375,systemVerilog,,,,flags_tb,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/full_adder_tb.sv,1760056504,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/rca32_tb.sv,,full_adder_tb,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/mux_tb.sv,1760055846,systemVerilog,,,,mux_tb,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/primitives32_tb.sv,1760055507,systemVerilog,,,,primitives32_tb,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/rca32_tb.sv,1760056564,systemVerilog,,,,rca32_tb,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/slt_comprehensive_tb.sv,1760061338,systemVerilog,,,,slt_comprehensive_tb,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/slt_tb.sv,1760061303,systemVerilog,,,,slt_tb,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/srl_tb.sv,1760065119,systemVerilog,,,,srl_tb,,,,,,,,

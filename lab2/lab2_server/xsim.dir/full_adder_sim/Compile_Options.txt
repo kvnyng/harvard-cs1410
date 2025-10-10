@@ -1,0 +1,1 @@
+-debug "typical" "full_adder_tb" -s "full_adder_sim" 

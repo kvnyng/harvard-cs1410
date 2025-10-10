@@ -2,28 +2,112 @@
 # xsim v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Thu Oct  2 19:41:29 2025
-# Process ID: 317560
+# Start of session at: Thu Oct  9 22:58:58 2025
+# Process ID: 477196
 # Current directory: /home/khyang/harvard/cs1410_lab/lab2/lab2_server
-# Command line: xsim -mode tcl -source {xsim.dir/mux_tb_sim/xsim_script.tcl}
+# Command line: xsim -mode tcl -source {xsim.dir/srl_sim/xsim_script.tcl}
 # Log file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.log
 # Journal file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.jou
-# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1200.091 MHz, CPU Physical cores: 27, Host memory: 539830 MB
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1199.993 MHz, CPU Physical cores: 27, Host memory: 539830 MB
 #-----------------------------------------------------------
-source xsim.dir/mux_tb_sim/xsim_script.tcl
-# xsim {mux_tb_sim} -autoloadwcfg -runall
+source xsim.dir/srl_sim/xsim_script.tcl
+# xsim {srl_sim} -autoloadwcfg -runall
 Time resolution is 1 ps
 run -all
-Starting self-checking testbench...
-PASS at time 1000: in=00 sel=0 => out=0
-PASS at time 2000: in=00 sel=1 => out=0
-PASS at time 3000: in=01 sel=0 => out=1
-PASS at time 4000: in=01 sel=1 => out=0
-PASS at time 5000: in=10 sel=0 => out=0
-PASS at time 6000: in=10 sel=1 => out=1
-PASS at time 7000: in=11 sel=0 => out=1
-PASS at time 8000: in=11 sel=1 => out=1
-All tests completed.
-$finish called at time : 8 ns : File "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/mux_tb.sv" Line 53
+Starting SRL module testbench...
+=====================================
+Testing SRL: x=0x12345678, y=0x00000000 (shift= 0)
+  Expected: 0x12345678
+  Got:      0x12345678
+  PASS: SRL test passed
+
+Testing SRL: x=0x12345678, y=0x00000001 (shift= 1)
+  Expected: 0x091a2b3c
+  Got:      0x091a2b3c
+  PASS: SRL test passed
+
+Testing SRL: x=0x12345678, y=0x00000002 (shift= 2)
+  Expected: 0x048d159e
+  Got:      0x048d159e
+  PASS: SRL test passed
+
+Testing SRL: x=0x12345678, y=0x00000004 (shift= 4)
+  Expected: 0x01234567
+  Got:      0x01234567
+  PASS: SRL test passed
+
+Testing SRL: x=0x12345678, y=0x00000008 (shift= 8)
+  Expected: 0x00123456
+  Got:      0x00123456
+  PASS: SRL test passed
+
+Testing SRL: x=0x12345678, y=0x00000010 (shift=16)
+  Expected: 0x00001234
+  Got:      0x00001234
+  PASS: SRL test passed
+
+Testing SRL: x=0x12345678, y=0x00000020 (shift= 0)
+  Expected: 0x12345678
+  Got:      0x12345678
+  PASS: SRL test passed
+
+Testing SRL: x=0xffffffff, y=0x00000001 (shift= 1)
+  Expected: 0x7fffffff
+  Got:      0x7fffffff
+  PASS: SRL test passed
+
+Testing SRL: x=0xffffffff, y=0x00000002 (shift= 2)
+  Expected: 0x3fffffff
+  Got:      0x3fffffff
+  PASS: SRL test passed
+
+Testing SRL: x=0xffffffff, y=0x00000004 (shift= 4)
+  Expected: 0x0fffffff
+  Got:      0x0fffffff
+  PASS: SRL test passed
+
+Testing SRL: x=0xffffffff, y=0x00000008 (shift= 8)
+  Expected: 0x00ffffff
+  Got:      0x00ffffff
+  PASS: SRL test passed
+
+Testing SRL: x=0xffffffff, y=0x00000010 (shift=16)
+  Expected: 0x0000ffff
+  Got:      0x0000ffff
+  PASS: SRL test passed
+
+Testing SRL: x=0xffffffff, y=0x00000020 (shift= 0)
+  Expected: 0xffffffff
+  Got:      0xffffffff
+  PASS: SRL test passed
+
+Testing SRL: x=0x80000000, y=0x00000001 (shift= 1)
+  Expected: 0x40000000
+  Got:      0x40000000
+  PASS: SRL test passed
+
+Testing SRL: x=0x00000001, y=0x00000001 (shift= 1)
+  Expected: 0x00000000
+  Got:      0x00000000
+  PASS: SRL test passed
+
+Testing SRL: x=0x00000000, y=0x00000005 (shift= 5)
+  Expected: 0x00000000
+  Got:      0x00000000
+  PASS: SRL test passed
+
+Testing SRL: x=0x12345678, y=0x0000001f (shift=31)
+  Expected: 0x00000000
+  Got:      0x00000000
+  PASS: SRL test passed
+
+Testing SRL: x=0x12345678, y=0x000000ff (shift=31)
+  Expected: 0x00000000
+  Got:      0x00000000
+  PASS: SRL test passed
+
+=====================================
+SRL module testbench completed
+$finish called at time : 180 ns : File "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/srl_tb.sv" Line 60
 exit
-INFO: [Common 17-206] Exiting xsim at Thu Oct  2 19:41:33 2025...
+INFO: [Common 17-206] Exiting xsim at Thu Oct  9 22:59:02 2025...

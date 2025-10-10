@@ -1,0 +1,1 @@
+-debug "typical" "srl_tb" -s "srl_sim" 

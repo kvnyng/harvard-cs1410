@@ -1,0 +1,1 @@
+-debug "typical" "flags_tb" -s "flags_sim" 

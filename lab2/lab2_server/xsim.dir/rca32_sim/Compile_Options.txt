@@ -1,0 +1,1 @@
+-debug "typical" "rca32_tb" -s "rca32_sim" 

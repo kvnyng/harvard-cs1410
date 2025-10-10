@@ -1,0 +1,1 @@
+-debug "typical" "slt_tb" -s "slt_sim" 

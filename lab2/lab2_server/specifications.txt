@@ -1,0 +1,45 @@
+ALU Operations Specification
+----------------------------
+
+AND
+- Performs a 32-bit bitwise AND between x and y.
+- Result: z = x & y.
+
+ADD
+- Performs signed 32-bit addition of x and y.
+- Result: z = x + y (implemented using gate-level adder, not '+' operator).
+- Updates flags: equal, zero, and overflow.
+
+SUB
+- Performs signed 32-bit subtraction of y from x.
+- Result: z = x - y (implemented using adder with two’s complement of y).
+- Updates flags: equal, zero, and overflow.
+
+SLT (Set Less Than)
+- Sets z = 32’d1 if x < y (signed comparison), otherwise z = 32’d0.
+- Implemented using subtraction and sign/overflow logic (no '<' or '>').
+
+SRL (Shift Right Logical)
+- Shifts x right by the number of positions given by the lowest 5 bits of y.
+- Vacated bits are filled with 0.
+- No built-in shift operators allowed.
+
+SRA (Shift Right Arithmetic)
+- Shifts x right by the number of positions given by the lowest 5 bits of y.
+- Vacated bits are filled with the sign bit (x[31]).
+- No built-in shift operators allowed.
+
+SLL (Shift Left Logical)
+- Shifts x left by the number of positions given by the lowest 5 bits of y.
+- Vacated bits are filled with 0.
+- No built-in shift operators allowed.
+
+ADD (Carry-Lookahead Adder)
+- Performs signed 32-bit addition of x and y using a hierarchical carry-lookahead adder.
+- Replaces ripple-carry adder for performance.
+- Updates flags: equal, zero, and overflow.
+
+General Notes:
+- Overflow flag is valid only for ADD and SUB.
+- Equal and zero flags must be valid for all operations.
+- Unimplemented operations must output z = 32’d0.

@@ -1,0 +1,1 @@
+"primitives32_tb" -s "primitives32_tb_sim" -debug "typical" 

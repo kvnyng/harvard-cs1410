@@ -1,4 +1,9 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux_2x1.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux.sv" into library work
 INFO: [VRFC 10-311] analyzing module mux_2x1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/mux_tb.sv" into library work
-INFO: [VRFC 10-311] analyzing module mux_tb
+INFO: [VRFC 10-311] analyzing module mux_4x1
+INFO: [VRFC 10-311] analyzing module mux_8x1
+INFO: [VRFC 10-311] analyzing module mux_8x32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/srl.sv" into library work
+INFO: [VRFC 10-311] analyzing module srl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/srl_tb.sv" into library work
+INFO: [VRFC 10-311] analyzing module srl_tb
