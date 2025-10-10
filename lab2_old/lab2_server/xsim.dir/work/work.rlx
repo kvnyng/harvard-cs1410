@@ -1,0 +1,17 @@
+0.7
+2020.2
+Oct 14 2022
+05:07:14
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv,1759922980,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh,STUDENT_alu,,,./source,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv,1759923980,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv,,adder;full_adder;half_adder;ripple_carry_adder;subtractor,,,./source,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh,1759444887,verilog,,,,,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv,1759444887,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/equal32.sv,,alu_top,,,./source,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/and32.sv,1759925416,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv,,and32,,,./source,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/equal32.sv,1759476675,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux_jw.sv,,equal32,,,./source,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux_jw.sv,1759923509,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/slt.sv,,mux_2x1;mux_4x1;mux_8x1,,,./source,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/not32.sv,1759465676,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/and32.sv,,not32,,,./source,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/slt.sv,1759497549,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/zero32.sv,,slt,,,./source,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/zero32.sv,1759474247,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/not32.sv,,is_zero32,,,./source,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv,1759925227,systemVerilog,,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh,alu_tb,,,./source,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/mux_8x32_tb.sv,1759497803,systemVerilog,,,,mux_8x32_tb,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/slt_tb.sv,1759497469,systemVerilog,,,,slt_tb,,,./source,,,,,

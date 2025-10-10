@@ -1,0 +1,1 @@
+"mux_8x32_tb" -s "mux_8x32_tb_sim" -debug "typical" 

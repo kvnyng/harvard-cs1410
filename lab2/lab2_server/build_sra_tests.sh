@@ -63,3 +63,4 @@ echo "  - Various shift amounts (0-31)"
 echo "  - Edge cases and boundary conditions"
 echo "VCD file generated for waveform viewing: sra_tb.vcd"
 echo "=========================================="
+

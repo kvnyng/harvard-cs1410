@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Fri Oct 10 00:25:09 2025
+# Process ID: 1019203
+# Current directory: /home/khyang/harvard/cs1410_lab/lab2/lab2_server
+# Command line: vivado
+# Log file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/vivado.log
+# Journal file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/vivado.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1488.615 MHz, CPU Physical cores: 27, Host memory: 539830 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.xpr
+update_compile_order -fileset sources_1
+set_property source_mgmt_mode DisplayOnly [current_project]
+reorder_files -before /home/khyang/harvard/cs1410_lab/lab2/lab2_server/OK_library/okWireOut.v /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/and32.sv

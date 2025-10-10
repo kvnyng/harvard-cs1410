@@ -1,0 +1,92 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Oct  2 19:24:12 2025
+# Process ID: 247650
+# Current directory: /home/khyang/harvard/cs1410_lab/lab2
+# Command line: vivado
+# Log file: /home/khyang/harvard/cs1410_lab/lab2/vivado.log
+# Journal file: /home/khyang/harvard/cs1410_lab/lab2/vivado.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1406.440 MHz, CPU Physical cores: 28, Host memory: 539830 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.xpr
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.gen/sources_1'.
+WARNING: [filemgmt 56-3] IPUserFilesDir: Could not find the directory '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.ip_user_files'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/software/xilinx-tools-2022/Vivado/2022.2/data/ip'.
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Oct  3 08:16:50 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/synth_1/runme.log
+[Fri Oct  3 08:16:51 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Oct  3 08:19:16 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/synth_1/runme.log
+[Fri Oct  3 08:19:17 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Oct  3 08:51:49 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/synth_1/runme.log
+[Fri Oct  3 08:51:49 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Oct  3 08:53:06 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/synth_1/runme.log
+[Fri Oct  3 08:53:06 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/impl_1/runme.log
+add_files -norecurse /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh' cannot be added to the project because it already exists in the project, skipping this file
+add_files -norecurse {/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux.sv /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/equal32.sv /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/and32.sv /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/not32.sv /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/slt.sv /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/zero32.sv}
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/and32.sv' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv' cannot be added to the project because it already exists in the project, skipping this file
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Oct  3 08:55:10 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/synth_1/runme.log
+[Fri Oct  3 08:55:10 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7a75tfgg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 7724.598 ; gain = 0.000 ; free physical = 289328 ; free virtual = 315116
+INFO: [Netlist 29-17] Analyzing 133 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00.2 ; elapsed = 00:00:00.19 . Memory (MB): peak = 8348.480 ; gain = 0.000 ; free physical = 288620 ; free virtual = 314406
+Restored from archive | CPU: 0.210000 secs | Memory: 2.240555 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.2 ; elapsed = 00:00:00.19 . Memory (MB): peak = 8348.480 ; gain = 0.000 ; free physical = 288620 ; free virtual = 314406
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8348.480 ; gain = 0.000 ; free physical = 288619 ; free virtual = 314405
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 83 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 33 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 38 instances
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 8 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
+
+open_run: Time (s): cpu = 00:00:26 ; elapsed = 00:00:17 . Memory (MB): peak = 8619.156 ; gain = 1153.254 ; free physical = 288636 ; free virtual = 314422

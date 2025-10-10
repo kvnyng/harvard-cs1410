@@ -1,0 +1,26 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv" into library work
+INFO: [VRFC 10-311] analyzing module STUDENT_alu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv" into library work
+INFO: [VRFC 10-311] analyzing module half_adder
+INFO: [VRFC 10-311] analyzing module full_adder
+INFO: [VRFC 10-311] analyzing module ripple_carry_adder
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-311] analyzing module subtractor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv" into library work
+INFO: [VRFC 10-311] analyzing module alu_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/equal32.sv" into library work
+INFO: [VRFC 10-311] analyzing module equal32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux_jw.sv" into library work
+INFO: [VRFC 10-311] analyzing module mux_2x1
+INFO: [VRFC 10-311] analyzing module mux_4x1
+INFO: [VRFC 10-311] analyzing module mux_8x1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/slt.sv" into library work
+INFO: [VRFC 10-311] analyzing module slt
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/zero32.sv" into library work
+INFO: [VRFC 10-311] analyzing module is_zero32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/not32.sv" into library work
+INFO: [VRFC 10-311] analyzing module not32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/and32.sv" into library work
+INFO: [VRFC 10-311] analyzing module and32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv" into library work
+INFO: [VRFC 10-311] analyzing module alu_tb

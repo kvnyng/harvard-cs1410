@@ -62,3 +62,4 @@ echo "  - Various shift amounts (0-31)"
 echo "  - Edge cases and overflow conditions"
 echo "VCD file generated for waveform viewing: sll_tb.vcd"
 echo "=========================================="
+

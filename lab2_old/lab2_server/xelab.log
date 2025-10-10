@@ -1,0 +1,26 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /software/xilinx-tools-2022/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab alu_tb -s alu_tb_sim -debug typical 
+Multi-threading is on. Using 94 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'c_out' remains unconnected for this instance [/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/slt.sv:11]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.and32
+Compiling module work.full_adder
+Compiling module work.ripple_carry_adder_default
+Compiling module work.adder
+Compiling module work.not32
+Compiling module work.subtractor
+Compiling module work.slt
+Compiling module work.mux_2x1
+Compiling module work.mux_4x1
+Compiling module work.equal32
+Compiling module work.is_zero32
+Compiling module work.mux_8x1
+Compiling module work.STUDENT_alu_default
+Compiling module work.alu_tb
+Built simulation snapshot alu_tb_sim

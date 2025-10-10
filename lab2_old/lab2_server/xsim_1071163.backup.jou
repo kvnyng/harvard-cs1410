@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# xsim v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Oct  8 08:07:31 2025
+# Process ID: 1071163
+# Current directory: /home/khyang/harvard/cs1410_lab/lab2/lab2_server
+# Command line: xsim -mode tcl -source {xsim.dir/alu_tb_sim/xsim_script.tcl}
+# Log file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.log
+# Journal file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 2700.000 MHz, CPU Physical cores: 30, Host memory: 539830 MB
+#-----------------------------------------------------------

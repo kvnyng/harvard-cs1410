@@ -1,0 +1,389 @@
+/*
+
+Xilinx Vivado v2022.2 (64-bit) [Major: 2022, Minor: 2]
+SW Build: 3671981 on Fri Oct 14 04:59:54 MDT 2022
+IP Build: 3669848 on Fri Oct 14 08:30:02 MDT 2022
+
+Process ID (PID): 915601
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Fri Oct 10 00:12:50 EDT 2025
+Time zone: 	Eastern Standard Time (America/New_York)
+
+OS: Rocky Linux release 9.6 (Blue Onyx)
+OS Version: 5.14.0-570.49.1.el9_6.x86_64
+OS Architecture: amd64
+Available processors (cores): 96
+
+Display: 4
+Screen size: 1024x768
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.11 64-bit
+Java home: 	/software/xilinx-tools-2022/Vivado/2022.2/tps/lnx64/jre11.0.11_9
+Java executable: 	/software/xilinx-tools-2022/Vivado/2022.2/tps/lnx64/jre11.0.11_9/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m, -Xrs]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	khyang
+User home directory: /home/khyang
+User working directory: /home/khyang/harvard/cs1410_lab/lab2/lab2_server
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /software/xilinx-tools-2022/Vivado
+HDI_APPROOT: /software/xilinx-tools-2022/Vivado/2022.2
+RDI_DATADIR: /software/xilinx-tools-2022/Vivado/2022.2/data
+RDI_BINDIR: /software/xilinx-tools-2022/Vivado/2022.2/bin
+
+Vivado preferences file: /home/khyang/.Xilinx/Vivado/2022.2/vivado.xml
+Vivado preferences directory: /home/khyang/.Xilinx/Vivado/2022.2/
+Vivado layouts directory: /home/khyang/.Xilinx/Vivado/2022.2/data/layouts
+PlanAhead jar file: 	/software/xilinx-tools-2022/Vivado/2022.2/lib/classes/planAhead.jar
+Vivado log file: 	/home/khyang/harvard/cs1410_lab/lab2/lab2_server/vivado.log
+Vivado journal file: 	/home/khyang/harvard/cs1410_lab/lab2/lab2_server/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-915601-sec-academic-1.int.seas.harvard.edu
+
+Xilinx Environment Variables
+----------------------------
+RDI_APPROOT: /software/xilinx-tools-2022/Vivado/2022.2
+RDI_BASEROOT: /software/xilinx-tools-2022/Vivado
+RDI_BINROOT: /software/xilinx-tools-2022/Vivado/2022.2/bin
+RDI_BUILD: yes
+RDI_DATADIR: /software/xilinx-tools-2022/Vivado/2022.2/data
+RDI_INSTALLROOT: /software/xilinx-tools-2022
+RDI_INSTALLVER: 2022.2
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 11.0.11_9
+RDI_LIBDIR: /software/xilinx-tools-2022/Vivado/2022.2/lib/lnx64.o/Default:/software/xilinx-tools-2022/Vivado/2022.2/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /software/xilinx-tools-2022/Vivado/2022.2/ids_lite/ISE/bin/lin64
+RDI_PROG: /software/xilinx-tools-2022/Vivado/2022.2/bin/unwrapped/lnx64.o/vivado
+RDI_TPS_ROOT: /software/xilinx-tools-2022/Vivado/2022.2/tps/lnx64
+RDI_USE_JDK11: True
+XILINX: /software/xilinx-tools-2022/Vivado/2022.2/ids_lite/ISE
+XILINXD_LICENSE_FILE: 27003@seas-license01.rc.fas.harvard.edu
+XILINX_DSP: /software/xilinx-tools-2022/Vivado/2022.2/ids_lite/ISE
+XILINX_HLS: /software/xilinx-tools-2022/Vitis_HLS/2022.2
+XILINX_PLANAHEAD: /software/xilinx-tools-2022/Vivado/2022.2
+XILINX_VITIS: 
+XILINX_VIVADO: /software/xilinx-tools-2022/Vivado/2022.2
+XILINX_VIVADO_HLS: /software/xilinx-tools-2022/Vivado/2022.2
+
+
+GUI allocated memory:	308 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 2,018 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+selectList(PAResourceQtoS.SyntheticaGettingStartedView_RECENT_PROJECTS, "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.xpr", 0); // b.a
+// [GUI Memory]: 109 MB (+111609kb) [00:00:10]
+// [Engine Memory]: 1,973 MB (+1916910kb) [00:00:10]
+// Opening Vivado Project: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.xpr. Version: Vivado v2022.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,003 MB. GUI used memory: 51 MB. Current time: 10/10/25, 12:12:51 AM EDT
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 2,080 MB (+9636kb) [00:00:17]
+// WARNING: HEventQueue.dispatchEvent() is taking  1787 ms.
+// Tcl Message: open_project /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from '/home/victorcai/cs1410_lab/lab2/lab2_server' since last save. INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.gen/sources_1'. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/software/xilinx-tools-2022/Vivado/2022.2/data/ip'. 
+// Project name: CS1410_lab2; location: /home/khyang/harvard/cs1410_lab/lab2/lab2_server; part: xc7a75tfgg484-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:08 . Memory (MB): peak = 7424.074 ; gain = 232.637 ; free physical = 388042 ; free virtual = 398708 
+dismissDialog("Open Project"); // bq
+// [Engine Memory]: 2,207 MB (+23164kb) [00:00:20]
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 136 MB (+23282kb) [00:01:22]
+// Elapsed time: 103 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, rca32 (adder.sv)]", 6, true); // D - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 2,292 MB. GUI used memory: 63 MB. Current time: 10/10/25, 12:14:46 AM EDT
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, rca32 (adder.sv)]", 6); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, rca32 (adder.sv)]", 6); // D
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 96 
+// Tcl Message: [Fri Oct 10 00:14:53 2025] Launched synth_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bq
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 39 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // S.a
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-311] Could not find the file '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv', nor could it be found using path '/home/victorcai/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv'.. ]", 2, true); // u.d - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-311] Could not find the file '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv', nor could it be found using path '/home/victorcai/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv'.. ]", 2, true); // u.d - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-311] Could not find the file '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv', nor could it be found using path '/home/victorcai/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv'.. ]", 2, true, false, false, false, false, true); // u.d - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, alu_top (alu_top.sv)]", 2, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, alu_top (alu_top.sv)]", 2, true, false, false, false, false, true); // D - Double Click - Node
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectCodeEditor("alu_top.sv", 90, 254); // ac
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Settings]", 1, false); // f
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// WARNING: HEventQueue.dispatchEvent() is taking  1568 ms.
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Settings]", 1, false); // f
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// [Engine Memory]: 2,320 MB (+3108kb) [00:03:16]
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Settings]", 1, false, false, false, false, false, true); // f - Double Click
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Settings]", 1, false); // f
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// HMemoryUtils.trashcanNow. Engine heap size: 2,335 MB. GUI used memory: 85 MB. Current time: 10/10/25, 12:15:56 AM EDT
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Simulation]", 1, false); // s
+dismissDialog("Settings"); // d
+// [GUI Memory]: 148 MB (+5338kb) [00:03:27]
+// [GUI Memory]: 156 MB (+653kb) [00:03:32]
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Settings]", 1, false); // f
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+selectButton(PAResourceOtoP.ProjectSettingsSimulationPanel_SELECT_TESTBENCH_TOP_MODULE, (String) null); // r
+selectList(PAResourceQtoS.SelectTopModuleDialog_SELECT_TOP_MODULE, "sll", 13); // K
+selectList(PAResourceQtoS.SelectTopModuleDialog_SELECT_TOP_MODULE, "sll", 13); // K
+selectList(PAResourceQtoS.SelectTopModuleDialog_SELECT_TOP_MODULE, "alu_tb", 12); // K
+selectList(PAResourceQtoS.SelectTopModuleDialog_SELECT_TOP_MODULE, "srl", 11); // K
+dismissDialog("Select Top Module"); // J
+selectTab(PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_ELABORATION, "Elaboration", 1); // g
+selectTab(PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_SIMULATION, "Simulation", 2); // g
+selectTab(PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_NETLIST, "Netlist", 3); // g
+selectTab(PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_ADVANCED, "Advanced", 4); // g
+selectTab(PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_COMPILATION, "Compilation", 0); // g
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Elaboration]", 2, false); // s
+// Elapsed time: 16 seconds
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Dataflow]", 3, false); // s
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Synthesis]", 4, false); // s
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Implementation]", 5, false); // s
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Bitstream]", 6, false); // s
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, General]", 0, false); // s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,340 MB. GUI used memory: 83 MB. Current time: 10/10/25, 12:16:56 AM EDT
+selectCodeEditor("alu_top.sv", 43, 190); // ac
+dismissDialog("Settings"); // d
+selectCodeEditor("alu_top.sv", 16, 179); // ac
+selectCodeEditor("alu_top.sv", 16, 180, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("alu_top.sv", 184, 191); // ac
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Save Project"); // W.d
+// TclEventType: RUN_MODIFY
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// Tcl Message: launch_runs synth_1 -jobs 96 
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Fri Oct 10 00:17:22 2025] Launched synth_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/synth_1/runme.log 
+// 'i' command handler elapsed time: 7 seconds
+dismissDialog("Starting Design Runs"); // bq
+// TclEventType: RUN_STATUS_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,362 MB. GUI used memory: 84 MB. Current time: 10/10/25, 12:17:26 AM EDT
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 237 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // S.a
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, alu_top (alu_top.sv), okHI : okHost (okLibrary.v)]", 4, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, okWireOR(archWireOR) (okLibrary.vhd)]", 25, false); // D
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Compile Order", 2); // g
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Hierarchy", 0); // g
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_OR_CREATE_SOURCE_FILE, "Add"); // B
+selectMenuItem(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files..."); // ao
+String[] filenames31467 = {"/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/and32.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/cla.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/flags.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/primitives32.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/sll.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/slt.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/sra.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/srl.sv"};
+setFileChooser(filenames31467);
+selectButton("FINISH", "Finish"); // JButton
+// 'f' command handler elapsed time: 12 seconds
+dismissDialog("Add Sources"); // c
+// Tcl Message: add_files -norecurse /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, alu_top (alu_top.sv), okHI : okHost (okLibrary.v)]", 5, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, okHost(archHost) (okLibrary.vhd)]", 14, true); // D - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 96 
+// Tcl Message: [Fri Oct 10 00:22:00 2025] Launched synth_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/CS1410_lab2.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bq
+// HMemoryUtils.trashcanNow. Engine heap size: 2,383 MB. GUI used memory: 109 MB. Current time: 10/10/25, 12:22:01 AM EDT
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 35 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // S.a
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, half_adder (adder.sv)]", 18, false); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, alu_top (alu_top.sv)]", 3); // D
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Compile Order", 2); // g
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Unreferenced]", 6); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Unreferenced, STUDENT_alu.sv]", 8, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Unreferenced, STUDENT_alu.sv]", 8, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Unreferenced, STUDENT_alu.sv]", 8, false, false, false, false, false, true); // D - Double Click
+selectButton(PAResourceOtoP.OpenFileAction_OPEN_DIRECTORY, "Open Directory"); // a
+// HOptionPane Error: 'Unable to launch the File Browser (Unable to launch the File Browser)'
+dismissDialog("Unable to Open File"); // Q.a
+selectButton("OptionPane.button", "OK"); // JButton
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Unreferenced, CLA.sv]", 10, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Unreferenced, CLA.sv]", 10, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Unreferenced, CLA.sv]", 10, false, false, false, false, false, true); // D - Double Click
+selectButton(PAResourceOtoP.OpenFileAction_OPEN_DIRECTORY, "Open Directory"); // a
+// HOptionPane Error: 'Unable to launch the File Browser (Unable to launch the File Browser)'
+dismissDialog("Unable to Open File"); // Q.a
+selectButton("OptionPane.button", "OK"); // JButton
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Libraries", 1); // g
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Hierarchy", 0); // g
+selectButton(PAResourceEtoH.FileSetPanel_MESSAGES, "4"); // g
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis]", 8); // u.d
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-439] module 'alu' not found [/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv:31]. ]", 9, false); // u.d
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-439] module 'alu' not found [/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv:31]. ]", 9, false); // u.d
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv;-;;-;16;-;line;-;31;-;;-;16;-;"); // u.d
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6156] failed synthesizing module 'alu_top' [/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv:9]. ]", 10, false); // u.d
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv;-;;-;16;-;line;-;9;-;;-;16;-;"); // u.d
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details. ]", 11, false); // u.d
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details. ]", 11, false); // u.d
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details. ]", 11, false, false, false, false, false, true); // u.d - Double Click
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Compile Order", 2); // g
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+String[] filenames16706 = {"/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/and32.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/cla.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/flags.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/primitives32.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/sll.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/slt.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/sra.sv", "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/srl.sv"};
+setFileChooser(filenames16706);
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+dismissFileChooser();
+selectCheckBox(PAResourceQtoS.SrcChooserPanel_MAKE_LOCAL_COPY_OF_THESE_FILES_INTO, "Copy sources into project", true); // f: TRUE
+// Elapsed time: 13 seconds
+selectTable(PAResourceQtoS.SrcChooserTable_SRC_CHOOSER_TABLE, "VSourceFile ; 5 ; and32.sv ; xil_defaultlib ; /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4, "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4); // aM
+selectTable(PAResourceQtoS.SrcChooserTable_SRC_CHOOSER_TABLE, "VSourceFile ; 5 ; and32.sv ; xil_defaultlib ; /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4, "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4); // aM
+selectTable(PAResourceQtoS.SrcChooserTable_SRC_CHOOSER_TABLE, "VSourceFile ; 5 ; and32.sv ; xil_defaultlib ; /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4, "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4); // aM
+selectTable(PAResourceQtoS.SrcChooserTable_SRC_CHOOSER_TABLE, "VSourceFile ; 5 ; and32.sv ; xil_defaultlib ; /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4, "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4); // aM
+selectTable(PAResourceQtoS.SrcChooserTable_SRC_CHOOSER_TABLE, "VSourceFile ; 5 ; and32.sv ; xil_defaultlib ; /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4, "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4); // aM
+selectTable(PAResourceQtoS.SrcChooserTable_SRC_CHOOSER_TABLE, "VSourceFile ; 5 ; and32.sv ; xil_defaultlib ; /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4, "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4); // aM
+selectTable(PAResourceQtoS.SrcChooserTable_SRC_CHOOSER_TABLE, "VSourceFile ; 5 ; and32.sv ; xil_defaultlib ; /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4, "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4); // aM
+selectTable(PAResourceQtoS.SrcChooserTable_SRC_CHOOSER_TABLE, "VSourceFile ; 5 ; and32.sv ; xil_defaultlib ; /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4, "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source", 4); // aM
+selectCheckBox(PAResourceQtoS.SrcChooserPanel_MAKE_LOCAL_COPY_OF_THESE_FILES_INTO, "Copy sources into project", false); // f: FALSE
+selectButton("FINISH", "Finish"); // JButton
+// 'f' command handler elapsed time: 41 seconds
+// [GUI Memory]: 167 MB (+2315kb) [00:11:44]
+dismissDialog("Add Sources"); // c
+// Tcl Message: add_files -norecurse /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh 
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-311] Could not find the file '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv', nor could it be found using path '/home/victorcai/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv'.. ]", 4, true); // u.d - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-509] GeneratedRun file for 'synth_1' not found. ]", 5, true); // u.d - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-311] Could not find the file '/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv', nor could it be found using path '/home/victorcai/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv'.. ]", 4, true); // u.d - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available. ]", 2, true); // u.d - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sim_1, [filemgmt 20-1318] Duplicate Design Unit 'and32()' found in library 'xil_defaultlib'. Duplicate found at line 1 of file /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/and32.sv. 	(Active) Duplicate found at line 4 of file /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/primitives32.sv. ]", 14, false); // u.d
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-439] module 'alu' not found [/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv:31]. ]", 16, false); // u.d
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-439] module 'alu' not found [/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv:31]. ]", 16, false, false, false, false, false, true); // u.d - Double Click
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-439] module 'alu' not found [/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv:31]. ]", 16, false); // u.d
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu_top.sv;-;;-;16;-;line;-;31;-;;-;16;-;"); // u.d
+selectCodeEditor("alu_top.sv", 69, 254); // ac
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Unreferenced, STUDENT_alu.sv]", 8, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Unreferenced, STUDENT_alu.sv]", 8, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ao
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // U
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/STUDENT_alu.sv 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Unreferenced, CLA.sv]", 9, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Unreferenced, CLA.sv]", 9, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ao
+// Run Command: RDIResourceCommand.RDICommands_DELETE

@@ -1,0 +1,131 @@
+#-----------------------------------------------------------
+# xsim v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Oct  8 07:50:22 2025
+# Process ID: 1061094
+# Current directory: /home/khyang/harvard/cs1410_lab/lab2/lab2_server
+# Command line: xsim -mode tcl -source {xsim.dir/alu_tb_sim/xsim_script.tcl}
+# Log file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.log
+# Journal file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/xsim.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1953.436 MHz, CPU Physical cores: 27, Host memory: 539830 MB
+#-----------------------------------------------------------
+source xsim.dir/alu_tb_sim/xsim_script.tcl
+# xsim {alu_tb_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+=== alu_tb (edge cases) start ===
+ERROR: AND:  op=000, x=ffffffff, y=ffffffff, z=00000000
+ERROR: AND:  op=000, x=deadbeef, y=deadbeef, z=00000000
+ERROR: ADD:  op=001, x=7fffffff, y=00000001, z=00000000
+ERROR: ADD:  op=001, x=7fffffff, y=00000000, z=00000000
+ERROR: ADD:  op=001, x=0000ffff, y=00000001, z=80000000
+ERROR: SUB:  op=010, x=deadbeef, y=deadbeef, z=80000000
+ERROR: SUB:  op=010, x=80000000, y=00000001, z=ffffffff
+ERROR: SUB:  op=010, x=00000001, y=00000002, z=80000000
+ERROR: SLT:  op=011, x=ffffffff, y=00000001, z=00000001
+ERROR: SLT:  op=011, x=80000000, y=00000000, z=00000000
+ERROR: SLT:  op=011, x=12345678, y=12345678, z=ffffffff
+ERROR: SLT:  op=011, x=80000000, y=80000000, z=80000000
+ERROR: SLT:  op=011, x=80000000, y=7fffffff, z=00000000
+ERROR: SLT:  op=011, x=80000000, y=ffffffff, z=80000000
+ERROR: SLT:  op=011, x=80000000, y=00000000, z=00000000
+ERROR: SLT:  op=011, x=80000000, y=7ffffffe, z=00000000
+ERROR: SLT:  op=011, x=80000000, y=80000001, z=80000000
+ERROR: SLT:  op=011, x=80000000, y=00007fff, z=00000000
+ERROR: SLT:  op=011, x=80000000, y=ffff8000, z=80000000
+ERROR: SUB:  op=010, x=7fffffff, y=80000000, z=ffffffff
+ERROR: SUB:  op=010, x=7fffffff, y=7fffffff, z=fffffffe
+ERROR: SLT:  op=011, x=7fffffff, y=7fffffff, z=7fffffff
+ERROR: SUB:  op=010, x=7fffffff, y=ffffffff, z=7ffffffe
+ERROR: SLT:  op=011, x=7fffffff, y=ffffffff, z=7fffffff
+ERROR: SUB:  op=010, x=7fffffff, y=00000000, z=7fffffff
+ERROR: SUB:  op=010, x=7fffffff, y=7ffffffe, z=fffffffd
+ERROR: SLT:  op=011, x=7fffffff, y=7ffffffe, z=7ffffffe
+ERROR: SUB:  op=010, x=7fffffff, y=80000001, z=00000000
+ERROR: SLT:  op=011, x=7fffffff, y=80000001, z=00000001
+ERROR: SUB:  op=010, x=7fffffff, y=00007fff, z=80007ffe
+ERROR: SLT:  op=011, x=7fffffff, y=00007fff, z=00007fff
+ERROR: SUB:  op=010, x=7fffffff, y=ffff8000, z=7fff7fff
+ERROR: SLT:  op=011, x=7fffffff, y=ffff8000, z=7fff8000
+ERROR: SUB:  op=010, x=ffffffff, y=80000000, z=7fffffff
+ERROR: SLT:  op=011, x=ffffffff, y=80000000, z=80000000
+ERROR: SUB:  op=010, x=ffffffff, y=7fffffff, z=7ffffffe
+ERROR: SLT:  op=011, x=ffffffff, y=7fffffff, z=7fffffff
+ERROR: SUB:  op=010, x=ffffffff, y=ffffffff, z=fffffffe
+ERROR: SLT:  op=011, x=ffffffff, y=ffffffff, z=ffffffff
+ERROR: SUB:  op=010, x=ffffffff, y=00000000, z=ffffffff
+ERROR: SLT:  op=011, x=ffffffff, y=00000000, z=00000000
+ERROR: SUB:  op=010, x=ffffffff, y=7ffffffe, z=7ffffffd
+ERROR: SLT:  op=011, x=ffffffff, y=7ffffffe, z=7ffffffe
+ERROR: SUB:  op=010, x=ffffffff, y=80000001, z=80000000
+ERROR: SLT:  op=011, x=ffffffff, y=80000001, z=80000001
+ERROR: SUB:  op=010, x=ffffffff, y=00007fff, z=00007ffe
+ERROR: SLT:  op=011, x=ffffffff, y=00007fff, z=00007fff
+ERROR: SUB:  op=010, x=ffffffff, y=ffff8000, z=ffff7fff
+ERROR: SLT:  op=011, x=ffffffff, y=ffff8000, z=ffff8000
+ERROR: SLT:  op=011, x=00000000, y=7fffffff, z=00000000
+ERROR: SLT:  op=011, x=00000000, y=7ffffffe, z=00000000
+ERROR: SLT:  op=011, x=00000000, y=00007fff, z=00000000
+ERROR: SUB:  op=010, x=7ffffffe, y=80000000, z=fffffffe
+ERROR: SUB:  op=010, x=7ffffffe, y=7fffffff, z=fffffffd
+ERROR: SLT:  op=011, x=7ffffffe, y=7fffffff, z=7ffffffe
+ERROR: SUB:  op=010, x=7ffffffe, y=ffffffff, z=7ffffffd
+ERROR: SLT:  op=011, x=7ffffffe, y=ffffffff, z=7ffffffe
+ERROR: SUB:  op=010, x=7ffffffe, y=00000000, z=7ffffffe
+ERROR: SUB:  op=010, x=7ffffffe, y=7ffffffe, z=fffffffc
+ERROR: SLT:  op=011, x=7ffffffe, y=7ffffffe, z=7ffffffe
+ERROR: SUB:  op=010, x=7ffffffe, y=80000001, z=ffffffff
+ERROR: SUB:  op=010, x=7ffffffe, y=00007fff, z=80007ffd
+ERROR: SLT:  op=011, x=7ffffffe, y=00007fff, z=00007ffe
+ERROR: SUB:  op=010, x=7ffffffe, y=ffff8000, z=7fff7ffe
+ERROR: SLT:  op=011, x=7ffffffe, y=ffff8000, z=7fff8000
+ERROR: SUB:  op=010, x=80000001, y=80000000, z=00000001
+ERROR: SLT:  op=011, x=80000001, y=80000000, z=80000000
+ERROR: SUB:  op=010, x=80000001, y=7fffffff, z=00000000
+ERROR: SLT:  op=011, x=80000001, y=7fffffff, z=00000001
+ERROR: SUB:  op=010, x=80000001, y=ffffffff, z=80000000
+ERROR: SLT:  op=011, x=80000001, y=ffffffff, z=80000001
+ERROR: SUB:  op=010, x=80000001, y=00000000, z=80000001
+ERROR: SLT:  op=011, x=80000001, y=00000000, z=00000000
+ERROR: SUB:  op=010, x=80000001, y=7ffffffe, z=ffffffff
+ERROR: SLT:  op=011, x=80000001, y=7ffffffe, z=00000000
+ERROR: SUB:  op=010, x=80000001, y=80000001, z=00000002
+ERROR: SLT:  op=011, x=80000001, y=80000001, z=80000001
+ERROR: SUB:  op=010, x=80000001, y=00007fff, z=80008000
+ERROR: SLT:  op=011, x=80000001, y=00007fff, z=00000001
+ERROR: SUB:  op=010, x=80000001, y=ffff8000, z=7fff8001
+ERROR: SLT:  op=011, x=80000001, y=ffff8000, z=80000000
+ERROR: SUB:  op=010, x=00007fff, y=80000000, z=80007fff
+ERROR: SUB:  op=010, x=00007fff, y=7fffffff, z=80007ffe
+ERROR: SLT:  op=011, x=00007fff, y=7fffffff, z=00007fff
+ERROR: SUB:  op=010, x=00007fff, y=ffffffff, z=00007ffe
+ERROR: SLT:  op=011, x=00007fff, y=ffffffff, z=00007fff
+ERROR: SUB:  op=010, x=00007fff, y=00000000, z=00007fff
+ERROR: SUB:  op=010, x=00007fff, y=7ffffffe, z=80007ffd
+ERROR: SLT:  op=011, x=00007fff, y=7ffffffe, z=00007ffe
+ERROR: SUB:  op=010, x=00007fff, y=80000001, z=80008000
+ERROR: SLT:  op=011, x=00007fff, y=80000001, z=00000001
+ERROR: SUB:  op=010, x=00007fff, y=00007fff, z=0000fffe
+ERROR: SLT:  op=011, x=00007fff, y=00007fff, z=00007fff
+ERROR: SUB:  op=010, x=00007fff, y=ffff8000, z=ffffffff
+ERROR: SUB:  op=010, x=ffff8000, y=80000000, z=7fff8000
+ERROR: SLT:  op=011, x=ffff8000, y=80000000, z=80000000
+ERROR: SUB:  op=010, x=ffff8000, y=7fffffff, z=7fff7fff
+ERROR: SLT:  op=011, x=ffff8000, y=7fffffff, z=7fff8000
+ERROR: SUB:  op=010, x=ffff8000, y=ffffffff, z=ffff7fff
+ERROR: SLT:  op=011, x=ffff8000, y=ffffffff, z=ffff8000
+ERROR: SUB:  op=010, x=ffff8000, y=00000000, z=ffff8000
+ERROR: SLT:  op=011, x=ffff8000, y=00000000, z=00000000
+ERROR: SUB:  op=010, x=ffff8000, y=7ffffffe, z=7fff7ffe
+ERROR: SLT:  op=011, x=ffff8000, y=7ffffffe, z=7fff8000
+ERROR: SUB:  op=010, x=ffff8000, y=80000001, z=7fff8001
+ERROR: SLT:  op=011, x=ffff8000, y=80000001, z=80000000
+ERROR: SUB:  op=010, x=ffff8000, y=00007fff, z=ffffffff
+ERROR: SLT:  op=011, x=ffff8000, y=00007fff, z=00000000
+ERROR: SUB:  op=010, x=ffff8000, y=ffff8000, z=ffff0000
+ERROR: SLT:  op=011, x=ffff8000, y=ffff8000, z=ffff8000
+=== DONE. Total errors: 110 ===
+$finish called at time : 282 ns : File "/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv" Line 155
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Oct  8 07:50:26 2025...

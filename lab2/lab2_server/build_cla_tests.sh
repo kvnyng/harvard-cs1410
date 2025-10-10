@@ -73,3 +73,4 @@ echo "  - Random pattern testing"
 echo ""
 echo "VCD file generated for waveform viewing: cla_tb.vcd"
 echo "=========================================="
+

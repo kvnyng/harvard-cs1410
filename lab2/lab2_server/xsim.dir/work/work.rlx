@@ -2,7 +2,7 @@
 2020.2
 Oct 14 2022
 05:07:14
-/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv,1760067096,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/mux.sv,,full_adder;half_adder;rca32,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/adder.sv,1760070706,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/rca32_tb.sv,,full_adder;half_adder;rca32,,,,,,,,
 /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.sv,1760068270,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh,STUDENT_alu,,,,,,,,
 /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.svh,1760054817,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/primitives32.sv,,,,,,,,,,
 /home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/cla.sv,1760068280,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/source/alu.sv,,cla,,,,,,,,
@@ -16,7 +16,7 @@ Oct 14 2022
 /home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/alu_tb.sv,1760065877,systemVerilog,,,,alu_tb,,,,,,,,
 /home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/cla_tb.sv,1760067520,systemVerilog,,,,cla_tb,,,,,,,,
 /home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/flags_tb.sv,1760059375,systemVerilog,,,,flags_tb,,,,,,,,
-/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/full_adder_tb.sv,1760056504,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/rca32_tb.sv,,full_adder_tb,,,,,,,,
+/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/full_adder_tb.sv,1760056620,systemVerilog,,/home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/rca32_tb.sv,,full_adder_tb,,,,,,,,
 /home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/mux_tb.sv,1760055846,systemVerilog,,,,mux_tb,,,,,,,,
 /home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/primitives32_tb.sv,1760055507,systemVerilog,,,,primitives32_tb,,,,,,,,
 /home/khyang/harvard/cs1410_lab/lab2/lab2_server/tb/rca32_tb.sv,1760056564,systemVerilog,,,,rca32_tb,,,,,,,,
