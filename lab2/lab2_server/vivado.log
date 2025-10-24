@@ -1,0 +1,128 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Oct 23 22:54:27 2025
+# Process ID: 3895224
+# Current directory: /home/khyang/harvard/cs1410_lab/lab2/lab2_server
+# Command line: vivado
+# Log file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/vivado.log
+# Journal file: /home/khyang/harvard/cs1410_lab/lab2/lab2_server/vivado.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1300.001 MHz, CPU Physical cores: 26, Host memory: 539830 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.xpr
+INFO: [Project 1-313] Project file moved from '/home/jennifersiyuanzhou/cs1410_course_repo/lab3/lab3_server' since last save.
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.gen/sources_1'.
+WARNING: [filemgmt 56-3] IPUserFilesDir: Could not find the directory '/home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.ip_user_files'.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-509] GeneratedRun file for 'synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'impl_1' not found
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/software/xilinx-tools-2022/Vivado/2022.2/data/ip'.
+update_compile_order -fileset sources_1
+launch_runs impl_1 -jobs 96
+[Thu Oct 23 22:55:11 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/synth_1/runme.log
+[Thu Oct 23 22:55:11 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7a75tfgg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 7636.301 ; gain = 0.000 ; free physical = 313910 ; free virtual = 350236
+INFO: [Netlist 29-17] Analyzing 145 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.19 . Memory (MB): peak = 8280.410 ; gain = 0.000 ; free physical = 312176 ; free virtual = 348502
+Restored from archive | CPU: 0.200000 secs | Memory: 2.001518 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.19 . Memory (MB): peak = 8280.410 ; gain = 0.000 ; free physical = 312176 ; free virtual = 348502
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8280.410 ; gain = 0.000 ; free physical = 312169 ; free virtual = 348496
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 83 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 33 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 38 instances
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 8 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
+
+open_run: Time (s): cpu = 00:00:26 ; elapsed = 00:00:16 . Memory (MB): peak = 8535.562 ; gain = 1147.855 ; free physical = 311949 ; free virtual = 348269
+reset_run synth_1
+launch_runs synth_1 -jobs 96
+[Thu Oct 23 23:04:41 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 96
+[Thu Oct 23 23:06:28 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/impl_1/runme.log
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 8535.562 ; gain = 0.000 ; free physical = 312320 ; free virtual = 350161
+INFO: [Netlist 29-17] Analyzing 145 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.16 . Memory (MB): peak = 8535.562 ; gain = 0.000 ; free physical = 312161 ; free virtual = 350007
+Restored from archive | CPU: 0.170000 secs | Memory: 1.965965 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.16 . Memory (MB): peak = 8535.562 ; gain = 0.000 ; free physical = 312161 ; free virtual = 350007
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Thu Oct 23 23:08:07 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 96
+[Thu Oct 23 23:51:47 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/synth_1/runme.log
+[Thu Oct 23 23:51:47 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 96
+[Fri Oct 24 00:01:12 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/synth_1/runme.log
+[Fri Oct 24 00:01:12 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/impl_1/runme.log
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 9372.062 ; gain = 0.000 ; free physical = 311954 ; free virtual = 348442
+INFO: [Netlist 29-17] Analyzing 146 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.19 . Memory (MB): peak = 9372.062 ; gain = 0.000 ; free physical = 311843 ; free virtual = 348331
+Restored from archive | CPU: 0.190000 secs | Memory: 1.974739 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.19 . Memory (MB): peak = 9372.062 ; gain = 0.000 ; free physical = 311843 ; free virtual = 348331
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Oct 24 00:05:13 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Oct 24 00:06:15 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/synth_1/runme.log
+[Fri Oct 24 00:06:15 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/impl_1/runme.log
