@@ -173,7 +173,7 @@ class TrafficLightsApp:
 
     # Function to get timer value
     def get_timer_out(self):
-        timer = self.dev.getWire(0x20, 0xffffffff) 
+        timer = self.dev.getWire(0x20, 0x1f)  # Read only lower 5 bits [4:0]
         return timer  # Example value, replace with actual logic
 
     # Function to get traffic light status for North-South

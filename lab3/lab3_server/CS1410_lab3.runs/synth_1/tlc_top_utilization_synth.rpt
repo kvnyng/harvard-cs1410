@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Fri Oct 24 00:19:11 2025
+| Date         : Fri Oct 24 00:30:14 2025
 | Host         : sec-academic-1.int.seas.harvard.edu running 64-bit unknown
 | Command      : report_utilization -file tlc_top_utilization_synth.rpt -pb tlc_top_utilization_synth.pb
 | Design       : tlc_top
@@ -36,8 +36,8 @@ Table of Contents
 |   LUT as Memory            |   32 |     0 |          0 |     19000 |  0.17 |
 |     LUT as Distributed RAM |   32 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
-| Slice Registers            |  803 |    86 |          0 |     94400 |  0.85 |
-|   Register as Flip Flop    |  803 |    86 |          0 |     94400 |  0.85 |
+| Slice Registers            |  804 |    86 |          0 |     94400 |  0.85 |
+|   Register as Flip Flop    |  804 |    86 |          0 |     94400 |  0.85 |
 |   Register as Latch        |    0 |     0 |          0 |     94400 |  0.00 |
 | F7 Muxes                   |    8 |     0 |          0 |     31700 |  0.03 |
 | F8 Muxes                   |    0 |     0 |          0 |     15850 |  0.00 |
@@ -61,7 +61,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 37    |          Yes |           - |          Set |
 | 159   |          Yes |           - |        Reset |
 | 5     |          Yes |         Set |            - |
-| 602   |          Yes |       Reset |            - |
+| 603   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -155,7 +155,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| FDRE       |  602 |        Flop & Latch |
+| FDRE       |  603 |        Flop & Latch |
 | LUT6       |  495 |                 LUT |
 | LUT4       |  316 |                 LUT |
 | FDCE       |  159 |        Flop & Latch |

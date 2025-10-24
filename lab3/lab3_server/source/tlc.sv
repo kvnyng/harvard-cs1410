@@ -21,6 +21,7 @@ module tlc
     logic reset_road, reset_road_next;
     logic click_rst_prev;
     logic force_timer_load;
+    logic orange_flash_state;  // 0 = OFF, 1 = ON
 
     // synchronous logic (update the state on clock edge)
     always_ff @(posedge clk) begin
@@ -32,6 +33,7 @@ module tlc
             click_rst_prev <= 0;
             reset_road <= 0;
             force_timer_load <= 1;
+            orange_flash_state <= 0;  // Start with orange OFF
         end
         else begin
             // Always update click_rst_prev to avoid timing issues
@@ -65,6 +67,16 @@ module tlc
             else begin
                 // Clear force_timer_load on any clock cycle after reset
                 force_timer_load <= 1'b0;
+            end
+            
+            // Orange flashing state management
+            // Toggle orange flash state every second (on clk_slow edge)
+            // Only flash when in orange pedestrian phases
+            if (clk_slow && (ped_state == `PED_ORANGE)) begin
+                orange_flash_state <= ~orange_flash_state;  // Toggle every second
+            end
+            else if (ped_state != `PED_ORANGE) begin
+                orange_flash_state <= 0;  // Reset to OFF when not in orange phase
             end
         end
     end
@@ -151,8 +163,8 @@ module tlc
 				end
 				light_ns = `LIGHT_GREEN;
 				light_ew = `LIGHT_RED;
-				// Make NS orange flash at 1Hz - bit 2 flashes with clk_slow
-				ped_sigs = {1'b0, clk_slow, 1'b0, 1'b0}; // NS orange (bit 2) flashes, EW amber (bit 0) off
+				// Make NS orange flash at 1Hz using orange_flash_state
+				ped_sigs = {1'b0, orange_flash_state, 1'b0, 1'b0}; // NS orange (bit 2) flashes, EW amber (bit 0) off
 			end
 			
 			// NS Car yellow: LIGHT_YELLOW, PED_ORANGE, DIR_NS
@@ -169,8 +181,8 @@ module tlc
 				end
 				light_ns = `LIGHT_YELLOW;
 				light_ew = `LIGHT_RED;
-				// Make NS orange flash at 1Hz - bit 2 flashes with clk_slow
-				ped_sigs = {1'b0, clk_slow, 1'b0, 1'b0}; // NS orange (bit 2) flashes, EW amber (bit 0) off
+				// Make NS orange flash at 1Hz using orange_flash_state
+				ped_sigs = {1'b0, orange_flash_state, 1'b0, 1'b0}; // NS orange (bit 2) flashes, EW amber (bit 0) off
 			end
 			
 			// NS Pedestrian red: LIGHT_YELLOW, PED_AMBER, DIR_NS
@@ -225,8 +237,8 @@ module tlc
 				end
 				light_ns = `LIGHT_RED;
 				light_ew = `LIGHT_GREEN;
-				// Make EW orange flash at 1Hz - bit 0 flashes with clk_slow
-				ped_sigs = {1'b0, 1'b0, 1'b0, clk_slow}; // NS amber (bit 2) off, EW orange (bit 0) flashes
+				// Make EW orange flash at 1Hz using orange_flash_state
+				ped_sigs = {1'b0, 1'b0, 1'b0, orange_flash_state}; // NS amber (bit 2) off, EW orange (bit 0) flashes
 			end
 			
 			// EW Car yellow: LIGHT_YELLOW, PED_ORANGE, DIR_EW
@@ -243,8 +255,8 @@ module tlc
 				end
 				light_ns = `LIGHT_RED;
 				light_ew = `LIGHT_YELLOW;
-				// Make EW orange flash at 1Hz - bit 0 flashes with clk_slow
-				ped_sigs = {1'b0, 1'b0, 1'b0, clk_slow}; // NS amber (bit 2) off, EW orange (bit 0) flashes
+				// Make EW orange flash at 1Hz using orange_flash_state
+				ped_sigs = {1'b0, 1'b0, 1'b0, orange_flash_state}; // NS amber (bit 2) off, EW orange (bit 0) flashes
 			end
 			
 			// EW Pedestrian red: LIGHT_YELLOW, PED_AMBER, DIR_EW
