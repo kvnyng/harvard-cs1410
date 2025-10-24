@@ -28,12 +28,12 @@ wire  okClk, clk_1hz;
 wire car_ns, car_ew, click_rst;
 wire clk_div_rst, timer_rst;
 wire en, load; 
-wire [3:0] init;
+wire [4:0] init;
 
 //outputs
 wire [1:0] light_ew, light_ns;
 wire [3:0] ped_sigs;
-wire [3:0] out;
+wire [4:0] out;
 
 
 
@@ -71,8 +71,8 @@ assign click_rst = WireIn02[0];
 assign clk_div_rst = WireIn03[0];
 assign timer_rst = WireIn04[0];
 
-assign WireOut20[3:0] = out;
-assign WireOut20[31:4] = 28'b0;
+assign WireOut20[4:0] = out;
+assign WireOut20[31:5] = 27'b0;
 
 assign WireOut21[1:0] = light_ew;
 assign WireOut21[31:2] = 30'b0;

@@ -38,12 +38,15 @@ module tlc
             click_rst_prev <= click_rst;
             
             // Single assignment to force_timer_load to prevent multiple drivers
-            if (click_rst) begin
-                // Reset button pressed - go to initial state immediately
+            // Make reset edge-triggered to avoid hanging on button press
+            if (click_rst && !click_rst_prev) begin
+                // Reset button pressed (edge detected) - go to initial state immediately
                 car_state <= `LIGHT_RED;
                 ped_state <= `PED_RED;
                 direction <= `DIR_START;
                 timer_loaded <= 0;
+                // Also reset the road signal to ensure clean state
+                reset_road <= 0;
             end
             else if (clk_slow) begin
                 // Normal state transition
@@ -55,7 +58,14 @@ module tlc
             end
             
             // Single assignment for force_timer_load to prevent multiple drivers
-            force_timer_load <= (rst || click_rst) ? 1'b1 : (clk_slow ? 1'b0 : force_timer_load);
+            // Set force_timer_load on reset, clear it on the next clock cycle
+            if (rst || (click_rst && !click_rst_prev)) begin
+                force_timer_load <= 1'b1;
+            end
+            else begin
+                // Clear force_timer_load on any clock cycle after reset
+                force_timer_load <= 1'b0;
+            end
         end
     end
 

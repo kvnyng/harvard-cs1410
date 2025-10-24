@@ -53,7 +53,7 @@ module timer
     
      always_ff @(posedge clk) begin
         if (rst) begin
-            out <= 4'd0;  // Start at 0, not 15
+            out <= 5'd0;  // Start at 0, not 15
         end
         else if (load) begin
             out <= init;  // Load the initial value
