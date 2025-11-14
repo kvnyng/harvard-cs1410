@@ -24,11 +24,11 @@ module control_unit
     );
 
     // State definitions
-    typedef enum logic [1:0] {
-        S0_INST_FETCH = 2'b00,
-        S1_INST_DECODE = 2'b01,
-        S2_EXECUTE_RTYPE = 2'b10,
-        S3_RTYPE_WRITEBACK = 2'b11
+    typedef enum {
+        S0_INST_FETCH,
+        S1_INST_DECODE,
+        S2_EXECUTE_RTYPE,
+        S3_RTYPE_WRITEBACK
     } state_t;
 
     state_t current_state, next_state;
