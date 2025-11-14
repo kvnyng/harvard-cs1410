@@ -1,0 +1,65 @@
+
+****** xsim v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/cpu_tests_tb_sim/xsim_script.tcl
+# xsim {cpu_tests_tb_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+WARNING: File data.mem referenced on /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/reg_file.sv at line 24 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+WARNING: File dead_memory.mem referenced on /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/reg_file.sv at line 24 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+========================================
+CPU Tests Testbench
+========================================
+Instruction Memory: tests/rtype_tests_instr.mem
+Data Memory:  
+
+Loading instruction memory...
+  Loaded 15 words from tests/rtype_tests_instr.mem
+
+Starting simulation...
+Maximum cycles: 2000
+
+
+REGS:
+
+Reg 0 ($zero)  :  0x00000000
+Reg 1 ($at)   :  0xxxxxxxxx
+Reg 2 ($v0)   :  0xxxxxxxxx
+Reg 3 ($v1)   :  0xxxxxxxxx
+Reg 4 ($a0)   :  0xxxxxxxxx
+Reg 5 ($a1)   :  0xxxxxxxxx
+Reg 6 ($a2)   :  0xxxxxxxxx
+Reg 7 ($a3)   :  0xxxxxxxxx
+Reg 8 ($t0)   :  0xffffffff
+Reg 9 ($t1)   :  0x00000001
+Reg 10 ($t2)  :  0x00000002
+Reg 11 ($t3)  :  0x00000003
+Reg 12 ($t4)  :  0x00000030
+Reg 13 ($t5)  :  0x0000002f
+Reg 14 ($t6)  :  0x00000032
+Reg 15 ($t7)  :  0x00000031
+Reg 16 ($s0)  :  0xfffffff3
+Reg 17 ($s1)  :  0x3ffffff3
+Reg 18 ($s2)  :  0x00000001
+Reg 19 ($s3)  :  0x00000001
+Reg 20 ($s4)  :  0xxxxxxxxx
+Reg 21 ($s5)  :  0xxxxxxxxx
+Reg 22 ($s6)  :  0xxxxxxxxx
+Reg 23 ($s7)  :  0xxxxxxxxx
+Reg 24 ($t8)  :  0x00000030
+Reg 25 ($t9)  :  0xffffffcc
+Reg 26 ($k0)  :  0xxxxxxxxx
+Reg 27 ($k1)  :  0xxxxxxxxx
+Reg 28 ($gp)  :  0xxxxxxxxx
+Reg 29 ($sp)  :  0xxxxxxxxx
+Reg 30 ($fp)  :  0xxxxxxxxx
+Reg 31 ($ra)  :  0xxxxxxxxx
+
+Simulation completed after 2020 cycles
+Final PC: 0x00400f54
+$finish called at time : 20225 ns : File "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/tb/cpu_tests_tb.sv" Line 182
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Nov 14 01:56:29 2025...

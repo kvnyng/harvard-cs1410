@@ -198,14 +198,9 @@ module cpu_rtype_sequential_tb();
             fail_count++;
             $error("Test '%s' FAILED: Register $%0d: expected=0x%08h (%0d), got=0x%08h (%0d)", 
                    instr_desc, rd, expected, expected, actual, actual);
-            $display("  DEBUG: instruction_reg[25:21] (rs) = $%0d, instruction_reg[20:16] (rt) = $%0d",
-                     dbg_instruction_reg_rs, dbg_instruction_reg_rt);
-            $display("  DEBUG: reg_file_r0_addr = $%0d, reg_file_r1_addr = $%0d",
+            $display("  Debug info: rs=$%0d, rt=$%0d, r0_addr=$%0d, r1_addr=$%0d",
+                     dbg_instruction_reg_rs, dbg_instruction_reg_rt,
                      dbg_reg_file_r0_addr, dbg_reg_file_r1_addr);
-            $display("  DEBUG: reg_file_r0_data = 0x%08h (%0d), reg_file_r1_data = 0x%08h (%0d)",
-                     dbg_reg_file_r0_data, dbg_reg_file_r0_data, dbg_reg_file_r1_data, dbg_reg_file_r1_data);
-            $display("  DEBUG: Register_File_A = 0x%08h (%0d), Register_File_B = 0x%08h (%0d)",
-                     dbg_Register_File_A, dbg_Register_File_A, dbg_Register_File_B, dbg_Register_File_B);
         end
     endtask
     
@@ -278,10 +273,10 @@ module cpu_rtype_sequential_tb();
         write_instruction_memory(32'h00400034, 32'h00047042); // SRL  $14, $4, 1
         write_instruction_memory(32'h00400038, 32'h00057843); // SRA  $15, $5, 1
         
-        // CRITICAL FIX: Load ALL additional test instructions BEFORE starting simulation
+        // Load ALL additional test instructions BEFORE starting simulation
         // This prevents the CPU from fetching uninitialized memory (NOP) at 0x0040003C
         $display("\n=== Loading Additional Test Instructions ===");
-        $display("Loading additional tests BEFORE simulation starts to avoid timing issues\n");
+        $display("Loading additional tests before simulation starts\n");
         
         // Test 1: Zero operations (using registers $1, $2)
         write_instruction_memory(32'h0040003C, 32'h20010000); // ADDI $1, $0, 0  -> $1 = 0
@@ -345,8 +340,6 @@ module cpu_rtype_sequential_tb();
         $display("Each R-type instruction takes 4 cycles (S0->S1->S2->S3)");
         $display("For 15 original + 34 additional = 49 instructions: ~196 cycles minimum\n");
         
-        // Monitor debug signals during execution
-        $display("Monitoring debug signals during execution...\n");
         
         // Wait for instruction execution cycles
         // Each instruction takes 4 cycles, so for 49 instructions: 49 * 4 = 196 cycles
@@ -459,10 +452,8 @@ module cpu_rtype_sequential_tb();
         $display("  Register $11 = 0x%08h, $12 = 0x%08h", regs_ok[11], regs_ok[12]);
         $display("");
         
-        // Debug: Check what instructions were actually executed by monitoring RegWrite
-        $display("  Debug: Total register writes captured: %0d", reg_write_count);
-        $display("  Debug: Last RegWrite: w_addr=$%0d, w_data=0x%08h, RegWrite=%0b", 
-                 dbg_reg_file_w_addr, dbg_reg_file_w_data, dbg_RegWrite);
+        // Summary of register writes captured
+        $display("  Total register writes captured: %0d", reg_write_count);
         
         // Display ALL register writes to see what was actually written
         $display("\n  All register writes captured (%0d total):", reg_write_count);

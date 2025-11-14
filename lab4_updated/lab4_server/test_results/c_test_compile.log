@@ -1,0 +1,25 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/cpu.svh" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/reg_en.sv" into library work
+INFO: [VRFC 10-311] analyzing module reg_en
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/reg_reset.sv" into library work
+INFO: [VRFC 10-311] analyzing module reg_reset
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/reg_file.sv" into library work
+INFO: [VRFC 10-311] analyzing module reg_file
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/alu.sv" into library work
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/rw_ram.sv" into library work
+INFO: [VRFC 10-311] analyzing module rw_ram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/mux.sv" into library work
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-311] analyzing module mux_1bit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/sign_extend.sv" into library work
+INFO: [VRFC 10-311] analyzing module sign_extend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/barrel_shifter.sv" into library work
+INFO: [VRFC 10-311] analyzing module barrel_shifter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/control_unit.sv" into library work
+INFO: [VRFC 10-311] analyzing module control_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/cpu.sv" into library work
+INFO: [VRFC 10-311] analyzing module cpu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/test_results/c_test_defines.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/tb/cpu_tests_tb.sv" into library work
+INFO: [VRFC 10-311] analyzing module cpu_tests_tb
