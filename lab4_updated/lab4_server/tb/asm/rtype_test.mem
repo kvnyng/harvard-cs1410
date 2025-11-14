@@ -1,0 +1,41 @@
+// R-Type Instructions Test Program
+// Memory file for testing R-type instructions
+// Format: One instruction per line (32-bit hex)
+
+// Setup: Initialize registers with values using ADDI (I-type, but needed for setup)
+// Note: This file would normally contain hex instructions
+// For R-type testing, we need setup instructions first
+
+// Example instruction encoding:
+// ADD $1, $2, $3 = 0x00421820
+// SUB $1, $2, $3 = 0x00421822
+// AND $1, $2, $3 = 0x00421824
+// OR  $1, $2, $3 = 0x00421825
+// XOR $1, $2, $3 = 0x00421826
+// NOR $1, $2, $3 = 0x00421827
+// SLT $1, $2, $3 = 0x0042182A
+// SLL $1, $2, 2  = 0x00021080
+// SRL $1, $2, 2  = 0x00021082
+// SRA $1, $2, 2  = 0x00021083
+
+// Setup instructions (I-type, needed to initialize registers):
+// ADDI $2, $0, 5   = 0x20020005  (Set $2 = 5)
+// ADDI $3, $0, 3   = 0x20030003  (Set $3 = 3)
+// ADDI $4, $0, 0xFFFFFFFF = 0x2004FFFF (Set $4 = -1)
+
+// R-type test instructions:
+// ADD $1, $2, $3   = 0x00421820  ($1 = $2 + $3 = 5 + 3 = 8)
+// SUB $5, $2, $3   = 0x00432822  ($5 = $2 - $3 = 5 - 3 = 2)
+// AND $6, $2, $3   = 0x00433024  ($6 = $2 & $3 = 5 & 3 = 1)
+// OR  $7, $2, $3   = 0x00433825  ($7 = $2 | $3 = 5 | 3 = 7)
+// XOR $8, $2, $3   = 0x00434026  ($8 = $2 ^ $3 = 5 ^ 3 = 6)
+// NOR $9, $2, $3   = 0x00434827  ($9 = ~($2 | $3) = ~7 = 0xFFFFFFF8)
+// SLT $10, $2, $3  = 0x0043502A  ($10 = ($2 < $3) ? 1 : 0 = 0)
+// SLT $11, $3, $2  = 0x0062582A  ($11 = ($3 < $2) ? 1 : 0 = 1)
+// SLL $12, $2, 2   = 0x00026080  ($12 = $2 << 2 = 5 << 2 = 20)
+// SRL $13, $2, 1   = 0x00026842  ($13 = $2 >> 1 = 5 >> 1 = 2)
+// SRA $14, $4, 1   = 0x00047043  ($14 = $4 >>> 1 = -1 >>> 1 = -1)
+
+// Placeholder - actual hex values would go here
+// For now, using comments to document the test structure
+

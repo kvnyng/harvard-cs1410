@@ -1,5 +1,7 @@
 // 32x32 register file
 
+`timescale 1ns / 1ps
+
 module reg_file
     #(
         parameter DATA_WIDTH = 32, // bits per reg
@@ -21,10 +23,15 @@ module reg_file
     
     assign regs_ok = regs; //OK
     
-    always_ff @(posedge clk)
-        if (wr_en)
+    // Register $0 is always 0 and cannot be written to
+    always_ff @(posedge clk) begin
+        if (wr_en && w_addr != 0)  // Never write to register $0
             regs[w_addr] <= w_data;
+        // Ensure regs[0] is always 0
+        regs[0] <= 0;
+    end
 
+    // Register $0 always returns 0
     assign r0_data = r0_addr == 0 ? 0 : regs[r0_addr];
     assign r1_data = r1_addr == 0 ? 0 : regs[r1_addr];
 endmodule

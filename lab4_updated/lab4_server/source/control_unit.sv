@@ -6,6 +6,7 @@
 module control_unit
     (
         input logic clk,
+        input logic rst,
         input logic [5:0] opcode,
         input logic [5:0] funct,
 
@@ -28,14 +29,20 @@ module control_unit
         S0_INST_FETCH,
         S1_INST_DECODE,
         S2_EXECUTE_RTYPE,
-        S3_RTYPE_WRITEBACK
+        S3_RTYPE_WRITEBACK,
+        S2_EXECUTE_ITYPE,
+        S3_ITYPE_WRITEBACK
     } state_t;
 
     state_t current_state, next_state;
 
-    // State register
+    // State register with reset
     always_ff @(posedge clk) begin
-        current_state <= next_state;
+        if (rst) begin
+            current_state <= S0_INST_FETCH;
+        end else begin
+            current_state <= next_state;
+        end
     end
 
     // Next state logic
@@ -48,8 +55,11 @@ module control_unit
             S1_INST_DECODE: begin
                 if (opcode == `OP_RTYPE) begin
                     next_state = S2_EXECUTE_RTYPE;
+                end else if (opcode == `OP_ADDI) begin
+                    // Handle ADDI (I-type) for setup instructions
+                    next_state = S2_EXECUTE_ITYPE;
                 end else begin
-                    // For now, only handle R-type, stay in decode or go back to fetch
+                    // Unknown instruction, go back to fetch
                     next_state = S0_INST_FETCH;
                 end
             end
@@ -57,6 +67,12 @@ module control_unit
                 next_state = S3_RTYPE_WRITEBACK;
             end
             S3_RTYPE_WRITEBACK: begin
+                next_state = S0_INST_FETCH;
+            end
+            S2_EXECUTE_ITYPE: begin
+                next_state = S3_ITYPE_WRITEBACK;
+            end
+            S3_ITYPE_WRITEBACK: begin
                 next_state = S0_INST_FETCH;
             end
             default: begin
@@ -111,6 +127,9 @@ module control_unit
             end
             S1_INST_DECODE: begin
                 // S1: Instruction Decode
+                // Register file addresses are set from instruction_reg (updated in S0)
+                // Register_File_A and Register_File_B continuously track register file outputs
+                // The FSM waits here to ensure values are stable before execution
                 ALUSrcA = 1'b0;
                 ALUSrcB = 2'b11;
                 ALUControl = `ALU_ADD;
@@ -125,6 +144,19 @@ module control_unit
                 // S3: R-Type Writeback
                 RegDst = 1'b1;
                 MemToReg = 1'b0;  // MemtoReg = 0 (select ALU result, not memory data)
+                RegWrite = 1'b1;
+            end
+            S2_EXECUTE_ITYPE: begin
+                // S2: Execute I-Type (ADDI)
+                ALUSrcA = 1'b1;      // Use Register_File_A (rs)
+                ALUSrcB = 2'b10;     // Use SignImm (sign-extended immediate)
+                ALUControl = `ALU_ADD; // Add operation
+                // Note: Register_File_A should have been captured in S1
+            end
+            S3_ITYPE_WRITEBACK: begin
+                // S3: I-Type Writeback (ADDI)
+                RegDst = 1'b0;       // Select rt (20:16) for write address
+                MemToReg = 1'b0;     // Select ALU result
                 RegWrite = 1'b1;
             end
             default: begin

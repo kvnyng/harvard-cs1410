@@ -1,0 +1,30 @@
+// Sequential R-Type Instructions Test Program
+// Instruction memory file - loaded at address 0x00400000
+// Format: One 32-bit hex instruction per line
+
+// Setup instructions (I-type ADDI to initialize registers):
+20020005  // ADDI $2, $0, 5    -> $2 = 5
+20030003  // ADDI $3, $0, 3    -> $3 = 3
+2004000A  // ADDI $4, $0, 10   -> $4 = 10
+2005FFFF  // ADDI $5, $0, -1   -> $5 = 0xFFFFFFFF (sign-extended)
+
+// R-type test instructions:
+00421820  // ADD  $1, $2, $3   -> $1 = 5 + 3 = 8
+00823022  // SUB  $6, $4, $2   -> $6 = 10 - 5 = 5
+00433824  // AND  $7, $2, $3   -> $7 = 5 & 3 = 1
+00434025  // OR   $8, $2, $3   -> $8 = 5 | 3 = 7
+00434826  // XOR  $9, $2, $3   -> $9 = 5 ^ 3 = 6
+00435027  // NOR  $10, $2, $3  -> $10 = ~(5 | 3) = 0xFFFFFFF8
+0044582A  // SLT  $11, $2, $4  -> $11 = (5 < 10) ? 1 : 0 = 1
+0082602A  // SLT  $12, $4, $2  -> $12 = (10 < 5) ? 1 : 0 = 0
+00026880  // SLL  $13, $2, 2   -> $13 = 5 << 2 = 20
+00047042  // SRL  $14, $4, 1   -> $14 = 10 >> 1 = 5
+00057843  // SRA  $15, $5, 1   -> $15 = -1 >>> 1 = -1 (0xFFFFFFFF)
+
+// Additional edge case tests:
+00421822  // SUB  $1, $2, $3   -> $1 = 5 - 3 = 2 (overwrite previous)
+0042602A  // SLT  $12, $2, $3  -> $12 = (5 < 3) ? 1 : 0 = 0
+0062582A  // SLT  $11, $3, $2  -> $11 = (3 < 5) ? 1 : 0 = 1
+00021080  // SLL  $2, $2, 2    -> $2 = 5 << 2 = 20 (self-modifying)
+00021082  // SRL  $2, $2, 2    -> $2 = 20 >> 2 = 5 (restore)
+

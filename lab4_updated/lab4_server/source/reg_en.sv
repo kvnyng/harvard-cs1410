@@ -1,5 +1,7 @@
 // register with asynchronous reset and synchronous enable
 
+`timescale 1ns / 1ps
+
 module reg_en
     #(
         parameter N = 32,

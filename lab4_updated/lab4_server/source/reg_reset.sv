@@ -1,5 +1,7 @@
 // register with asynchronous reset
 
+`timescale 1ns / 1ps
+
 module reg_reset
     #(
         parameter N = 32
