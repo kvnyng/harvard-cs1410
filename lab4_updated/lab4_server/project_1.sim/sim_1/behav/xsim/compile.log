@@ -1,0 +1,30 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/STAFF/STAFF_ALU_DECODER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module STAFF_ALU_DECODER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/STAFF/STAFF_CONTROL_UNIT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module STAFF_CONTROL_UNIT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/STAFF/STAFF_INSTR_DECODER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module STAFF_INSTR_DECODER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/STAFF/STAFF_MAIN_DECODER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module STAFF_MAIN_DECODER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/STAFF/STAFF_SHIFT_EXTEND.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module STAFF_SHIFT_EXTEND
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/STAFF/STAFF_SIGN_EXTEND.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module STAFF_SIGN_EXTEND
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/STAFF/STAFF_cpu.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module STAFF_cpu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/STAFF/STAFF_mux2to1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module STAFF_mux2to1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/STAFF/STAFF_mux4to1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module STAFF_mux4to1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/alu.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/reg_en.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reg_en
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/reg_file.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reg_file
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/source/rw_ram.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rw_ram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/tb/cpu_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cpu_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kevinkim/cs1410_lab/lab4_archive/lab4_STAFF/lab4/lab4_server/project_1.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

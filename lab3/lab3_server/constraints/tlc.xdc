@@ -35,3 +35,4 @@ set_false_path -from [get_ports click_rst]
 set_max_delay -from [get_clocks clk] -to [get_ports light_ns] 8.0
 set_max_delay -from [get_clocks clk] -to [get_ports light_ew] 8.0
 set_max_delay -from [get_clocks clk] -to [get_ports ped_sigs] 8.0
+

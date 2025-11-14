@@ -138,3 +138,13 @@ launch_runs impl_1 -to_step write_bitstream -jobs 96
 Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/synth_1/runme.log
 [Fri Oct 24 00:29:19 2025] Launched impl_1...
 Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Oct 24 00:34:00 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/synth_1/runme.log
+[Fri Oct 24 00:34:00 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/impl_1/runme.log
+reset_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Oct 24 00:35:29 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab3/lab3_server/CS1410_lab3.runs/impl_1/runme.log

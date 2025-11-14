@@ -1,0 +1,22 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "../../../../source" \
+"../../../../source/STAFF/STAFF_ALU_DECODER.sv" \
+"../../../../source/STAFF/STAFF_CONTROL_UNIT.sv" \
+"../../../../source/STAFF/STAFF_INSTR_DECODER.sv" \
+"../../../../source/STAFF/STAFF_MAIN_DECODER.sv" \
+"../../../../source/STAFF/STAFF_SHIFT_EXTEND.sv" \
+"../../../../source/STAFF/STAFF_SIGN_EXTEND.sv" \
+"../../../../source/STAFF/STAFF_cpu.sv" \
+"../../../../source/STAFF/STAFF_mux2to1.sv" \
+"../../../../source/STAFF/STAFF_mux4to1.sv" \
+"../../../../source/alu.sv" \
+"../../../../source/reg_en.sv" \
+"../../../../source/reg_file.sv" \
+"../../../../source/rw_ram.sv" \
+"../../../../tb/cpu_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

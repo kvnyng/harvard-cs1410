@@ -1,0 +1,15 @@
+0x00004027   # nor  $t0, $zero, $zero
+0x00084FC2   # srl  $t1, $t0, 31
+0x00095040   # sll  $t2, $t1, 1
+0x012A5825   # or   $t3, $t1, $t2
+0x000B6100   # sll  $t4, $t3, 4
+0x01896822   # sub  $t5, $t4, $t1
+0x01AB7020   # add  $t6, $t5, $t3
+0x01CB7826   # xor  $t7, $t6, $t3
+0x01CCC024   # and  $t8, $t6, $t4
+0x030BC827   # nor  $t9, $t8, $t3
+0x00198083   # sra  $s0, $t9, 2
+0x00198882   # srl  $s1, $t9, 2
+0x012A902A   # slt  $s2, $t1, $t2
+0x01099824   # and  $s3, $t0, $t1
+0x00000000   # nop
