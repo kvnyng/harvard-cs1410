@@ -6,6 +6,7 @@
 module control_unit
     (
         input logic clk,
+        input logic clk_en,
         input logic rst,
         input logic [5:0] opcode,
         input logic [5:0] funct,
@@ -37,6 +38,7 @@ module control_unit
     state_t current_state, next_state;
 
     // State register with reset
+    // Note: State machine must always advance when not in reset to function properly
     always_ff @(posedge clk) begin
         if (rst) begin
             current_state <= S0_INST_FETCH;
@@ -47,7 +49,7 @@ module control_unit
 
     // Next state logic
     always_comb begin
-        next_state = current_state;
+        next_state = current_state;  // Default: stay in current state
         case (current_state)
             S0_INST_FETCH: begin
                 next_state = S1_INST_DECODE;

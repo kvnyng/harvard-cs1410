@@ -144,18 +144,18 @@ assign led = xem7310_led(8'b0);
 
 
 
-// Buffers addressing (word addressed, so increment address by 1 means we increment by 4 bytes)
+// Buffers addressing
 always @(posedge okClk) begin
 	if (buf_reset == 1'b1) begin
 		bufI_addr <= 32'd0; 
 		bufO_addr <= 32'd0; 
 	end else begin
 		if (pipeO_read == 1'b1) begin
-			bufO_addr <= bufO_addr + 1; 
+			bufO_addr <= bufO_addr + 4; 
 		end
 		
 		if (pipeI_write == 1'b1) begin
-			bufI_addr <= bufI_addr + 1;
+			bufI_addr <= bufI_addr + 4;
 		end
 	end
 end
@@ -173,45 +173,29 @@ CLK_DIV_OK clk_divider
 logic wr_en;
 logic [31:0] mem_addr, w_data, r_data;   
 logic [31:0] instr;
-logic wr_en_ram;
-logic [31:0] addr_ram;
-logic [31:0]w_data_ram;
-logic [31:0] r_data_ram;
-logic [31:0] io_addr;
-
-assign io_addr = (pipeI_write) ? bufI_addr : bufO_addr;
-
-
 
 
 
 // translate to physical memory
 logic [31:0] mem_addr_in;
-
-//assign mem_addr_in = (mem_addr >= `I_START_ADDRESS) ? (32'd4096 + mem_addr[9:0]): mem_addr;
-
-assign mem_addr_in = (mem_addr >= `I_START_ADDRESS) ? (32'd1024 + mem_addr[11:2]): mem_addr[11:2];
+assign mem_addr_in = (mem_addr >= `I_START_ADDRESS) ? (32'd4096 + mem_addr[9:0]): mem_addr;
 
 
-
-
-blk_mem_gen_0 memory (
-  //.clka(slow_clk),    // input wire clka
-  //.ena(1'b1),      // input wire ena
-  .clka(okClk),
-  .ena(slow_clk & ~start_cpu),
-  .wea(wr_en),      // input wire [0 : 0] wea
-  .addra(mem_addr_in),  // input wire [9 : 0] addra
-  .dina(w_data),    // input wire [31 : 0] dina
-  .douta(r_data),  // output wire [31 : 0] douta
+blk_mem_gen_1 memory (
+  .clka(slow_clk),
+  .ena(1'b1),
+  .wea({wr_en, wr_en, wr_en, wr_en}),
+  .addra(mem_addr_in),
+  .dina(w_data),
+  .douta(r_data),
   
   
-  .clkb(okClk),    // input wire clkb
-  .enb(pipeI_write | pipeO_read),      // input wire enb
-  .web(pipeI_write),      // input wire [0 : 0] web
-  .addrb(pipeI_write? bufI_addr : bufO_addr),  // input wire [9 : 0] addrb
-  .dinb(pipeI_data),    // input wire [31 : 0] dinb
-  .doutb(pipeO_data)  // output wire [31 : 0] doutb
+  .clkb(okClk),
+  .enb(pipeI_write | pipeO_read),
+  .web({pipeI_write, pipeI_write, pipeI_write, pipeI_write}),
+  .addrb(pipeI_write? bufI_addr : bufO_addr),
+  .dinb(pipeI_data),
+  .doutb(pipeO_data)
 );
 
 cpu cpu_unit 

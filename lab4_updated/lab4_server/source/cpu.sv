@@ -6,9 +6,10 @@ module cpu
         parameter ADDR_WIDTH = 5)
     (
         input logic clk, clk_en, rst,
-        output logic [31:0] r_data,  // Memory read data (from internal memory)
+        input logic [31:0] r_data,  // Memory read data (from external memory)
         output logic wr_en,
         output logic [31:0] mem_addr, w_data,
+        output logic [31:0] instr,  // Current instruction (for cpu_top compatibility)
 
         //OK regs
         output logic [DATA_WIDTH-1:0] regs_ok [0:2**ADDR_WIDTH-1],
@@ -56,9 +57,6 @@ module cpu
 
     */
     
-    // Internal memory data signal (memory output)
-    logic [31:0] mem_r_data;
-    
     // Program Counter (PC) Register
     logic [31:0] PC;
     logic [31:0] PC_prime;  // PC' (PC prime) - next PC value from PCSrc_Select
@@ -91,24 +89,13 @@ module cpu
     logic [31:0] alu_out_for_addr;  // Placeholder, will be connected to ALUOut
     assign addr = IorD ? alu_out_for_addr : PC;
     
-    // Main memory (instruction and data memory)
-    // This unified memory handles both instruction memory (starting at 0x00400000)
-    // and data memory (starting at 0x0)
-    rw_ram main_memory (
-        .clk(clk),
-        .clk_en(clk_en),
-        .wr_en(wr_en),
-        .addr(addr),
-        .w_data(w_data),
-        .r_data(mem_r_data)
-    );
-    
     // Connect memory address to output port
     assign mem_addr = addr;
     
-    // Connect internal memory data to port (for external access if needed)
-    // The datapath will use mem_r_data internally
-    assign r_data = mem_r_data;
+    // Memory read data comes from external memory (r_data input port)
+    // The datapath will use r_data directly from the external memory
+    logic [31:0] mem_r_data;
+    assign mem_r_data = r_data;
     
     // Instruction Register - stores instructions from memory
     logic [31:0] instruction_reg;
@@ -124,6 +111,9 @@ module cpu
         .d(mem_r_data),
         .q(instruction_reg)
     );
+    
+    // Output instruction for cpu_top compatibility
+    assign instr = instruction_reg;
     
     // Data Register - stores data from memory (for load instructions)
     logic [31:0] data_reg;
@@ -180,6 +170,7 @@ module cpu
         .ADDR_WIDTH(ADDR_WIDTH)
     ) reg_file_inst (
         .clk(clk),
+        .rst(rst),
         .wr_en(RegWrite),
         .w_addr(reg_file_w_addr),
         .r0_addr(reg_file_r0_addr),
@@ -382,6 +373,7 @@ module cpu
     // Instantiate control unit
     control_unit ctrl_unit (
         .clk(clk),
+        .clk_en(clk_en),
         .rst(rst),
         .opcode(opcode),
         .funct(funct),

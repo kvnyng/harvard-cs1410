@@ -1,0 +1,771 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Fri Nov 14 04:17:28 2025
+# Process ID: 125726
+# Current directory: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1
+# Command line: vivado -log cpu_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source cpu_top.tcl -notrace
+# Log file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/cpu_top.vdi
+# Journal file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/vivado.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1200.029 MHz, CPU Physical cores: 27, Host memory: 539830 MB
+#-----------------------------------------------------------
+source cpu_top.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1999.977 ; gain = 86.992 ; free physical = 269670 ; free virtual = 373911
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.ip_user_files'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/software/xilinx-tools-2022/Vivado/2022.2/data/ip'.
+Command: link_design -top cpu_top -part xc7a75tfgg484-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7a75tfgg484-1
+CRITICAL WARNING: [Project 1-840] The design checkpoint file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.dcp' was generated for an IP by an out of context synthesis run and should not be used directly as a source in a Vivado flow. Constraints and other files related to the IP are only stored in the xci/xcix, not the checkpoint. It is strongly recommended that the original IP source file (.xci/.xcix) be used.
+INFO: [Project 1-454] Reading design checkpoint '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.dcp' for cell 'memory'
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2393.695 ; gain = 0.000 ; free physical = 270928 ; free virtual = 375163
+INFO: [Netlist 29-17] Analyzing 477 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc]
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:72]
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:73]
+WARNING: [Vivado 12-584] No ports matched 'sys_clkp'. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:90]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:90]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sys_clkp'. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:91]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:91]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sys_clkn'. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sys_clkn'. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sys_clkp'. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:96]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:96]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sys_clkp'. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:98]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports sys_clkp]'. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:98]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:99]
+INFO: [Timing 38-2] Deriving generated clocks [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:99]
+WARNING: [Vivado 12-627] No clocks matched 'sys_clk'. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:99]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:99]
+get_clocks: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 3093.176 ; gain = 551.859 ; free physical = 269271 ; free virtual = 373513
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks sys_clk]'. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:99]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group '. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:99]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-5201] set_clock_groups: cannot set the clock group when only one non-empty group remains. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:99]
+WARNING: [Vivado 12-180] No cells matched 'la_inst/la_buf_inst*'. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:113]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:113]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3093.176 ; gain = 0.000 ; free physical = 269268 ; free virtual = 373510
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 95 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 33 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 50 instances
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 8 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
+
+15 Infos, 10 Warnings, 11 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 3093.176 ; gain = 1063.449 ; free physical = 269268 ; free virtual = 373510
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a75t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a75t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.88 . Memory (MB): peak = 3157.207 ; gain = 64.031 ; free physical = 269237 ; free virtual = 373479
+
+Starting Cache Timing Information Task
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:72]
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:73]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1d160c765
+
+Time (s): cpu = 00:00:00.57 ; elapsed = 00:00:00.18 . Memory (MB): peak = 3157.207 ; gain = 0.000 ; free physical = 269221 ; free virtual = 373463
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-1287] Pulled Inverter cpu_unit/instruction_reg_inst/i__carry__4_i_3__0 into driver instance cpu_unit/instruction_reg_inst/i__carry__4_i_5, which resulted in an inversion of 2 pins
+INFO: [Opt 31-1287] Pulled Inverter okHI/core0/core0/leeb76b405f165a9b4ab0606f3ea0b3c4[7]_i_1 into driver instance okHI/core0/core0/ld307737e57d50d07f937891de086bf8e_i_3, which resulted in an inversion of 7 pins
+INFO: [Opt 31-138] Pushed 2 inverter(s) to 16 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 15ed768a5
+
+Time (s): cpu = 00:00:00.68 ; elapsed = 00:00:00.3 . Memory (MB): peak = 3408.957 ; gain = 0.000 ; free physical = 268687 ; free virtual = 372930
+INFO: [Opt 31-389] Phase Retarget created 117 cells and removed 130 cells
+INFO: [Opt 31-1021] In phase Retarget, 5 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 1a3e4beea
+
+Time (s): cpu = 00:00:00.75 ; elapsed = 00:00:00.38 . Memory (MB): peak = 3408.957 ; gain = 0.000 ; free physical = 268682 ; free virtual = 372924
+INFO: [Opt 31-389] Phase Constant propagation created 45 cells and removed 78 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 6 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 21a288260
+
+Time (s): cpu = 00:00:00.88 ; elapsed = 00:00:00.5 . Memory (MB): peak = 3408.957 ; gain = 0.000 ; free physical = 268675 ; free virtual = 372917
+INFO: [Opt 31-389] Phase Sweep created 1 cells and removed 68 cells
+INFO: [Opt 31-1021] In phase Sweep, 12 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: 21a288260
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.57 . Memory (MB): peak = 3408.957 ; gain = 0.000 ; free physical = 268672 ; free virtual = 372915
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: 21a288260
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.58 . Memory (MB): peak = 3408.957 ; gain = 0.000 ; free physical = 268671 ; free virtual = 372914
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 21a288260
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.6 . Memory (MB): peak = 3408.957 ; gain = 0.000 ; free physical = 268669 ; free virtual = 372912
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 4 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |             117  |             130  |                                              5  |
+|  Constant propagation         |              45  |              78  |                                              6  |
+|  Sweep                        |               1  |              68  |                                             12  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              4  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3408.957 ; gain = 0.000 ; free physical = 268667 ; free virtual = 372909
+Ending Logic Optimization Task | Checksum: 2018daa11
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.68 . Memory (MB): peak = 3408.957 ; gain = 0.000 ; free physical = 268667 ; free virtual = 372909
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Power 33-23] Power model is not available for a0/d0/dna0
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:72]
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:73]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 1 BRAM(s) out of a total of 5 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 1 WE to EN ports
+Number of BRAM Ports augmented: 1 newly gated: 1 Total Ports: 10
+Number of Flops added for Enable Generation: 3
+
+Ending PowerOpt Patch Enables Task | Checksum: 12753ecee
+
+Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3753.297 ; gain = 0.000 ; free physical = 268752 ; free virtual = 372994
+Ending Power Optimization Task | Checksum: 12753ecee
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3753.297 ; gain = 344.340 ; free physical = 268848 ; free virtual = 373089
+
+Starting Final Cleanup Task
+
+Starting Logic Optimization Task
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:72]
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:73]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Logic Optimization Task | Checksum: 15ef97798
+
+Time (s): cpu = 00:00:00.93 ; elapsed = 00:00:00.38 . Memory (MB): peak = 3753.297 ; gain = 0.000 ; free physical = 268908 ; free virtual = 373149
+Ending Final Cleanup Task | Checksum: 15ef97798
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 3753.297 ; gain = 0.000 ; free physical = 268907 ; free virtual = 373149
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3753.297 ; gain = 0.000 ; free physical = 268907 ; free virtual = 373149
+Ending Netlist Obfuscation Task | Checksum: 15ef97798
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3753.297 ; gain = 0.000 ; free physical = 268907 ; free virtual = 373149
+INFO: [Common 17-83] Releasing license: Implementation
+45 Infos, 16 Warnings, 11 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 3753.297 ; gain = 660.121 ; free physical = 268907 ; free virtual = 373149
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3753.297 ; gain = 0.000 ; free physical = 268908 ; free virtual = 373150
+INFO: [Common 17-1381] The checkpoint '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/cpu_top_opt.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file cpu_top_drc_opted.rpt -pb cpu_top_drc_opted.pb -rpx cpu_top_drc_opted.rpx
+Command: report_drc -file cpu_top_drc_opted.rpt -pb cpu_top_drc_opted.pb -rpx cpu_top_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/cpu_top_drc_opted.rpt.
+report_drc completed successfully
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a75t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a75t'
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 42 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268898 ; free virtual = 373140
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 8022274b
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268898 ; free virtual = 373140
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268898 ; free virtual = 373140
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:72]
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:73]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: ee4261da
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.48 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268896 ; free virtual = 373138
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: f3f36e66
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268907 ; free virtual = 373149
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: f3f36e66
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268905 ; free virtual = 373148
+Phase 1 Placer Initialization | Checksum: f3f36e66
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268902 ; free virtual = 373145
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 1d68ca555
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269047 ; free virtual = 373290
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: f88404ca
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269051 ; free virtual = 373293
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: f88404ca
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269051 ; free virtual = 373293
+
+Phase 2.4 Global Placement Core
+
+Phase 2.4.1 UpdateTiming Before Physical Synthesis
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 1134e4d64
+
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:06 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269666 ; free virtual = 373909
+
+Phase 2.4.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 1217 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 569 nets or LUTs. Breaked 0 LUT, combined 569 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1123] No candidate cells found for Shift Register to Pipeline optimization
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269849 ; free virtual = 374093
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            0  |            569  |                   569  |           0  |           1  |  00:00:01  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            0  |            569  |                   569  |           0  |           9  |  00:00:01  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 1733998eb
+
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:07 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269855 ; free virtual = 374098
+Phase 2.4 Global Placement Core | Checksum: 18e681a1b
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:07 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269852 ; free virtual = 374094
+Phase 2 Global Placement | Checksum: 18e681a1b
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:07 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269850 ; free virtual = 374093
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 1a2ca3e0d
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:07 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269844 ; free virtual = 374087
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 23cdac3a5
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:08 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269836 ; free virtual = 374079
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 266158381
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:08 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269835 ; free virtual = 374077
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 200087f05
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:08 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269835 ; free virtual = 374078
+
+Phase 3.5 Fast Optimization
+Phase 3.5 Fast Optimization | Checksum: 2a3c51239
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:08 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269853 ; free virtual = 374096
+
+Phase 3.6 Small Shape Detail Placement
+Phase 3.6 Small Shape Detail Placement | Checksum: 1311af4d8
+
+Time (s): cpu = 00:00:34 ; elapsed = 00:00:10 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269883 ; free virtual = 374125
+
+Phase 3.7 Re-assign LUT pins
+Phase 3.7 Re-assign LUT pins | Checksum: 1a36e8d64
+
+Time (s): cpu = 00:00:34 ; elapsed = 00:00:11 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269881 ; free virtual = 374123
+
+Phase 3.8 Pipeline Register Optimization
+Phase 3.8 Pipeline Register Optimization | Checksum: 2896593e0
+
+Time (s): cpu = 00:00:34 ; elapsed = 00:00:11 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269880 ; free virtual = 374123
+
+Phase 3.9 Fast Optimization
+Phase 3.9 Fast Optimization | Checksum: 1a9e32034
+
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:11 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269901 ; free virtual = 374144
+Phase 3 Detail Placement | Checksum: 1a9e32034
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:11 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269903 ; free virtual = 374146
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:72]
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:73]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 20f79ade4
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.274 | TNS=-8.321 |
+Phase 1 Physical Synthesis Initialization | Checksum: 25a330164
+
+Time (s): cpu = 00:00:00.47 ; elapsed = 00:00:00.12 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269832 ; free virtual = 374075
+INFO: [Place 46-33] Processed net ep12/ep_dataout[0], BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-56] BUFG insertion identified 1 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 1, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
+Ending Physical Synthesis Task | Checksum: 20bcb786a
+
+Time (s): cpu = 00:00:00.64 ; elapsed = 00:00:00.24 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269829 ; free virtual = 374072
+Phase 4.1.1.1 BUFG Insertion | Checksum: 20f79ade4
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:12 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269828 ; free virtual = 374071
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-0.274. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 179cc09e3
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:13 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269826 ; free virtual = 374069
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:13 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269826 ; free virtual = 374069
+Phase 4.1 Post Commit Optimization | Checksum: 179cc09e3
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:13 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269825 ; free virtual = 374068
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 179cc09e3
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:13 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269824 ; free virtual = 374067
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                1x1|                2x2|
+|___________|___________________|___________________|
+|      South|                1x1|                2x2|
+|___________|___________________|___________________|
+|       East|                2x2|                2x2|
+|___________|___________________|___________________|
+|       West|                1x1|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 179cc09e3
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:13 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269823 ; free virtual = 374066
+Phase 4.3 Placer Reporting | Checksum: 179cc09e3
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:13 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269823 ; free virtual = 374065
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269823 ; free virtual = 374065
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:13 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269823 ; free virtual = 374065
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1b0d74693
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:13 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269822 ; free virtual = 374065
+Ending Placer Task | Checksum: 163ff64cd
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:13 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269821 ; free virtual = 374064
+INFO: [Common 17-83] Releasing license: Implementation
+86 Infos, 20 Warnings, 11 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:14 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269846 ; free virtual = 374089
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.45 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269843 ; free virtual = 374093
+INFO: [Common 17-1381] The checkpoint '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/cpu_top_placed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_io -file cpu_top_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.12 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269821 ; free virtual = 374066
+INFO: [runtcl-4] Executing : report_utilization -file cpu_top_utilization_placed.rpt -pb cpu_top_utilization_placed.pb
+INFO: [runtcl-4] Executing : report_control_sets -verbose -file cpu_top_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269821 ; free virtual = 374066
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a75t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a75t'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.65 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269801 ; free virtual = 374046
+INFO: [Vivado_Tcl 4-1435] PhysOpt_Tcl_Interface Runtime Before Starting Physical Synthesis Task | CPU: 2.19s |  WALL: 0.66s
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269801 ; free virtual = 374046
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.274 | TNS=-8.321 |
+Phase 1 Physical Synthesis Initialization | Checksum: 269bd18b2
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.55 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269801 ; free virtual = 374046
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.274 | TNS=-8.321 |
+
+Phase 2 DSP Register Optimization
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Phase 2 DSP Register Optimization | Checksum: 269bd18b2
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.6 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269800 ; free virtual = 374045
+
+Phase 3 Critical Path Optimization
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.274 | TNS=-8.321 |
+INFO: [Physopt 32-702] Processed net okHI/p_5_in. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net okHI/p_5_in. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.274 | TNS=-8.321 |
+Phase 3 Critical Path Optimization | Checksum: 269bd18b2
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.73 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269794 ; free virtual = 374039
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269794 ; free virtual = 374039
+INFO: [Physopt 32-603] Post Physical Optimization Timing Summary | WNS=-0.274 | TNS=-8.321 |
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization   |  WNS Gain (ns)  |  TNS Gain (ns)  |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  DSP Register   |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Critical Path  |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total          |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           2  |  00:00:00  |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269794 ; free virtual = 374039
+Ending Physical Synthesis Task | Checksum: 20df56820
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.78 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269791 ; free virtual = 374037
+INFO: [Common 17-83] Releasing license: Implementation
+104 Infos, 20 Warnings, 11 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.45 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269980 ; free virtual = 374232
+INFO: [Common 17-1381] The checkpoint '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/cpu_top_physopt.dcp' has been generated.
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a75t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a75t'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: 941dfccd ConstDB: 0 ShapeSum: 9b001b06 RouteDB: 0
+Post Restoration Checksum: NetGraph: 9ebd2de7 NumContArr: 178094d2 Constraints: 0 Timing: 0
+Phase 1 Build RT Design | Checksum: b63dc2b9
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:26 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269138 ; free virtual = 373386
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: b63dc2b9
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:27 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269096 ; free virtual = 373345
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: b63dc2b9
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:27 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 269090 ; free virtual = 373338
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 161a151d8
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:28 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268885 ; free virtual = 373134
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.209  | TNS=0.000  | WHS=-0.292 | THS=-28.394|
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.000609305 %
+  Global Horizontal Routing Utilization  = 0.000213129 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 6109
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 6108
+  Number of Partially Routed Nets     = 1
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 14fa50760
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:29 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268829 ; free virtual = 373077
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+Phase 3.1 Global Routing | Checksum: 14fa50760
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:29 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268828 ; free virtual = 373077
+Phase 3 Initial Routing | Checksum: 158fefb37
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:29 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268816 ; free virtual = 373064
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 1260
+ Number of Nodes with overlaps = 357
+ Number of Nodes with overlaps = 210
+ Number of Nodes with overlaps = 125
+ Number of Nodes with overlaps = 82
+ Number of Nodes with overlaps = 47
+ Number of Nodes with overlaps = 26
+ Number of Nodes with overlaps = 21
+ Number of Nodes with overlaps = 11
+ Number of Nodes with overlaps = 6
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.209  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 120026b96
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:40 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268623 ; free virtual = 372872
+Phase 4 Rip-up And Reroute | Checksum: 120026b96
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:40 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268622 ; free virtual = 372871
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+
+Phase 5.1.1 Update Timing
+Phase 5.1.1 Update Timing | Checksum: 135bde9e3
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:40 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268613 ; free virtual = 372862
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.209  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 5.1 Delay CleanUp | Checksum: 135bde9e3
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:40 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268612 ; free virtual = 372861
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 135bde9e3
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:40 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268612 ; free virtual = 372861
+Phase 5 Delay and Skew Optimization | Checksum: 135bde9e3
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:40 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268611 ; free virtual = 372860
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 13bd9db6b
+
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:40 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268619 ; free virtual = 372868
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.209  | TNS=0.000  | WHS=0.083  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: a87cceda
+
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:40 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268616 ; free virtual = 372865
+Phase 6 Post Hold Fix | Checksum: a87cceda
+
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:40 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268616 ; free virtual = 372864
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 1.27475 %
+  Global Horizontal Routing Utilization  = 1.55648 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 1838ee096
+
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:40 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268612 ; free virtual = 372860
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 1838ee096
+
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:40 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268607 ; free virtual = 372856
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 19c85a892
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:41 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268564 ; free virtual = 372812
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.209  | TNS=0.000  | WHS=0.083  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 19c85a892
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:41 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268548 ; free virtual = 372797
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:41 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268581 ; free virtual = 372830
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+119 Infos, 20 Warnings, 11 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:01:01 ; elapsed = 00:00:42 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268579 ; free virtual = 372828
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.51 . Memory (MB): peak = 3809.324 ; gain = 0.000 ; free physical = 268859 ; free virtual = 373116
+INFO: [Common 17-1381] The checkpoint '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/cpu_top_routed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file cpu_top_drc_routed.rpt -pb cpu_top_drc_routed.pb -rpx cpu_top_drc_routed.rpx
+Command: report_drc -file cpu_top_drc_routed.rpt -pb cpu_top_drc_routed.pb -rpx cpu_top_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/cpu_top_drc_routed.rpt.
+report_drc completed successfully
+INFO: [runtcl-4] Executing : report_methodology -file cpu_top_methodology_drc_routed.rpt -pb cpu_top_methodology_drc_routed.pb -rpx cpu_top_methodology_drc_routed.rpx
+Command: report_methodology -file cpu_top_methodology_drc_routed.rpt -pb cpu_top_methodology_drc_routed.pb -rpx cpu_top_methodology_drc_routed.rpx
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:72]
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:73]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 8 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/cpu_top_methodology_drc_routed.rpt.
+report_methodology completed successfully
+INFO: [runtcl-4] Executing : report_power -file cpu_top_power_routed.rpt -pb cpu_top_power_summary_routed.pb -rpx cpu_top_power_routed.rpx
+Command: report_power -file cpu_top_power_routed.rpt -pb cpu_top_power_summary_routed.pb -rpx cpu_top_power_routed.rpx
+INFO: [Power 33-23] Power model is not available for a0/d0/dna0
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:72]
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'okUH[0]' relative to clock 'okUH0' defined on the same pin is not supported, ignoring it [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/constraints/XEM7310.xdc:73]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+132 Infos, 24 Warnings, 11 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: [runtcl-4] Executing : report_route_status -file cpu_top_route_status.rpt -pb cpu_top_route_status.pb
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -report_unconstrained -file cpu_top_timing_summary_routed.rpt -pb cpu_top_timing_summary_routed.pb -rpx cpu_top_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+INFO: [runtcl-4] Executing : report_incremental_reuse -file cpu_top_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [runtcl-4] Executing : report_clock_utilization -file cpu_top_clock_utilization_routed.rpt
+INFO: [runtcl-4] Executing : report_bus_skew -warn_on_violation -file cpu_top_bus_skew_routed.rpt -pb cpu_top_bus_skew_routed.pb -rpx cpu_top_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+INFO: [Common 17-206] Exiting Vivado at Fri Nov 14 04:19:11 2025...

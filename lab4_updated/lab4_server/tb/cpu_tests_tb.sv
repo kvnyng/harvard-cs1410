@@ -14,6 +14,16 @@ module cpu_tests_tb();
     logic [31:0] mem_addr, w_data;
     logic [31:0] regs_ok [0:31];
     
+    // External memory instance (for testbench)
+    rw_ram main_memory (
+        .clk(clk),
+        .clk_en(clk_en),
+        .wr_en(wr_en),
+        .addr(mem_addr),
+        .w_data(w_data),
+        .r_data(r_data)
+    );
+    
     // Test parameters (set by build script via define)
     `ifdef INSTR_MEM_FILE
         parameter string INSTR_MEM_FILE = `INSTR_MEM_FILE;
@@ -83,10 +93,10 @@ module cpu_tests_tb();
                 // Calculate physical address
                 if (is_instruction) begin
                     phy_i_addr = addr[10:2];
-                    cpu_inst.main_memory.imem[phy_i_addr] = data;
+                    main_memory.imem[phy_i_addr] = data;
                 end else begin
                     phy_d_addr = addr[11:2];
-                    cpu_inst.main_memory.dmem[phy_d_addr] = data;
+                    main_memory.dmem[phy_d_addr] = data;
                 end
                 addr = addr + 4;
                 count++;

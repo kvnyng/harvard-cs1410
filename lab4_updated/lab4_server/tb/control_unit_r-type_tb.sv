@@ -27,6 +27,8 @@ module control_unit_rtype_tb();
     // Instantiate control unit
     control_unit dut (
         .clk(clk),
+        .clk_en(1'b1),
+        .rst(1'b0),
         .opcode(opcode),
         .funct(funct),
         .PCWrite(PCWrite),

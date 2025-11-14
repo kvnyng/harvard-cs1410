@@ -4,13 +4,13 @@ Running: /software/xilinx-tools-2022/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab c
 Multi-threading is on. Using 94 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3645] port 'dbg_reg_file_r0_addr' remains unconnected for this instance [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/tb/cpu_tests_tb.sv:37]
+WARNING: [VRFC 10-3645] port 'instr' remains unconnected for this instance [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/tb/cpu_tests_tb.sv:47]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module work.reg_en(INIT=32'b0100000000000000...
 Compiling module work.rw_ram
+Compiling module work.reg_en(INIT=32'b0100000000000000...
 Compiling module work.reg_en
 Compiling module work.reg_file
 Compiling module work.reg_reset
@@ -22,5 +22,5 @@ Compiling module work.alu
 Compiling module work.control_unit
 Compiling module work.cpu
 Compiling module work.cpu_tests_tb
-WARNING: [XSIM 43-3373] "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/tb/cpu_tests_tb.sv" Line 96. System function $fgets is used as system task. This system function should have a LHS e.g. x=$fgets().
+WARNING: [XSIM 43-3373] "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/tb/cpu_tests_tb.sv" Line 106. System function $fgets is used as system task. This system function should have a LHS e.g. x=$fgets().
 Built simulation snapshot cpu_tests_tb_sim
