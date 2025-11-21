@@ -286,3 +286,16 @@ Finished XDEF File Restore: Time (s): cpu = 00:00:00.45 ; elapsed = 00:00:00.45 
 launch_runs impl_1 -to_step write_bitstream -jobs 96
 [Fri Nov 21 10:09:37 2025] Launched impl_1...
 Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1/cpu_top.dcp' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [Project 1-1859] Fail to add auto incremental checkpoint /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to utils_1 fileset.
+launch_runs impl_1 -jobs 96
+[Fri Nov 21 11:25:00 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+[Fri Nov 21 11:25:00 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
+close_design
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Nov 21 11:30:50 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log

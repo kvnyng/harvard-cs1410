@@ -9,6 +9,7 @@ module reg_file
     )
     (
         input logic clk,
+        input logic rst,
         input logic wr_en,
         input logic [ADDR_WIDTH-1:0] w_addr, r0_addr, r1_addr,
         input logic [DATA_WIDTH-1:0] w_data,
@@ -24,11 +25,18 @@ module reg_file
     assign regs_ok = regs; //OK
     
     // Register $0 is always 0 and cannot be written to
-    always_ff @(posedge clk) begin
-        if (wr_en && w_addr != 0)  // Never write to register $0
-            regs[w_addr] <= w_data;
-        // Ensure regs[0] is always 0
-        regs[0] <= 0;
+    always_ff @(posedge clk, posedge rst) begin
+        if (rst) begin
+            // Reset all registers to 0
+            for (int i = 0; i < 2**ADDR_WIDTH; i++) begin
+                regs[i] <= 0;
+            end
+        end else begin
+            if (wr_en && w_addr != 0)  // Never write to register $0
+                regs[w_addr] <= w_data;
+            // Ensure regs[0] is always 0
+            regs[0] <= 0;
+        end
     end
 
     // Register $0 always returns 0

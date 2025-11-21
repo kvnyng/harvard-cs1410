@@ -2,12 +2,12 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Fri Nov 21 10:09:40 2025
-# Process ID: 3380642
+# Start of session at: Fri Nov 21 11:30:53 2025
+# Process ID: 3659783
 # Current directory: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1
 # Command line: vivado -log cpu_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source cpu_top.tcl -notrace
 # Log file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/cpu_top.vdi
 # Journal file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/vivado.jou
-# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1200.094 MHz, CPU Physical cores: 26, Host memory: 539830 MB
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1200.043 MHz, CPU Physical cores: 30, Host memory: 539830 MB
 #-----------------------------------------------------------
 source cpu_top.tcl -notrace

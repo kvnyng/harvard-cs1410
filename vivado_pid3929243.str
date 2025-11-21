@@ -1493,3 +1493,93 @@ dismissDialog("Launch Runs"); // cz
 selectButton(RDIResource.BaseDialog_OK, "OK"); // a
 // Run Command: PAResourceCommand.PACommandNames_REPORTS_WINDOW
 dismissDialog("Bitstream Generation Completed"); // S.a
+// HMemoryUtils.trashcanNow. Engine heap size: 4,997 MB. GUI used memory: 120 MB. Current time: 11/21/25, 10:39:26 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 4,991 MB. GUI used memory: 120 MB. Current time: 11/21/25, 11:09:26 AM EST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 4477 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 17, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// Tcl Message: INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// TclEventType: RUN_LAUNCH
+dismissDialog("Launch Runs"); // f
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Device view-level: 0.0
+// HMemoryUtils.trashcanNow. Engine heap size: 5,066 MB. GUI used memory: 122 MB. Current time: 11/21/25, 11:25:01 AM EST
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -jobs 96 
+// Tcl Message: [Fri Nov 21 11:25:00 2025] Launched synth_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log [Fri Nov 21 11:25:00 2025] Launched impl_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log 
+dismissDialog("Starting Design Runs"); // bq
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_STATUS_CHANGE
+selectButton(PAResourceOtoP.ProjectTab_CLOSE_DESIGN, "Close Design"); // g
+// TclEventType: DESIGN_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 4,979 MB. GUI used memory: 96 MB. Current time: 11/21/25, 11:25:04 AM EST
+// TclEventType: TIMING_RESULTS_UNLOAD
+// Engine heap size: 4,979 MB. GUI used memory: 97 MB. Current time: 11/21/25, 11:25:04 AM EST
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: close_design 
+// TclEventType: DESIGN_CLOSE
+dismissDialog("Closing"); // bq
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 342 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_REPORTS_WINDOW
+dismissDialog("Implementation Completed"); // S.a
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 30, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // cz
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 96 
+// Tcl Message: [Fri Nov 21 11:30:50 2025] Launched impl_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log 
+// TclEventType: RUN_STATUS_CHANGE
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Open Implemented Design, Report Utilization]", 26, false); // f
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Open Implemented Design, Report Utilization]", 26, false); // f
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Open Implemented Design, Report Utilization]", 26, false); // f
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Open Implemented Design, Report Utilization]", 26, false); // f
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Open Implemented Design, Report Utilization]", 26, false); // f
+selectTreeTable(PAResourceEtoH.ExpReportTreePanel_EXP_REPORT_TREE_TABLE, "Timing Summary - Design Initialization ; report_timing_summary ; max_paths = 10; report_unconstrained = true;  ;  ; ", 7, "report_timing_summary", 1, false); // J
+selectTreeTable(PAResourceEtoH.ExpReportTreePanel_EXP_REPORT_TREE_TABLE, "impl_1 ;  ;  ;  ; ", 5, "impl_1", 0, true); // J - Node
+// Elapsed time: 20 seconds
+selectTreeTable(PAResourceEtoH.ExpReportTreePanel_EXP_REPORT_TREE_TABLE, "Synth Design (synth_design) ;  ;  ;  ; ", 1, "Synth Design (synth_design)", 0, true); // J - Node
+// Elapsed time: 10 seconds
+maximizeFrame(PAResourceOtoP.PAViews_REPORTS, "Reports"); // R
+// WARNING: HEventQueue.dispatchEvent() is taking  1980 ms.
+unMaximizeFrame(PAResourceOtoP.PAViews_REPORTS, "Reports"); // R
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 20 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_REPORTS_WINDOW
+dismissDialog("Bitstream Generation Completed"); // S.a
+// HMemoryUtils.trashcanNow. Engine heap size: 4,844 MB. GUI used memory: 76 MB. Current time: 11/21/25, 11:55:06 AM EST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE

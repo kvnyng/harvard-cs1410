@@ -12,6 +12,7 @@ from re import L
 import string
 import sys
 import argparse
+import time
 from datetime import datetime
 
 # OK and CS1410 libs
@@ -135,10 +136,16 @@ def Run(dev, signals, flash_ram, data_ram):
     #dev.setWire(0x12, 0xFF, 0x01)
     dev.setWire(0x12, 0x00, 0x01)
 
-
-    #wait 
-    for i in range(1000):
-        print(".", end = " ")
+    # Wait for CPU to execute all instructions
+    # The CPU runs on a divided clock (10x slower) and is multi-cycle
+    # With 40 instructions, loops, and branches, we need sufficient time
+    # Each instruction takes ~4 cycles on average, and with loops we might have
+    # 200-300 total instruction executions. At 10 MHz (okClk/10), this takes
+    # approximately: 300 instructions * 4 cycles / 10MHz = 120 microseconds
+    # But we add a large safety margin to account for timing variations
+    print("Waiting for CPU execution to complete...", end="", flush=True)
+    time.sleep(5)  # Wait 5 seconds to ensure all instructions complete
+    print(" Done!")
 
 
     #REG FILE

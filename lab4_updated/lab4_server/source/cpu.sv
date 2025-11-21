@@ -9,6 +9,7 @@ module cpu
         input logic [31:0] r_data,  // Memory read data (from external memory)
         output logic wr_en,
         output logic [31:0] mem_addr, w_data,
+        output logic [31:0] instr,  // Current instruction (for cpu_top compatibility)
 
         output logic [DATA_WIDTH-1:0] regs_ok [0:2**ADDR_WIDTH-1],
         
@@ -142,6 +143,9 @@ module cpu
         .q(instruction_reg)
     );
     
+    // Output instruction for cpu_top compatibility
+    assign instr = instruction_reg;
+    
     // PC Register for Jump - stores PC value when a jump instruction is fetched
     // This is needed because by the time we execute a jump, PC has already advanced
     // We need to capture the PC value when the jump instruction is in the IR
@@ -229,6 +233,7 @@ module cpu
         .ADDR_WIDTH(ADDR_WIDTH)
     ) reg_file_inst (
         .clk(clk),
+        .rst(rst),
         .wr_en(RegWrite),
         .w_addr(reg_file_w_addr),
         .r0_addr(reg_file_r0_addr),

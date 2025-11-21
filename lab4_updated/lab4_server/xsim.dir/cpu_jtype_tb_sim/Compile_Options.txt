@@ -1,1 +1,0 @@
-"cpu_jtype_tb" -s "cpu_jtype_tb_sim" -debug "typical" 

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Fri Nov 21 10:07:35 2025
+| Date         : Fri Nov 21 11:28:34 2025
 | Host         : sec-academic-1.int.seas.harvard.edu running 64-bit unknown
 | Command      : report_utilization -file cpu_top_utilization_synth.rpt -pb cpu_top_utilization_synth.pb
 | Design       : cpu_top
@@ -59,9 +59,9 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 38    |          Yes |           - |          Set |
-| 361   |          Yes |           - |        Reset |
+| 1353  |          Yes |           - |        Reset |
 | 22    |          Yes |         Set |            - |
-| 2684  |          Yes |       Reset |            - |
+| 1692  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -155,10 +155,10 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| FDRE       | 2684 |        Flop & Latch |
+| FDRE       | 1692 |        Flop & Latch |
 | LUT6       | 1599 |                 LUT |
 | LUT4       | 1365 |                 LUT |
-| FDCE       |  361 |        Flop & Latch |
+| FDCE       | 1353 |        Flop & Latch |
 | LUT5       |  352 |                 LUT |
 | MUXF7      |  264 |               MuxFx |
 | LUT3       |  156 |                 LUT |

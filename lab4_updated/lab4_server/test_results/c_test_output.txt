@@ -8,8 +8,8 @@ source xsim.dir/cpu_tests_tb_sim/xsim_script.tcl
 # xsim {cpu_tests_tb_sim} -autoloadwcfg -runall
 Time resolution is 1 ps
 run -all
-WARNING: File data.mem referenced on /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/reg_file.sv at line 25 cannot be opened for reading. Please ensure that this file is available in the current working directory.
-WARNING: File dead_memory.mem referenced on /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/reg_file.sv at line 25 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+WARNING: File data.mem referenced on /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/control_unit.sv at line 106 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+WARNING: File dead_memory.mem referenced on /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/control_unit.sv at line 106 cannot be opened for reading. Please ensure that this file is available in the current working directory.
 ========================================
 CPU Tests Testbench
 ========================================
@@ -37,22 +37,22 @@ Reg 6 ($a2)   :  0x00000000
 Reg 7 ($a3)   :  0x00000000
 Reg 8 ($t0)   :  0x00000002
 Reg 9 ($t1)   :  0x00000640
-Reg 10 ($t2)  :  0x00000040
+Reg 10 ($t2)  :  0x00000002
 Reg 11 ($t3)  :  0x00000003
 Reg 12 ($t4)  :  0x00000030
 Reg 13 ($t5)  :  0x00000000
 Reg 14 ($t6)  :  0x00000000
 Reg 15 ($t7)  :  0x00000008
 Reg 16 ($s0)  :  0x00000005
-Reg 17 ($s1)  :  0x00000002
+Reg 17 ($s1)  :  0x00000003
 Reg 18 ($s2)  :  0x0000000c
 Reg 19 ($s3)  :  0x00000032
 Reg 20 ($s4)  :  0xffffffc1
 Reg 21 ($s5)  :  0x0000064c
 Reg 22 ($s6)  :  0x0000000b
-Reg 23 ($s7)  :  0x00000001
-Reg 24 ($t8)  :  0x00000001
-Reg 25 ($t9)  :  0x00000001
+Reg 23 ($s7)  :  0x00000008
+Reg 24 ($t8)  :  0x00000005
+Reg 25 ($t9)  :  0x00000008
 Reg 26 ($k0)  :  0x00000000
 Reg 27 ($k1)  :  0x00000000
 Reg 28 ($gp)  :  0x00000000
@@ -61,7 +61,7 @@ Reg 30 ($fp)  :  0x00000000
 Reg 31 ($ra)  :  0x00000000
 
 Simulation completed after 2020 cycles
-Final PC: 0x00400ed4
+Final PC: 0x004000a0
 $finish called at time : 20225 ns : File "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/tb/cpu_tests_tb.sv" Line 192
 exit
-INFO: [Common 17-206] Exiting xsim at Fri Nov 14 04:38:56 2025...
+INFO: [Common 17-206] Exiting xsim at Fri Nov 21 11:24:13 2025...
