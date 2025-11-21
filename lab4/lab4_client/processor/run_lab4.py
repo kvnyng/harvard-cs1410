@@ -63,6 +63,28 @@ def convert_list_to_bytearray(input_list):
         output_bytearray.extend(byte_representation)
 
     return output_bytearray
+def print_bytearray_buf_to_stdout(buffer, r, c):
+    """Print bytearray buffer contents to stdout in hexadecimal format"""
+    rows = 0
+    columns = 0
+    for byte in range(0, len(buffer), 4):
+        if rows == r:
+            break
+        
+        if columns == c:
+            rows += 1
+            if rows == r:
+                break
+            
+            columns = 1
+            word = int.from_bytes(buffer[byte:byte+4], byteorder='little')
+            print(f"{hex(byte)} | 0x{word:08X}")
+            continue
+        
+        word = int.from_bytes(buffer[byte:byte+4], byteorder='little')
+        print(f"{hex(byte)} | 0x{word:08X}")
+        columns += 1
+
 def print_bytearray_buf_to_file(buffer, r, c, filename="fpga_output.txt"):
     """Write bytearray buffer contents to a file in hexadecimal format"""
     with open(filename, 'w') as f:

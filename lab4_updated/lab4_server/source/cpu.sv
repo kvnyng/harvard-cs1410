@@ -9,9 +9,7 @@ module cpu
         input logic [31:0] r_data,  // Memory read data (from external memory)
         output logic wr_en,
         output logic [31:0] mem_addr, w_data,
-        output logic [31:0] instr,  // Current instruction (for cpu_top compatibility)
 
-        //OK regs
         output logic [DATA_WIDTH-1:0] regs_ok [0:2**ADDR_WIDTH-1],
         
         // Debug signals
@@ -26,7 +24,40 @@ module cpu
         output logic [ADDR_WIDTH-1:0] dbg_reg_file_w_addr,
         output logic dbg_RegWrite,
         output logic [DATA_WIDTH-1:0] dbg_reg_file_w_data,
-        output logic [31:0] dbg_PC  // Debug PC value
+        output logic [31:0] dbg_PC,  // Debug PC value
+        output logic [3:0] dbg_current_state,  // Debug FSM current state
+        output logic [3:0] dbg_next_state,    // Debug FSM next state
+        output logic [5:0] dbg_opcode,     // Debug opcode
+        output logic [5:0] dbg_funct,      // Debug funct
+        output logic dbg_PCWrite,          // Debug PCWrite signal
+        output logic dbg_Branch,           // Debug Branch signal
+        output logic [1:0] dbg_PCSrc,      // Debug PCSrc signal
+        output logic [31:0] dbg_ALUResult, // Debug ALUResult
+        output logic [31:0] dbg_ALUOut,     // Debug ALUOut
+        output logic [31:0] dbg_instruction_reg,  // Debug full instruction register
+        output logic [31:0] dbg_ImmValue,     // Debug ImmValue (sign or zero-extended immediate)
+        output logic [31:0] dbg_SignImm,     // Debug SignImm
+        output logic [31:0] dbg_ZeroImm,     // Debug ZeroImm
+        output logic [15:0] dbg_imm_16,      // Debug imm_16
+        output logic dbg_opcode_has_xz,     // Debug: opcode has X/Z bits
+        output logic [5:0] dbg_opcode_raw,   // Debug: raw opcode value
+        output logic [3:0] dbg_decode_result,  // Debug: which decode path was taken
+        output logic [3:0] dbg_next_state_before_case,  // Debug: next_state before case
+        output logic [3:0] dbg_next_state_after_j_check,  // Debug: next_state after J check
+        output logic [5:0] dbg_opcode_reg,  // Debug: registered opcode value
+        output logic [5:0] dbg_opcode_used,  // Debug: opcode actually used in comparisons
+        output logic dbg_opcode_reg_has_xz,  // Debug: registered opcode has X/Z bits
+        output logic dbg_isLW,  // Debug: isLW signal value
+        output logic dbg_isSW,  // Debug: isSW signal value
+        output logic dbg_isR,   // Debug: isR signal value
+        output logic dbg_isJR,  // Debug: isJR signal value
+        output logic [31:0] dbg_PC_plus_4,  // Debug: PC_plus_4 value
+        output logic [31:0] dbg_PC_for_jump,  // Debug: PC_for_jump value
+        output logic [31:0] dbg_jump_addr,  // Debug: calculated jump address
+        output logic dbg_is_jump_instruction,  // Debug: is_jump_instruction signal
+        output logic dbg_PC_for_jump_en,  // Debug: PC_for_jump_en signal
+        output logic [31:0] dbg_instruction_addr_calc,  // Debug: instruction_addr_calc
+        output logic [31:0] dbg_PC_prime  // Debug: PC_prime (next PC value)
     );
 
 
@@ -63,8 +94,8 @@ module cpu
     logic PCWrite;         // PC write enable (from control unit, will be connected)
     
     // Branch Logic signals (will be connected after control unit and ALU are instantiated)
-    logic branch_and_zero;  // Output of AND gate: Branch AND zero flag
-    logic PCEn;             // PC enable signal (output of OR gate): (Branch AND zero) OR PCWrite
+    logic branch_condition;  // Branch condition: (BranchEQ & zero) | (BranchNE & ~zero)
+    logic PCEn;             // PC enable signal (output of OR gate): branch_condition OR PCWrite
     
     reg_en #(
         .N(32),
@@ -72,7 +103,7 @@ module cpu
     ) PC_Reg (
         .clk(clk),
         .rst(rst),
-        .en(PCEn),         // PC enable: PCWrite OR (Branch AND zero)
+        .en(PCEn),         // PC enable: PCWrite OR branch_condition
         .d(PC_prime),
         .q(PC)
     );
@@ -85,8 +116,7 @@ module cpu
     logic [31:0] addr;     // Memory address mux output
     
     // PC_Select mux: IorD = 0 selects PC, IorD = 1 selects ALUOut
-    // Note: ALUOut will be connected later after ALU_Reg is instantiated
-    logic [31:0] alu_out_for_addr;  // Placeholder, will be connected to ALUOut
+    logic [31:0] alu_out_for_addr;
     assign addr = IorD ? alu_out_for_addr : PC;
     
     // Connect memory address to output port
@@ -112,8 +142,15 @@ module cpu
         .q(instruction_reg)
     );
     
-    // Output instruction for cpu_top compatibility
-    assign instr = instruction_reg;
+    // PC Register for Jump - stores PC value when a jump instruction is fetched
+    // This is needed because by the time we execute a jump, PC has already advanced
+    // We need to capture the PC value when the jump instruction is in the IR
+    logic [31:0] PC_for_jump;
+    logic [31:0] PC_at_fetch;  // PC value captured during fetch
+    
+    // Capture PC_at_fetch after ALU is instantiated
+    // In S0_FETCH, ALUResult = PC+4, so instruction address = ALUResult - 4
+    // We'll instantiate this register after ALU is declared
     
     // Data Register - stores data from memory (for load instructions)
     logic [31:0] data_reg;
@@ -135,18 +172,29 @@ module cpu
     logic [31:0] reg_file_w_data;  // Register file write data
     
     // Control unit output signals (declared early for use in datapath)
-    logic Branch;
-    logic PCSrc;
+    logic BranchEQ;      // Branch if equal (BEQ)
+    logic BranchNE;      // Branch if not equal (BNE)
+    logic [1:0] PCSrc;
     logic [3:0] ALUControl;
     logic [1:0] ALUSrcB;
     logic ALUSrcA;
     logic RegWrite;
     logic RegDst;
+    logic ExtOp;        // Extension operation: 1 = sign extend, 0 = zero extend
+    logic UseShamt;     // Use shamt field for shift instructions
+    logic WriteRA;      // Write return address for JAL
+    
+    // Debug signals from control unit (use logic to match control_unit output)
+    logic [3:0] dbg_ctrl_current_state, dbg_ctrl_next_state;
+    
+    // Get state from control unit for enable signals (declared early for use in A/B register enables)
+    logic [3:0] current_state;
+    logic [3:0] next_state;
+    assign current_state = dbg_ctrl_current_state;
+    assign next_state = dbg_ctrl_next_state;
     
     // MemToReg mux: MemToReg = 0 selects ALUOut, MemToReg = 1 selects data_reg
-    // Note: ALUOut will be connected later after ALU_Reg is instantiated
-    logic [31:0] alu_out_for_reg;  // Placeholder, will be connected to ALUOut
-    assign reg_file_w_data = MemToReg ? data_reg : alu_out_for_reg;
+    logic [31:0] alu_out_for_reg;
     
     // Register File
     logic [ADDR_WIDTH-1:0] reg_file_r0_addr;  // Read address 0 (rs)
@@ -159,10 +207,21 @@ module cpu
     assign reg_file_r0_addr = instruction_reg[25:21];  // A1: rs field
     assign reg_file_r1_addr = instruction_reg[20:16];  // A2: rt field
     
+    // Extract opcode and funct from instruction register (needed early for JAL and zero-extend)
+    logic [5:0] opcode;
+    logic [5:0] funct;
+    assign opcode = instruction_reg[31:26];
+    assign funct = instruction_reg[5:0];
+    
+    // PC_for_jump will be calculated after PC_plus_4 is declared
+    
     // RegDst mux: selects between rt (20:16) and rd (15:11) for write address
     // RegDst = 0: select rt (20:16) for I-type instructions
     // RegDst = 1: select rd (15:11) for R-type instructions
-    assign reg_file_w_addr = RegDst ? instruction_reg[15:11] : instruction_reg[20:16];
+    // Special case: JAL (WriteRA = 1) always writes to register 31 ($ra)
+    logic [ADDR_WIDTH-1:0] reg_file_w_addr_temp;
+    assign reg_file_w_addr_temp = RegDst ? instruction_reg[15:11] : instruction_reg[20:16];
+    assign reg_file_w_addr = WriteRA ? 5'd31 : reg_file_w_addr_temp;
     
     // Instantiate register file
     reg_file #(
@@ -170,7 +229,6 @@ module cpu
         .ADDR_WIDTH(ADDR_WIDTH)
     ) reg_file_inst (
         .clk(clk),
-        .rst(rst),
         .wr_en(RegWrite),
         .w_addr(reg_file_w_addr),
         .r0_addr(reg_file_r0_addr),
@@ -182,12 +240,8 @@ module cpu
     );
     
     // Register File A and B - store register file outputs
-    // These are pipeline registers that should always update to track register file outputs
-    // The control unit FSM ensures timing by waiting in S1 (decode) before executing in S2
-    // This gives time for register file addresses to propagate and outputs to stabilize
-    logic [31:0] Register_File_A;  // Stores RD1 (rs data)
-    logic [31:0] Register_File_B;  // Stores RD2 (rt data)
-    
+    logic [31:0] Register_File_A;
+    logic [31:0] Register_File_B;
     reg_reset #(
         .N(32)
     ) Register_File_A_inst (
@@ -222,10 +276,21 @@ module cpu
     assign dbg_RegWrite = RegWrite;
     assign dbg_reg_file_w_data = reg_file_w_data;
     assign dbg_PC = PC;
+    assign dbg_instruction_reg = instruction_reg;
+    assign dbg_current_state = dbg_ctrl_current_state;
+    assign dbg_next_state = dbg_ctrl_next_state;
+    assign dbg_opcode = opcode;
+    assign dbg_funct = funct;
+    // dbg_opcode_has_xz, dbg_opcode_raw, and dbg_decode_result assigned from control unit
+    assign dbg_PCWrite = PCWrite;
+    assign dbg_Branch = BranchEQ | BranchNE;
+    assign dbg_PCSrc = PCSrc;
     
-    // Sign Extender
+    // Sign Extender and Zero Extender
     logic [15:0] imm_16;  // 16-bit immediate from instruction
-    logic [31:0] SignImm; // 32-bit sign-extended immediate (renamed from imm_32)
+    logic [31:0] SignImm; // 32-bit sign-extended immediate
+    logic [31:0] ZeroImm; // 32-bit zero-extended immediate
+    logic [31:0] ImmValue; // Selected immediate value (sign or zero extended)
     
     assign imm_16 = instruction_reg[15:0];
     
@@ -233,6 +298,13 @@ module cpu
         .imm_16(imm_16),
         .imm_32(SignImm)
     );
+    
+    // Zero extension: pad upper 16 bits with zeros
+    assign ZeroImm = {16'b0, imm_16};
+    
+    // Select between sign-extended and zero-extended based on ExtOp control signal
+    // ExtOp = 1: sign extend, ExtOp = 0: zero extend
+    assign ImmValue = ExtOp ? SignImm : ZeroImm;
     
     // Barrel Shifter - left shift by 2 bits (multiply by 4)
     logic [31:0] shifted_imm;  // Barrel shifter output
@@ -242,16 +314,10 @@ module cpu
         .data_out(shifted_imm)
     );
     
-    // ALU Source B Mux (SrcB select mux) - 2-bit wide, 4-to-1 mux
-    // ALUSrcB = 00: Register_File_B (for R-type arithmetic/logic)
-    // ALUSrcB = 01: constant 4 (for PC+4)
-    // ALUSrcB = 10: SignImm (sign-extended immediate, for I-type)
-    // ALUSrcB = 11: shifted_imm (barrel shifter output, for branch address calculation)
-    // Note: For shift instructions, we need shamt field, but ALU uses Register_File_B as shift amount
-    //       Actually, shift instructions use shamt from instruction[10:6] as the shift amount
-    logic [31:0] alu_src_b_mux_in0;  // Input 00: Register_File_B (or shamt for shifts)
+    // ALU Source B Mux: ALUSrcB = 00: Register_File_B, 01: constant 4, 10: ImmValue, 11: shifted_imm
+    logic [31:0] alu_src_b_mux_in0;
     logic [31:0] alu_src_b_mux_in1;  // Input 01: constant 4
-    logic [31:0] alu_src_b_mux_in2;  // Input 10: SignImm
+    logic [31:0] alu_src_b_mux_in2;  // Input 10: ImmValue (sign or zero-extended)
     logic [31:0] alu_src_b_mux_in3;  // Input 11: shifted_imm
     logic [31:0] alu_src_b;  // ALU source B output
     
@@ -260,9 +326,8 @@ module cpu
     assign shamt = instruction_reg[10:6];
     
     // Connect inputs to SrcB select mux
-    // alu_src_b_mux_in0 will be assigned after opcode/funct are declared (for shift instruction handling)
-    assign alu_src_b_mux_in1 = 32'd4;            // Input 01: constant 4
-    assign alu_src_b_mux_in2 = SignImm;           // Input 10: sign-extended immediate
+    assign alu_src_b_mux_in1 = 32'd4;
+    assign alu_src_b_mux_in2 = ImmValue;         // Input 10: sign or zero-extended immediate
     assign alu_src_b_mux_in3 = shifted_imm;       // Input 11: barrel shifter output
     
     // Instantiate SrcB select mux (2-bit wide 4-to-1 mux for ALU source B)
@@ -277,18 +342,12 @@ module cpu
         .out(alu_src_b)
     );
     
-    // ALU Source A Mux (1-bit wide, 2-to-1 mux)
-    // ALUSrcA = 0: PC (for PC+4 calculation)
-    // ALUSrcA = 1: Register_File_A (for most R-type) or Register_File_B (for shift instructions)
-    // Note: For shift instructions (SLL, SRL, SRA), we shift rt (Register_File_B), not rs
-    logic [31:0] alu_src_a_mux_in0;  // Input 0: PC
-    logic [31:0] alu_src_a_mux_in1;  // Input 1: Register_File_A or Register_File_B (for shifts)
-    logic [31:0] alu_src_a;  // ALU source A output
+    // ALU Source A Mux: ALUSrcA = 0: PC, 1: Register_File_A (or Register_File_B for shifts)
+    logic [31:0] alu_src_a_mux_in0;
+    logic [31:0] alu_src_a_mux_in1;
+    logic [31:0] alu_src_a;
     
-    // For shift instructions, use Register_File_B (rt) as the value to shift
-    // For other instructions, use Register_File_A (rs)
     assign alu_src_a_mux_in0 = PC;
-    // alu_src_a_mux_in1 is assigned after opcode/funct are declared (see below)
     
     mux_1bit #(
         .N(32)
@@ -313,28 +372,112 @@ module cpu
         .zero(alu_zero)     // ALU zero flag (zero line)
     );
     
-    // ALU Register - stores ALU result
-    logic [31:0] ALUOut;  // ALU register output
+    // Capture PC_at_fetch when instruction is written to IR (in S0_FETCH)
+    // In S0_FETCH, ALUResult = PC+4 (combinational), so instruction address = ALUResult - 4
+    reg_en #(
+        .N(32),
+        .INIT(0)
+    ) PC_at_fetch_Reg (
+        .clk(clk),
+        .rst(rst),
+        .en(IRWrite),  // Capture when instruction is written to IR
+        .d(ALUResult - 32'd4),  // ALUResult is PC+4, so this gives us the instruction address
+        .q(PC_at_fetch)
+    );
     
-    reg_reset #(
-        .N(32)
+    // ALU Register - stores ALU result
+    logic [31:0] ALUOut;
+    logic ALUOut_en;
+    
+    // Enable ALUOut in states where we compute new ALU results
+    assign ALUOut_en = (current_state == 4'd2) ||  // S1_DECODE
+                       (current_state == 4'd3) ||  // S2_ADDR
+                       (current_state == 4'd7) ||  // S6_EXEC
+                       (current_state == 4'd10);   // S9_EXI
+    
+    reg_en #(
+        .N(32),
+        .INIT(0)
     ) ALU_Reg (
         .clk(clk),
         .rst(rst),
+        .en(ALUOut_en),
         .d(ALUResult),
         .q(ALUOut)
     );
     
-    // PCSrc Select Mux - selects between ALUResult and ALUOut for PC_prime
-    // PCSrc = 0: ALUResult (for PC+4)
-    // PCSrc = 1: ALUOut (for branch target)
-    mux_1bit #(
+    // PC+4 Register - stores PC+4 from fetch stage for use by JAL
+    // This captures PC+4 when an instruction is fetched (IRWrite enabled)
+    logic [31:0] PC_plus_4;
+    
+    reg_en #(
+        .N(32),
+        .INIT(0)
+    ) PC_plus_4_Reg (
+        .clk(clk),
+        .rst(rst),
+        .en(IRWrite),  // Capture PC+4 when instruction is written to IR
+        .d(ALUResult), // ALUResult is PC+4 in S0_FETCH
+        .q(PC_plus_4)
+    );
+    
+    // PC_for_jump Register - preserves the instruction address only when a jump is detected
+    // We capture PC_plus_4 - 4 in S1_DECODE when we detect a jump instruction
+    // At that point, PC_plus_4 contains PC+4 from when the jump instruction was fetched
+    // So instruction address = PC_plus_4 - 4
+    logic is_jump_instruction;
+    logic PC_for_jump_en;
+    logic [31:0] instruction_addr_calc;  // Calculated instruction address
+    
+    assign is_jump_instruction = (opcode == `OP_J) || (opcode == `OP_JAL) || 
+                                 ((opcode == `OP_RTYPE) && (funct == `F_JR));
+    // Calculate instruction address from PC_plus_4
+    assign instruction_addr_calc = PC_plus_4 - 32'd4;
+    
+    // Update PC_for_jump in S1_DECODE when we detect a jump instruction
+    // This ensures we capture the instruction address before PC_plus_4 might be overwritten
+    // Also update in S1_DECODE_WAIT to catch it earlier if needed
+    assign PC_for_jump_en = ((current_state == 4'd1) || (current_state == 4'd2)) && is_jump_instruction;
+    
+    reg_en #(
+        .N(32),
+        .INIT(0)
+    ) PC_for_jump_Reg (
+        .clk(clk),
+        .rst(rst),
+        .en(PC_for_jump_en),  // Only update when we detect a jump in S1_DECODE
+        .d(instruction_addr_calc), // Instruction address = PC_plus_4 - 4
+        .q(PC_for_jump)
+    );
+    
+    // Register file write data: MemToReg selects data_reg vs ALUOut, WriteRA selects PC_plus_4
+    assign reg_file_w_data = MemToReg ? data_reg : (WriteRA ? PC_plus_4 : ALUOut);
+    
+    // Debug signal assignments
+    assign dbg_ALUResult = ALUResult;
+    assign dbg_ALUOut = ALUOut;
+    assign dbg_ImmValue = ImmValue;
+    assign dbg_SignImm = SignImm;
+    assign dbg_ZeroImm = ZeroImm;
+    assign dbg_imm_16 = imm_16;
+    
+    // Jump address calculation
+    // For J and JAL: jump address = {PC[31:28], instruction[25:0], 2'b00}
+    // Use PC_for_jump which is preserved from when the jump was detected
+    // This ensures we have the correct PC value even if PC_plus_4 gets overwritten
+    logic [31:0] jump_addr;
+    assign jump_addr = {PC_for_jump[31:28], instruction_reg[25:0], 2'b00};
+    
+    // PCSrc Select Mux: 00=ALUResult, 01=ALUOut, 10=jump_addr, 11=Register_File_A
+    mux #(
         .N(32)
     ) PCSrc_Select (
         .sel(PCSrc),
-        .in0(ALUResult),   // Input 0: ALUResult
-        .in1(ALUOut),      // Input 1: ALUOut
-        .out(PC_prime)     // Output: PC' (PC prime) feeds into PC_Reg
+        .in0(ALUResult),        // Input 00: ALUResult (PC+4) - combinational ALU output
+        .in1(ALUOut),           // Input 01: ALUOut (branch target) - registered ALU output
+        .in2(jump_addr),        // Input 10: jump address
+        .in3(reg_file_r0_data),  // Input 11: Register file output (rs) for JR
+        .out(PC_prime)          // Output: PC' (PC prime) feeds into PC_Reg
     );
     
     // Connect ALUOut to MemToReg mux input 0
@@ -349,24 +492,10 @@ module cpu
         the instruction that is currently executing.
     */
     
-    // Extract opcode and funct from instruction register
-    logic [5:0] opcode;
-    logic [5:0] funct;
-    
-    assign opcode = instruction_reg[31:26];
-    assign funct = instruction_reg[5:0];
-    
-    // For shift instructions (SLL, SRL, SRA), use shamt as ALU input B and rt as ALU input A
-    // Check if current instruction is a shift (funct field indicates shift)
-    logic is_shift_instr;
-    assign is_shift_instr = (opcode == `OP_RTYPE) && 
-                           ((funct == `F_SLL) || (funct == `F_SRL) || (funct == `F_SRA));
-    
-    // Update ALU source muxes for shift instructions
-    // For shift instructions: ALU A = rt (Register_File_B), ALU B = shamt
-    // For non-shift R-type: ALU A = rs (Register_File_A), ALU B = rt (Register_File_B)
-    assign alu_src_b_mux_in0 = is_shift_instr ? {27'b0, shamt} : Register_File_B;
-    assign alu_src_a_mux_in1 = is_shift_instr ? Register_File_B : Register_File_A;
+    // For shift instructions: ALU A = rt, ALU B = shamt
+    // For non-shift R-type: ALU A = rs, ALU B = rt
+    assign alu_src_b_mux_in0 = UseShamt ? {27'b0, shamt} : reg_file_r1_data;
+    assign alu_src_a_mux_in1 = UseShamt ? reg_file_r1_data : reg_file_r0_data;
     
     // Control unit output signals are declared above (before datapath usage)
     
@@ -378,7 +507,6 @@ module cpu
         .opcode(opcode),
         .funct(funct),
         .PCWrite(PCWrite),
-        .Branch(Branch),
         .PCSrc(PCSrc),
         .ALUControl(ALUControl),
         .ALUSrcB(ALUSrcB),
@@ -388,22 +516,47 @@ module cpu
         .MemWrite(MemWrite),
         .IRWrite(IRWrite),
         .MemToReg(MemToReg),
-        .RegDst(RegDst)
+        .RegDst(RegDst),
+        .ExtOp(ExtOp),
+        .UseShamt(UseShamt),
+        .WriteRA(WriteRA),
+        .BranchEQ(BranchEQ),
+        .BranchNE(BranchNE),
+        .dbg_current_state(dbg_ctrl_current_state),
+        .dbg_next_state(dbg_ctrl_next_state),
+        .dbg_opcode_has_xz(dbg_opcode_has_xz),
+        .dbg_opcode_raw(dbg_opcode_raw),
+        .dbg_decode_result(dbg_decode_result),
+        .dbg_next_state_before_case(dbg_next_state_before_case),
+        .dbg_next_state_after_j_check(dbg_next_state_after_j_check),
+        .dbg_opcode_reg(dbg_opcode_reg),
+        .dbg_opcode_used(dbg_opcode_used),
+        .dbg_opcode_reg_has_xz(dbg_opcode_reg_has_xz),
+        .dbg_isLW(dbg_isLW),
+        .dbg_isSW(dbg_isSW),
+        .dbg_isR(dbg_isR),
+        .dbg_isJR(dbg_isJR)
     );
+    
+    // Debug signal assignments for jump-related signals
+    assign dbg_PC_plus_4 = PC_plus_4;
+    assign dbg_PC_for_jump = PC_for_jump;
+    assign dbg_jump_addr = jump_addr;
+    assign dbg_is_jump_instruction = is_jump_instruction;
+    assign dbg_PC_for_jump_en = PC_for_jump_en;
+    assign dbg_instruction_addr_calc = instruction_addr_calc;
+    assign dbg_PC_prime = PC_prime;
     
     // Connect MemWrite to memory write enable
     assign wr_en = MemWrite;
     
-    // Data register enable: enable when reading from memory (IorD=1 and not writing)
-    // This captures data during load instructions
-    assign data_reg_en = IorD & ~MemWrite;
+    // Data register enable: enable in S4_MEMWB (state 5) to capture memory read data
+    assign data_reg_en = (current_state == 4'd5);
     
-    // Branch Logic - connect after control unit and ALU are instantiated
-    // AND gate: Branch AND zero flag
-    assign branch_and_zero = Branch & alu_zero;
+    // Branch Logic: BEQ branches when alu_zero==1, BNE branches when alu_zero==0
+    assign branch_condition = (BranchEQ & alu_zero) | (BranchNE & ~alu_zero);
+    assign PCEn = branch_condition | PCWrite;
     
-    // OR gate: (Branch AND zero) OR PCWrite
-    assign PCEn = branch_and_zero | PCWrite;
     
 
 

@@ -75,8 +75,6 @@ module control_unit
     end
     
     // Debug signal assignments
-    // CRITICAL: Cast enum to logic correctly - use explicit bit selection
-    // The enum is defined as logic [3:0], so we can directly select the bits
     assign dbg_current_state = s[3:0];
     assign dbg_next_state = ns[3:0];
     assign dbg_opcode_raw = opcode;
@@ -89,7 +87,6 @@ module control_unit
     assign dbg_isR = isR;
     assign dbg_isJR = isJR;
     
-    // Debug: Track which decode path was taken
     logic [3:0] decode_result;
     always_comb begin
         if (s == S1_DECODE) begin
@@ -169,11 +166,6 @@ module control_unit
         // Default: stay in current state
         ns = s;
         
-        // Debug: Show initial ns value
-        if (s == S1_DECODE || s == S1_DECODE_WAIT || s == S2_ADDR) begin
-            $display("[CONTROL] always_comb: s=%0d, initial ns=%0d", s, ns);
-        end
-        
         // Default all control signals to 0
         PCWrite = 0;
         PCSrc = 2'b00;
@@ -205,102 +197,70 @@ module control_unit
             end
 
             S1_DECODE_WAIT: begin
-                // Wait state: instruction register was written in S0, now wait for it to settle
-                // This ensures opcode is stable before decoding
                 ALUSrcA = 0;
                 ALUSrcB = 2'b11;
-                ALUControl = `ALU_ADD;  // PC + (offset << 2) for branch
-                ExtOp = 1;  // Sign extend for branch offset calculation
+                ALUControl = `ALU_ADD;
+                ExtOp = 1;
                 ns = S1_DECODE;
-                $display("[CONTROL] S1_DECODE_WAIT: Waiting for instruction to settle, opcode=0x%02h -> S1_DECODE", opcode);
             end
 
             S1_DECODE: begin
-                // Instruction was written in S0, so it's stable now for decoding
                 ALUSrcA = 0;
                 ALUSrcB = 2'b11;
-                ALUControl = `ALU_ADD;  // PC + (offset << 2) for branch
-                ExtOp = 1;  // Sign extend for branch offset calculation
+                ALUControl = `ALU_ADD;
+                ExtOp = 1;
 
-                // Debug: Print decode decision
-                $display("[CONTROL] S1_DECODE: opcode=0x%02h, funct=0x%02h, isR=%0d, isJR=%0d, isALUImm=%0d, isLW=%0d, isSW=%0d, isBEQ=%0d, isBNE=%0d, isJ=%0d, isJAL=%0d",
-                    opcode, funct, isR, isJR, isALUImm, isLW, isSW, isBEQ, isBNE, isJ, isJAL);
-
-                // Check conditions in priority order (matching reference order exactly)
-                // Use direct opcode/funct comparisons to avoid any timing issues
                 if ((opcode == `OP_RTYPE) && (funct == `F_JR)) begin
                     ns = S11_JUMP;
-                    $display("[CONTROL] S1_DECODE: Decoded as JR -> S11_JUMP");
                 end else if (opcode == `OP_RTYPE) begin
                     ns = S6_EXEC;
-                    $display("[CONTROL] S1_DECODE: Decoded as R-type -> S6_EXEC");
                 end else if ((opcode == `OP_ADDI) || (opcode == `OP_ANDI) || (opcode == `OP_ORI) || (opcode == `OP_XORI) || (opcode == `OP_SLTI)) begin
                     ns = S9_EXI;
-                    $display("[CONTROL] S1_DECODE: Decoded as ALU Imm -> S9_EXI");
                 end else if ((opcode == `OP_LW) || (opcode == `OP_SW)) begin
                     ns = S2_ADDR;
-                    $display("[CONTROL] S1_DECODE: Decoded as Memory (LW=%0d, SW=%0d) -> S2_ADDR, ns=%0d", (opcode == `OP_LW), (opcode == `OP_SW), ns);
                 end else if ((opcode == `OP_BEQ) || (opcode == `OP_BNE)) begin
                     ns = S8_BRANCH;
-                    $display("[CONTROL] S1_DECODE: Decoded as Branch -> S8_BRANCH");
                 end else if ((opcode == `OP_J) || (opcode == `OP_JAL)) begin
                     ns = S11_JUMP;
-                    $display("[CONTROL] S1_DECODE: Decoded as Jump -> S11_JUMP");
                 end else begin
-                    // Unknown instruction - stay in fetch
                     ns = S0_FETCH;
-                    $display("[CONTROL] S1_DECODE: Unknown instruction -> S0_FETCH");
                 end
             end
 
             S2_ADDR: begin
                 ALUSrcA = 1;
                 ALUSrcB = 2'b10;
-                ALUControl = `ALU_ADD;  // rs + offset
-                ExtOp = 1;  // Sign extend for memory address calculation
+                ALUControl = `ALU_ADD;
+                ExtOp = 1;
                 if (isLW) begin
                     ns = S3_MEMRD;
-                    $display("[CONTROL] S2_ADDR: LW detected -> S3_MEMRD");
-                    $display("[CONTROL] S2_ADDR: === STEP 1: ADDRESS CALCULATION (LW) ===");
-                    $display("[CONTROL] S2_ADDR: opcode=0x%02h, imm_16 should be 0x0004, ALUSrcA=1, ALUSrcB=10", opcode);
                 end else begin
                     ns = S5_MEMWR;
-                    $display("[CONTROL] S2_ADDR: SW detected -> S5_MEMWR");
-                    $display("[CONTROL] S2_ADDR: === STEP 1: ADDRESS CALCULATION (SW) ===");
-                    $display("[CONTROL] S2_ADDR: opcode=0x%02h, imm_16 should be 0x0004, ALUSrcA=1, ALUSrcB=10", opcode);
                 end
             end
 
             S3_MEMRD: begin
                 IorD = 1;
                 ns = S4_MEMWB;
-                $display("[CONTROL] S3_MEMRD: === STEP 2: MEMORY READ ===");
-                $display("[CONTROL] S3_MEMRD: Reading from memory, IorD=1 -> S4_MEMWB");
             end
 
             S4_MEMWB: begin
                 IorD = 1;
-                // MDRWrite handled by data_reg_en in CPU
                 ns = S10_WBI;
-                $display("[CONTROL] S4_MEMWB: === STEP 3: CAPTURE MEMORY DATA ===");
-                $display("[CONTROL] S4_MEMWB: Memory data ready, IorD=1 -> S10_WBI");
             end
 
             S5_MEMWR: begin
-                IorD     = 1;
+                IorD = 1;
                 MemWrite = 1;
                 ns = S0_FETCH;
-                $display("[CONTROL] S5_MEMWR: === STEP 2: MEMORY WRITE ===");
-                $display("[CONTROL] S5_MEMWR: Writing to memory, IorD=1, MemWrite=1 -> S0_FETCH");
             end
 
             S6_EXEC: begin
                 ALUSrcA = 1;
                 ALUSrcB = 2'b00;
-                ALUControl = aluop_to_alucontrol(2'b10, funct, opcode);  // R-type
-                UseShamt = isSHIFT;  // Use shamt for shift instructions
+                ALUControl = aluop_to_alucontrol(2'b10, funct, opcode);
+                UseShamt = isSHIFT;
                 ns = S7_ALUWB;
-                $display("[CONTROL] S6_EXEC: R-type execution, ALUSrcA=1, ALUSrcB=00, ALUControl=%0d, UseShamt=%0d -> S7_ALUWB", ALUControl, UseShamt);
             end
 
             S7_ALUWB: begin
@@ -311,51 +271,47 @@ module control_unit
             end
 
             S8_BRANCH: begin
-                ALUSrcA  = 1;
-                ALUSrcB  = 2'b00;
-                ALUControl = `ALU_SUB;  // Compare rs - rt
-                BranchEQ = isBEQ;  // Branch if equal
-                BranchNE = isBNE;  // Branch if not equal
-                PCSrc    = 2'b01;
+                ALUSrcA = 1;
+                ALUSrcB = 2'b00;
+                ALUControl = `ALU_SUB;
+                BranchEQ = isBEQ;
+                BranchNE = isBNE;
+                PCSrc = 2'b01;
                 ns = S0_FETCH;
             end
 
             S9_EXI: begin
                 ALUSrcA = 1;
                 ALUSrcB = 2'b10;
-                ALUControl = aluop_to_alucontrol(2'b11, funct, opcode);  // I-type
-                // ExtOp = 0 for ANDI, ORI, XORI (zero extend), 1 for others (sign extend)
+                ALUControl = aluop_to_alucontrol(2'b11, funct, opcode);
                 ExtOp = ~(isANDI || isORI || isXORI);
                 ns = S10_WBI;
-                $display("[CONTROL] S9_EXI: I-type execution, ALUSrcA=1, ALUSrcB=10, ALUControl=%0d, ExtOp=%0d -> S10_WBI", ALUControl, ExtOp);
             end
 
             S10_WBI: begin
                 RegDst = 0;
                 if (isLW) begin
                     MemToReg = 1;
-                    $display("[CONTROL] S10_WBI: === STEP 4: REGISTER WRITEBACK (LW) ===");
                 end else begin
                     MemToReg = 0;
                 end
                 RegWrite = 1;
                 ns = S0_FETCH;
-                $display("[CONTROL] S10_WBI: Writeback, RegDst=0, MemToReg=%0d, RegWrite=1 -> S0_FETCH", MemToReg);
             end
 
             S11_JUMP: begin
                 if (isJR) begin
                     ALUSrcA = 1;
                     ALUSrcB = 2'b00;
-                    ALUControl = `ALU_ADD;  // Pass through rs
-                    PCSrc   = 2'b11;  // Select Register_File_A
+                    ALUControl = `ALU_ADD;
+                    PCSrc = 2'b11;
                     PCWrite = 1;
                 end else begin
-                    PCSrc   = 2'b10;
+                    PCSrc = 2'b10;
                     PCWrite = 1;
                     if (isJAL) begin
                         RegWrite = 1;
-                        WriteRA = 1;  // Write return address to $31
+                        WriteRA = 1;
                     end
                 end
                 ns = S0_FETCH;

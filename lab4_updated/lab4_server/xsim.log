@@ -1,0 +1,1760 @@
+#-----------------------------------------------------------
+# xsim v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Fri Nov 21 10:02:40 2025
+# Process ID: 3308646
+# Current directory: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server
+# Command line: xsim -mode tcl -source {xsim.dir/cpu_jtype_tb_sim/xsim_script.tcl}
+# Log file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/xsim.log
+# Journal file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/xsim.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1200.158 MHz, CPU Physical cores: 28, Host memory: 539830 MB
+#-----------------------------------------------------------
+source xsim.dir/cpu_jtype_tb_sim/xsim_script.tcl
+# xsim {cpu_jtype_tb_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+========================================
+CPU J-Type Instructions Testbench
+Testing J, JAL, and JR instructions
+========================================
+
+
+=== Loading J-Type Instructions ===
+Instructions loaded into memory
+
+Reset released at time 20000
+
+[DEBUG] Memory read: addr=0x00400000, idx=1048576, data=0x20010005 at time 20000
+[DEBUG] Memory read: addr=0x00400004, idx=1048577, data=0x2002000a at time 25000
+[DEBUG] S11_JUMP state at time 65000
+  PC = 0x00400004
+  instruction_reg = 0x20010005
+  opcode = 0x08
+  PC_plus_4 = 0x00400004
+  PC_for_jump = 0x00000000
+  jump_addr = 0x00040014
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0xxxxxxxxx
+[DEBUG] Memory read: addr=0x00400008, idx=1048578, data=0x08100010 at time 75000
+[DEBUG] S11_JUMP state at time 115000
+  PC = 0x00400008
+  instruction_reg = 0x2002000a
+  opcode = 0x08
+  PC_plus_4 = 0x00400008
+  PC_for_jump = 0x00000000
+  jump_addr = 0x00080028
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0xxxxxxxxx
+[DEBUG] Memory read: addr=0x0040000c, idx=1048579, data=0x20030001 at time 125000
+[DEBUG] Jump instruction detected at time 135000
+  State = 1
+  instruction_reg = 0x08100010
+  opcode = 0x02
+  PC_plus_4 = 0x0040000c
+  instruction_addr_calc = 0x00400008
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00000000
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 135000
+  State = 1
+  instruction_addr_calc = 0x00400008
+[DEBUG] Jump instruction detected at time 145000
+  State = 2
+  instruction_reg = 0x08100010
+  opcode = 0x02
+  PC_plus_4 = 0x0040000c
+  instruction_addr_calc = 0x00400008
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400008
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 145000
+  State = 2
+  instruction_addr_calc = 0x00400008
+[DEBUG] PC update with J/JAL jump at time 155000
+  PC (old) = 0x0040000c
+  instruction_reg = 0x08100010
+  instruction_reg[25:0] = 0x00100010
+  PC_for_jump = 0x00400008
+  PC_for_jump[31:28] = 0x0
+  jump_addr = 0x00400040
+  Expected jump_addr = 0x00400040
+  PC_prime = 0x00400040
+[DEBUG] Memory read: addr=0x00400040, idx=1048592, data=0x20050003 at time 155000
+[DEBUG] Memory read: addr=0x00400044, idx=1048593, data=0x20060004 at time 165000
+[DEBUG] S11_JUMP state at time 205000
+  PC = 0x00400044
+  instruction_reg = 0x20050003
+  opcode = 0x08
+  PC_plus_4 = 0x00400044
+  PC_for_jump = 0x00400008
+  jump_addr = 0x0014000c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0xxxxxxxxx
+[DEBUG] Memory read: addr=0x00400048, idx=1048594, data=0x0c100024 at time 215000
+[DEBUG] S11_JUMP state at time 255000
+  PC = 0x00400048
+  instruction_reg = 0x20060004
+  opcode = 0x08
+  PC_plus_4 = 0x00400048
+  PC_for_jump = 0x00400008
+  jump_addr = 0x00180010
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0xxxxxxxxx
+[DEBUG] Memory read: addr=0x0040004c, idx=1048595, data=0x20070005 at time 265000
+[DEBUG] Jump instruction detected at time 275000
+  State = 1
+  instruction_reg = 0x0c100024
+  opcode = 0x03
+  PC_plus_4 = 0x0040004c
+  instruction_addr_calc = 0x00400048
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400008
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 275000
+  State = 1
+  instruction_addr_calc = 0x00400048
+[DEBUG] Decoding instruction at PC=0x0040004C at time 275000
+  instruction_reg = 0x0c100024
+  opcode = 0x03
+  next_state = 2
+[DEBUG] Jump instruction detected at time 285000
+  State = 2
+  instruction_reg = 0x0c100024
+  opcode = 0x03
+  PC_plus_4 = 0x0040004c
+  instruction_addr_calc = 0x00400048
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400048
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 285000
+  State = 2
+  instruction_addr_calc = 0x00400048
+[DEBUG] PC update with J/JAL jump at time 295000
+  PC (old) = 0x0040004c
+  instruction_reg = 0x0c100024
+  instruction_reg[25:0] = 0x00100024
+  PC_for_jump = 0x00400048
+  PC_for_jump[31:28] = 0x0
+  jump_addr = 0x00400090
+  Expected jump_addr = 0x00400090
+  PC_prime = 0x00400090
+[DEBUG] Memory read: addr=0x00400090, idx=1048612, data=0x20080006 at time 295000
+[DEBUG] Memory read: addr=0x00400094, idx=1048613, data=0x03e00008 at time 305000
+[DEBUG] S11_JUMP state at time 345000
+  PC = 0x00400094
+  instruction_reg = 0x20080006
+  opcode = 0x08
+  PC_plus_4 = 0x00400094
+  PC_for_jump = 0x00400048
+  jump_addr = 0x00200018
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0xxxxxxxxx
+[DEBUG] Memory read: addr=0x00400098, idx=1048614, data=0x20090007 at time 355000
+[DEBUG] Jump instruction detected at time 365000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x00400098
+  instruction_addr_calc = 0x00400094
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400048
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 365000
+  State = 1
+  instruction_addr_calc = 0x00400094
+[DEBUG] Jump instruction detected at time 375000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x00400098
+  instruction_addr_calc = 0x00400094
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400094
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 375000
+  State = 2
+  instruction_addr_calc = 0x00400094
+[DEBUG] PC update with JR jump at time 385000
+  PC (old) = 0x00400098
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x0040004c
+  PC_prime (next PC) = 0x0040004c
+[DEBUG] Memory read: addr=0x0040004c, idx=1048595, data=0x20070005 at time 385000
+[DEBUG] Fetching at key PC=0x0040004c at time 395000
+  instruction_reg (from previous) = 0x03e00008
+[DEBUG] Memory read: addr=0x00400050, idx=1048596, data=0x08100027 at time 395000
+[DEBUG] S11_JUMP state at time 435000
+  PC = 0x00400050
+  instruction_reg = 0x20070005
+  opcode = 0x08
+  PC_plus_4 = 0x00400050
+  PC_for_jump = 0x00400094
+  jump_addr = 0x001c0014
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0xxxxxxxxx
+[DEBUG] Fetching at key PC=0x00400050 at time 445000
+  instruction_reg (from previous) = 0x20070005
+[DEBUG] Memory read: addr=0x00400054, idx=1048597, data=0x00000000 at time 445000
+[DEBUG] Jump instruction detected at time 455000
+  State = 1
+  instruction_reg = 0x08100027
+  opcode = 0x02
+  PC_plus_4 = 0x00400054
+  instruction_addr_calc = 0x00400050
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400094
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 455000
+  State = 1
+  instruction_addr_calc = 0x00400050
+[DEBUG] Jump instruction detected at time 465000
+  State = 2
+  instruction_reg = 0x08100027
+  opcode = 0x02
+  PC_plus_4 = 0x00400054
+  instruction_addr_calc = 0x00400050
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400050
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 465000
+  State = 2
+  instruction_addr_calc = 0x00400050
+[DEBUG] PC update with J/JAL jump at time 475000
+  PC (old) = 0x00400054
+  instruction_reg = 0x08100027
+  instruction_reg[25:0] = 0x00100027
+  PC_for_jump = 0x00400050
+  PC_for_jump[31:28] = 0x0
+  jump_addr = 0x0040009c
+  Expected jump_addr = 0x0040009c
+  PC_prime = 0x0040009c
+[DEBUG] Memory read: addr=0x0040009c, idx=1048615, data=0x200a00a0 at time 475000
+[DEBUG] Fetching at PC=0x0040009c (JR test range) at time 485000
+[DEBUG] Fetching at key PC=0x0040009c at time 485000
+  instruction_reg (from previous) = 0x08100027
+[DEBUG] Memory read: addr=0x004000a0, idx=1048616, data=0x20010014 at time 485000
+[DEBUG] S11_JUMP state at time 525000
+  PC = 0x004000a0
+  instruction_reg = 0x200a00a0
+  opcode = 0x08
+  PC_plus_4 = 0x004000a0
+  PC_for_jump = 0x00400050
+  jump_addr = 0x00280280
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0xxxxxxxxx
+[DEBUG] Writing to $10 at time 525000, PC=0x004000a0
+  w_addr = 10 ($10)
+  w_data = 0x000000a0 (160)
+  instruction_reg = 0x200a00a0
+[DEBUG] Fetching at PC=0x004000a0 (JR test range) at time 535000
+[DEBUG] Memory read: addr=0x004000a4, idx=1048617, data=0x00410820 at time 535000
+[DEBUG] S11_JUMP state at time 575000
+  PC = 0x004000a4
+  instruction_reg = 0x20010014
+  opcode = 0x08
+  PC_plus_4 = 0x004000a4
+  PC_for_jump = 0x00400050
+  jump_addr = 0x00040050
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x004000a9
+[DEBUG] Fetching at PC=0x004000a4 (JR test range) at time 585000
+[DEBUG] Memory read: addr=0x004000a8, idx=1048618, data=0x00415020 at time 585000
+[DEBUG] Fetching at PC=0x004000a8 (JR test range) at time 635000
+[DEBUG] Memory read: addr=0x004000ac, idx=1048619, data=0x01400008 at time 635000
+[DEBUG] Writing to $10 at time 675000, PC=0x004000ac
+  w_addr = 10 ($10)
+  w_data = 0x00000028 (40)
+  instruction_reg = 0x00415020
+[DEBUG] Fetching at PC=0x004000ac (JR test range) at time 685000
+[DEBUG] Fetching at key PC=0x004000ac at time 685000
+  instruction_reg (from previous) = 0x00415020
+[DEBUG] Memory read: addr=0x004000b0, idx=1048620, data=0x200b0008 at time 685000
+[DEBUG] Jump instruction detected at time 695000
+  State = 1
+  instruction_reg = 0x01400008
+  opcode = 0x00
+  PC_plus_4 = 0x004000b0
+  instruction_addr_calc = 0x004000ac
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400050
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 695000
+  State = 1
+  instruction_addr_calc = 0x004000ac
+[DEBUG] JR $10 instruction detected at time 695000
+  PC = 0x004000b0
+  instruction_reg = 0x01400008
+  rs field = 10 ($10)
+  Register_File_A ($10 value) = 0x0000000a (10)
+  Expected: 0x000000AA (170)
+[DEBUG] Jump instruction detected at time 705000
+  State = 2
+  instruction_reg = 0x01400008
+  opcode = 0x00
+  PC_plus_4 = 0x004000b0
+  instruction_addr_calc = 0x004000ac
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x004000ac
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 705000
+  State = 2
+  instruction_addr_calc = 0x004000ac
+[DEBUG] JR $10 instruction detected at time 705000
+  PC = 0x004000b0
+  instruction_reg = 0x01400008
+  rs field = 10 ($10)
+  Register_File_A ($10 value) = 0x00000028 (40)
+  Expected: 0x000000AA (170)
+[DEBUG] PC update with JR jump at time 715000
+  PC (old) = 0x004000b0
+  instruction_reg = 0x01400008
+  opcode = 0x00, funct = 0x08
+  rs field = 10
+  Register_File_A (rs) = 0x00000028
+  PC_prime (next PC) = 0x00000028
+[DEBUG] JR $10 instruction detected at time 715000
+  PC = 0x004000b0
+  instruction_reg = 0x01400008
+  rs field = 10 ($10)
+  Register_File_A ($10 value) = 0x00000028 (40)
+  Expected: 0x000000AA (170)
+[DEBUG] JR $10 instruction detected at time 725000
+  PC = 0x00000028
+  instruction_reg = 0x01400008
+  rs field = 10 ($10)
+  Register_File_A ($10 value) = 0x00000028 (40)
+  Expected: 0x000000AA (170)
+[DEBUG] S11_JUMP state at time 2365000
+  PC = 0x000000ac
+  instruction_reg = 0x200c0009
+  opcode = 0x08
+  PC_plus_4 = 0x000000ac
+  PC_for_jump = 0x004000ac
+  jump_addr = 0x00300024
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0xxxxxxxxx
+[DEBUG] Writing to $12 at time 2365000, PC=0x000000ac
+  w_data = 0x00000009 (9)
+  instruction_reg = 0x200c0009
+[DEBUG] Jump instruction detected at time 2385000
+  State = 1
+  instruction_reg = 0x0810002d
+  opcode = 0x02
+  PC_plus_4 = 0x000000b0
+  instruction_addr_calc = 0x000000ac
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x004000ac
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2385000
+  State = 1
+  instruction_addr_calc = 0x000000ac
+[DEBUG] Jump instruction detected at time 2395000
+  State = 2
+  instruction_reg = 0x0810002d
+  opcode = 0x02
+  PC_plus_4 = 0x000000b0
+  instruction_addr_calc = 0x000000ac
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x000000ac
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2395000
+  State = 2
+  instruction_addr_calc = 0x000000ac
+[DEBUG] PC update with J/JAL jump at time 2405000
+  PC (old) = 0x000000b0
+  instruction_reg = 0x0810002d
+  instruction_reg[25:0] = 0x0010002d
+  PC_for_jump = 0x000000ac
+  PC_for_jump[31:28] = 0x0
+  jump_addr = 0x004000b4
+  Expected jump_addr = 0x004000b4
+  PC_prime = 0x004000b4
+[DEBUG] Memory read: addr=0x004000b4, idx=1048621, data=0x0c10005c at time 2405000
+[DEBUG] Fetching at PC=0x004000b4 (JR test range) at time 2415000
+[DEBUG] Memory read: addr=0x004000b8, idx=1048622, data=0x200d000a at time 2415000
+[DEBUG] Jump instruction detected at time 2425000
+  State = 1
+  instruction_reg = 0x0c10005c
+  opcode = 0x03
+  PC_plus_4 = 0x004000b8
+  instruction_addr_calc = 0x004000b4
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x000000ac
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2425000
+  State = 1
+  instruction_addr_calc = 0x004000b4
+[DEBUG] Jump instruction detected at time 2435000
+  State = 2
+  instruction_reg = 0x0c10005c
+  opcode = 0x03
+  PC_plus_4 = 0x004000b8
+  instruction_addr_calc = 0x004000b4
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x004000b4
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2435000
+  State = 2
+  instruction_addr_calc = 0x004000b4
+[DEBUG] PC update with J/JAL jump at time 2445000
+  PC (old) = 0x004000b8
+  instruction_reg = 0x0c10005c
+  instruction_reg[25:0] = 0x0010005c
+  PC_for_jump = 0x004000b4
+  PC_for_jump[31:28] = 0x0
+  jump_addr = 0x00400170
+  Expected jump_addr = 0x00400170
+  PC_prime = 0x00400170
+[DEBUG] Jump instruction detected at time 2465000
+  State = 1
+  instruction_reg = 0x0c10006f
+  opcode = 0x03
+  PC_plus_4 = 0x00400174
+  instruction_addr_calc = 0x00400170
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x004000b4
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2465000
+  State = 1
+  instruction_addr_calc = 0x00400170
+[DEBUG] Jump instruction detected at time 2475000
+  State = 2
+  instruction_reg = 0x0c10006f
+  opcode = 0x03
+  PC_plus_4 = 0x00400174
+  instruction_addr_calc = 0x00400170
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400170
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2475000
+  State = 2
+  instruction_addr_calc = 0x00400170
+[DEBUG] PC update with J/JAL jump at time 2485000
+  PC (old) = 0x00400174
+  instruction_reg = 0x0c10006f
+  instruction_reg[25:0] = 0x0010006f
+  PC_for_jump = 0x00400170
+  PC_for_jump[31:28] = 0x0
+  jump_addr = 0x004001bc
+  Expected jump_addr = 0x004001bc
+  PC_prime = 0x004001bc
+[DEBUG] S11_JUMP state at time 2535000
+  PC = 0x004001c0
+  instruction_reg = 0x200f000c
+  opcode = 0x08
+  PC_plus_4 = 0x004001c0
+  PC_for_jump = 0x00400170
+  jump_addr = 0x003c0030
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0xxxxxxxxx
+[DEBUG] Writing to $15 at time 2535000, PC=0x004001c0
+  w_data = 0x0000000c (12)
+  instruction_reg = 0x200f000c
+[DEBUG] Jump instruction detected at time 2555000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x004001c4
+  instruction_addr_calc = 0x004001c0
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400170
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2555000
+  State = 1
+  instruction_addr_calc = 0x004001c0
+[DEBUG] Jump instruction detected at time 2565000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x004001c4
+  instruction_addr_calc = 0x004001c0
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x004001c0
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2565000
+  State = 2
+  instruction_addr_calc = 0x004001c0
+[DEBUG] PC update with JR jump at time 2575000
+  PC (old) = 0x004001c4
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 2625000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x004001c0
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0xxxxxxxxx
+[DEBUG] Writing to $14 at time 2625000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 2645000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x004001c0
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2645000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 2655000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2655000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 2665000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 2715000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 2715000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 2735000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2735000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 2745000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2745000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 2755000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 2805000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 2805000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 2825000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2825000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 2835000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2835000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 2845000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 2895000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 2895000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 2915000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2915000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 2925000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 2925000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 2935000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 2985000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 2985000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3005000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3005000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 3015000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3015000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 3025000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 3075000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 3075000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3095000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3095000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 3105000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3105000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 3115000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 3165000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 3165000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3185000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3185000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 3195000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3195000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 3205000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 3255000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 3255000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3275000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3275000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 3285000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3285000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 3295000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 3345000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 3345000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3365000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3365000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 3375000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3375000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 3385000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 3435000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 3435000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3455000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3455000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 3465000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3465000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 3475000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 3525000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 3525000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3545000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3545000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 3555000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3555000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 3565000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 3615000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 3615000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3635000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3635000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 3645000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3645000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 3655000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 3705000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 3705000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3725000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3725000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 3735000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3735000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 3745000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 3795000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 3795000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3815000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3815000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 3825000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3825000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 3835000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 3885000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 3885000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3905000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3905000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 3915000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3915000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 3925000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 3975000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 3975000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 3995000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 3995000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4005000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4005000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 4015000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 4065000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 4065000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 4085000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4085000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4095000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4095000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 4105000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 4155000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 4155000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 4175000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4175000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4185000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4185000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 4195000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 4245000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 4245000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 4265000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4265000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4275000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4275000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 4285000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 4335000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 4335000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 4355000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4355000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4365000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4365000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 4375000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 4425000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 4425000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 4445000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4445000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4455000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4455000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 4465000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 4515000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 4515000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 4535000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4535000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4545000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4545000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 4555000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 4605000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 4605000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 4625000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4625000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4635000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4635000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 4645000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 4695000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 4695000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 4715000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4715000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4725000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4725000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 4735000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 4785000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 4785000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 4805000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4805000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4815000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4815000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 4825000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 4875000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 4875000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 4895000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4895000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4905000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4905000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 4915000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+[DEBUG] S11_JUMP state at time 4965000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 4965000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 4985000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4985000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 4995000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 4995000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 5005000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+
+========================================
+Test Results
+========================================
+
+=== Register Values ===
+Reg 1 ($at): 0x0000001e (30)
+Reg 2 ($v0): 0x0000000a (10)
+Reg 5 ($a1): 0x00000003 (3)
+Reg 6 ($a2): 0x00000004 (4)
+Reg 7 ($a3): 0x00000005 (5)
+Reg 8 ($t0): 0x00000006 (6)
+Reg 10 ($t2): 0x00000028 (40)
+Reg 12 ($t4): 0x00000009 (9)
+Reg 14 ($t6): 0x0000000b (11)
+Reg 15 ($t7): 0x0000000c (12)
+Reg 31 ($ra): 0x00400174 (4194676)
+
+=== Verification ===
+PASS: J instruction test
+PASS: JAL instruction test
+PASS: JR instruction test
+PASS: Nested JAL/JR test (accepting X for $13 as uninitialized)
+
+========================================
+Summary: 4 tests, 4 passed, 0 failed
+========================================
+
+✓ All J-type instruction tests passed!
+[DEBUG] S11_JUMP state at time 5055000
+  PC = 0x00400178
+  instruction_reg = 0x200e000b
+  opcode = 0x08
+  PC_plus_4 = 0x00400178
+  PC_for_jump = 0x00400178
+  jump_addr = 0x0038002c
+  PCSrc = 0
+  PCWrite = 0
+  PC_prime (next PC) = 0x00400183
+[DEBUG] Writing to $14 at time 5055000, PC=0x00400178
+  w_data = 0x0000000b (11)
+  instruction_reg = 0x200e000b
+[DEBUG] Jump instruction detected at time 5075000
+  State = 1
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 5075000
+  State = 1
+  instruction_addr_calc = 0x00400178
+[DEBUG] Jump instruction detected at time 5085000
+  State = 2
+  instruction_reg = 0x03e00008
+  opcode = 0x00
+  PC_plus_4 = 0x0040017c
+  instruction_addr_calc = 0x00400178
+  PC_for_jump_en = 1
+  PC_for_jump (current) = 0x00400178
+  is_jump_instruction = 1
+[DEBUG] PC_for_jump_en is TRUE at time 5085000
+  State = 2
+  instruction_addr_calc = 0x00400178
+[DEBUG] PC update with JR jump at time 5095000
+  PC (old) = 0x0040017c
+  instruction_reg = 0x03e00008
+  opcode = 0x00, funct = 0x08
+  rs field = 31
+  Register_File_A (rs) = 0x00400174
+  PC_prime (next PC) = 0x00400174
+$finish called at time : 5120 ns : File "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/tb/cpu_jtype_tb.sv" Line 387
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Nov 21 10:02:44 2025...

@@ -1083,3 +1083,413 @@ dismissDialog("Bitstream Generation Completed"); // S.a
 // HMemoryUtils.trashcanNow. Engine heap size: 4,152 MB. GUI used memory: 121 MB. Current time: 11/21/25, 7:01:30 AM EST
 // HMemoryUtils.trashcanNow. Engine heap size: 4,152 MB. GUI used memory: 121 MB. Current time: 11/21/25, 7:31:30 AM EST
 // HMemoryUtils.trashcanNow. Engine heap size: 4,152 MB. GUI used memory: 121 MB. Current time: 11/21/25, 8:01:30 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 4,152 MB. GUI used memory: 121 MB. Current time: 11/21/25, 8:31:30 AM EST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 618636 seconds
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // g
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 4,192 MB. GUI used memory: 90 MB. Current time: 11/21/25, 8:35:56 AM EST
+// TclEventType: TIMING_RESULTS_UNLOAD
+// Engine heap size: 4,192 MB. GUI used memory: 91 MB. Current time: 11/21/25, 8:35:56 AM EST
+// Tcl Message: refresh_design 
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: POWER_CNS_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 4,182 MB. GUI used memory: 68 MB. Current time: 11/21/25, 8:35:58 AM EST
+// DeviceView Instantiated
+// WARNING: HEventQueue.dispatchEvent() is taking  1003 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.06 . Memory (MB): peak = 9349.609 ; gain = 0.000 ; free physical = 195274 ; free virtual = 353911 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 455 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2022.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Timing 38-478] Restoring timing data from binary archive. INFO: [Timing 38-479] Binary timing data restore complete. INFO: [Project 1-856] Restoring constraints from binary archive. INFO: [Project 1-853] Binary constraint restore complete. 
+// Tcl Message: Reading XDEF placement. Reading placer database... Reading XDEF routing. 
+// Tcl Message: Read XDEF Files: Time (s): cpu = 00:00:14 ; elapsed = 00:00:00.51 . Memory (MB): peak = 9397.633 ; gain = 48.023 ; free physical = 195313 ; free virtual = 353950 
+// Tcl Message: Restored from archive | CPU: 16.930000 secs | Memory: 10.693527 MB | 
+// Tcl Message: Finished XDEF File Restore: Time (s): cpu = 00:00:14 ; elapsed = 00:00:00.51 . Memory (MB): peak = 9397.633 ; gain = 48.023 ; free physical = 195313 ; free virtual = 353950 
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device view-level: 0.0
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// TclEventType: DRC_ADDED
+// Device view-level: 0.0
+// TclEventType: DRC_ADDED
+// TclEventType: METHODOLOGY_ADDED
+// TclEventType: POWER_UPDATED
+// WARNING: HEventQueue.dispatchEvent() is taking  1084 ms.
+// TclEventType: TIMING_SUMMARY_UPDATED
+// [Engine Memory]: 4,307 MB (+34525kb) [173:13:52]
+dismissDialog("Reloading"); // bq
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation]", 16, true); // f - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation]", 16, true); // f - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 17, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// Tcl Message: INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Device view-level: 0.0
+// HMemoryUtils.trashcanNow. Engine heap size: 4,392 MB. GUI used memory: 137 MB. Current time: 11/21/25, 8:36:11 AM EST
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -jobs 96 
+// Tcl Message: [Fri Nov 21 08:36:11 2025] Launched synth_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log [Fri Nov 21 08:36:11 2025] Launched impl_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log 
+dismissDialog("Starting Design Runs"); // bq
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_STATUS_CHANGE
+selectButton(PAResourceOtoP.ProjectTab_CLOSE_DESIGN, "Close Design"); // g
+// TclEventType: DESIGN_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 4,265 MB. GUI used memory: 93 MB. Current time: 11/21/25, 8:36:15 AM EST
+// TclEventType: TIMING_RESULTS_UNLOAD
+// Engine heap size: 4,265 MB. GUI used memory: 94 MB. Current time: 11/21/25, 8:36:15 AM EST
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: close_design 
+// TclEventType: DESIGN_CLOSE
+dismissDialog("Closing"); // bq
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 49 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // S.a
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// WARNING: HEventQueue.dispatchEvent() is taking  1911 ms.
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 230 seconds
+selectButton(PAResourceQtoS.StaleMoreAction_OUT_OF_DATE_DETAILS, "details"); // g
+selectButton(RDIResource.HPopupTitle_CLOSE, (String) null); // j
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 17, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+selectButton("OptionPane.button", "OK"); // JButton
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Launch Runs"); // f
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: launch_runs impl_1 -jobs 96 
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Fri Nov 21 08:41:12 2025] Launched synth_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log [Fri Nov 21 08:41:12 2025] Launched impl_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log 
+// Tcl Message: launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 9433.648 ; gain = 0.000 ; free physical = 194558 ; free virtual = 353176 
+// 'a' command handler elapsed time: 12 seconds
+dismissDialog("Starting Design Runs"); // bq
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 121 seconds
+selectButton(PAResourceQtoS.SyntheticaStateMonitor_CANCEL, "Cancel"); // g
+selectButton("OptionPane.button", "Cancel Process"); // JButton
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+dismissDialog("Resetting Runs"); // bq
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// Tcl Message: launch_runs synth_1 -jobs 96 
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Fri Nov 21 08:43:30 2025] Launched synth_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bq
+// HMemoryUtils.trashcanNow. Engine heap size: 4,357 MB. GUI used memory: 68 MB. Current time: 11/21/25, 8:43:31 AM EST
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 4,426 MB. GUI used memory: 69 MB. Current time: 11/21/25, 8:47:36 AM EST
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 327 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+dismissDialog("Synthesis Completed"); // S.a
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// Tcl Message: INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset 
+// TclEventType: FILE_SET_CHANGE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: launch_runs impl_1 -jobs 96 
+// HMemoryUtils.trashcanNow. Engine heap size: 4,493 MB. GUI used memory: 69 MB. Current time: 11/21/25, 8:49:01 AM EST
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Fri Nov 21 08:49:09 2025] Launched synth_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log [Fri Nov 21 08:49:09 2025] Launched impl_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log 
+// Tcl Message: launch_runs: Time (s): cpu = 00:00:21 ; elapsed = 00:00:09 . Memory (MB): peak = 9712.785 ; gain = 24.012 ; free physical = 197504 ; free virtual = 356130 
+dismissDialog("Starting Design Runs"); // bq
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 4,525 MB (+2363kb) [173:27:28]
+// HMemoryUtils.trashcanNow. Engine heap size: 4,525 MB. GUI used memory: 69 MB. Current time: 11/21/25, 8:49:41 AM EST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 4,555 MB. GUI used memory: 69 MB. Current time: 11/21/25, 8:51:51 AM EST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 4,587 MB. GUI used memory: 69 MB. Current time: 11/21/25, 8:53:06 AM EST
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 4,619 MB. GUI used memory: 70 MB. Current time: 11/21/25, 8:53:56 AM EST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// HMemoryUtils.trashcanNow. Engine heap size: 4,643 MB. GUI used memory: 71 MB. Current time: 11/21/25, 8:54:46 AM EST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 4,681 MB. GUI used memory: 70 MB. Current time: 11/21/25, 8:55:21 AM EST
+// Elapsed time: 391 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_GOTO_IMPLEMENTED_DESIGN
+selectButton(PAResourceQtoS.StaleRunDialog_YES, "Yes"); // a
+dismissDialog("Implementation is Out-of-date"); // bF
+// Tcl Message: open_run impl_1 
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: POWER_CNS_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// HMemoryUtils.trashcanNow. Engine heap size: 4,716 MB. GUI used memory: 70 MB. Current time: 11/21/25, 8:55:46 AM EST
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 4,715 MB. GUI used memory: 71 MB. Current time: 11/21/25, 8:55:46 AM EST
+// TclEventType: DESIGN_NEW
+// DeviceView Instantiated
+// TclEventType: CURR_DESIGN_SET
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device view-level: 0.0
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.05 . Memory (MB): peak = 9896.875 ; gain = 0.000 ; free physical = 197541 ; free virtual = 356182 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 435 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2022.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Timing 38-478] Restoring timing data from binary archive. INFO: [Timing 38-479] Binary timing data restore complete. INFO: [Project 1-856] Restoring constraints from binary archive. INFO: [Project 1-853] Binary constraint restore complete. 
+// Tcl Message: Reading XDEF placement. Reading placer database... Reading XDEF routing. 
+// Tcl Message: Read XDEF Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.51 . Memory (MB): peak = 9920.879 ; gain = 5.000 ; free physical = 197407 ; free virtual = 356048 
+// Tcl Message: Restored from archive | CPU: 1.270000 secs | Memory: 6.804413 MB | 
+// Tcl Message: Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.51 . Memory (MB): peak = 9920.879 ; gain = 5.000 ; free physical = 197407 ; free virtual = 356048 Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9920.879 ; gain = 0.000 ; free physical = 197407 ; free virtual = 356048 
+// TclEventType: DRC_ADDED
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary:   A total of 83 instances were transformed.   IOBUF => IOBUF (IBUF, OBUFT): 33 instances   LUT6_2 => LUT6_2 (LUT5, LUT6): 38 instances   RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 8 instances   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances  
+// Device view-level: 0.0
+// TclEventType: DRC_ADDED
+// TclEventType: METHODOLOGY_ADDED
+// TclEventType: POWER_UPDATED
+// WARNING: HEventQueue.dispatchEvent() is taking  1241 ms.
+// TclEventType: TIMING_SUMMARY_UPDATED
+// 'dD' command handler elapsed time: 9 seconds
+// [Engine Memory]: 4,941 MB (+199086kb) [173:33:40]
+dismissDialog("Open Implemented Design"); // bq
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug]", 30, true); // f - Node
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Methodology Violations"); // aO
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug]", 30, true); // f - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 31, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// TclEventType: RUN_MODIFY
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// Device view-level: 0.0
+// HMemoryUtils.trashcanNow. Engine heap size: 4,933 MB. GUI used memory: 136 MB. Current time: 11/21/25, 8:55:57 AM EST
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // cz
+// TclEventType: RUN_LAUNCH
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 96 
+// Tcl Message: [Fri Nov 21 08:55:59 2025] Launched synth_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log [Fri Nov 21 08:55:59 2025] Launched impl_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// HMemoryUtils.trashcanNow. Engine heap size: 4,968 MB. GUI used memory: 118 MB. Current time: 11/21/25, 8:56:21 AM EST
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 520 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_REPORTS_WINDOW
+dismissDialog("Bitstream Generation Completed"); // S.a
+// HMemoryUtils.trashcanNow. Engine heap size: 4,963 MB. GUI used memory: 119 MB. Current time: 11/21/25, 9:26:21 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 4,963 MB. GUI used memory: 119 MB. Current time: 11/21/25, 9:56:21 AM EST
+// Elapsed time: 3563 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 17, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// Tcl Message: INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -jobs 96 
+// Tcl Message: [Fri Nov 21 10:04:05 2025] Launched synth_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log [Fri Nov 21 10:04:05 2025] Launched impl_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log 
+dismissDialog("Starting Design Runs"); // bq
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 314 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_REPORTS_WINDOW
+dismissDialog("Implementation Completed"); // S.a
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // g
+// Tcl Message: refresh_design 
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 4,903 MB. GUI used memory: 95 MB. Current time: 11/21/25, 10:09:23 AM EST
+// TclEventType: TIMING_RESULTS_UNLOAD
+// Engine heap size: 4,903 MB. GUI used memory: 95 MB. Current time: 11/21/25, 10:09:23 AM EST
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: POWER_CNS_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 4,802 MB. GUI used memory: 72 MB. Current time: 11/21/25, 10:09:25 AM EST
+// DeviceView Instantiated
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 9997.914 ; gain = 0.000 ; free physical = 200795 ; free virtual = 359412 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 435 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2022.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Timing 38-478] Restoring timing data from binary archive. INFO: [Timing 38-479] Binary timing data restore complete. INFO: [Project 1-856] Restoring constraints from binary archive. INFO: [Project 1-853] Binary constraint restore complete. 
+// Tcl Message: Reading XDEF placement. Reading placer database... Reading XDEF routing. 
+// Tcl Message: Read XDEF Files: Time (s): cpu = 00:00:00.45 ; elapsed = 00:00:00.45 . Memory (MB): peak = 9997.914 ; gain = 0.000 ; free physical = 200642 ; free virtual = 359259 
+// Tcl Message: Restored from archive | CPU: 0.460000 secs | Memory: 6.936874 MB | 
+// Tcl Message: Finished XDEF File Restore: Time (s): cpu = 00:00:00.45 ; elapsed = 00:00:00.45 . Memory (MB): peak = 9997.914 ; gain = 0.000 ; free physical = 200642 ; free virtual = 359259 
+// Device view-level: 0.0
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// TclEventType: DRC_ADDED
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// TclEventType: METHODOLOGY_ADDED
+// Device view-level: 0.0
+// TclEventType: METHODOLOGY_ADDED
+// TclEventType: POWER_UPDATED
+// WARNING: HEventQueue.dispatchEvent() is taking  1209 ms.
+// TclEventType: TIMING_SUMMARY_UPDATED
+dismissDialog("Reloading"); // bq
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 17, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// [Engine Memory]: 5,235 MB (+48904kb) [174:47:23]
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug]", 30, true); // f - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug]", 30, true); // f - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 31, false); // f
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // cz
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 96 
+// Tcl Message: [Fri Nov 21 10:09:37 2025] Launched impl_1... Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log 
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 43 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_REPORTS_WINDOW
+dismissDialog("Bitstream Generation Completed"); // S.a

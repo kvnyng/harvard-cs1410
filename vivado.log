@@ -173,3 +173,116 @@ Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/l
 launch_runs impl_1 -to_step write_bitstream -jobs 96
 [Fri Nov 14 04:44:31 2025] Launched impl_1...
 Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.06 . Memory (MB): peak = 9349.609 ; gain = 0.000 ; free physical = 195274 ; free virtual = 353911
+INFO: [Netlist 29-17] Analyzing 455 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:14 ; elapsed = 00:00:00.51 . Memory (MB): peak = 9397.633 ; gain = 48.023 ; free physical = 195313 ; free virtual = 353950
+Restored from archive | CPU: 16.930000 secs | Memory: 10.693527 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:14 ; elapsed = 00:00:00.51 . Memory (MB): peak = 9397.633 ; gain = 48.023 ; free physical = 195313 ; free virtual = 353950
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1/cpu_top.dcp' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [Project 1-1859] Fail to add auto incremental checkpoint /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to utils_1 fileset.
+launch_runs impl_1 -jobs 96
+[Fri Nov 21 08:36:11 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+[Fri Nov 21 08:36:11 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
+close_design
+reset_run synth_1
+launch_runs impl_1 -jobs 96
+[Fri Nov 21 08:41:12 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+[Fri Nov 21 08:41:12 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 9433.648 ; gain = 0.000 ; free physical = 194558 ; free virtual = 353176
+reset_run synth_1
+launch_runs synth_1 -jobs 96
+WARNING: [filemgmt 20-1318] Duplicate Design Unit 'blk_mem_gen_1' found in library 'xil_defaultlib'
+WARNING: [filemgmt 20-1318] Duplicate Design Unit 'blk_mem_gen_v8_4_5(xilinx)' found in library 'xil_defaultlib'
+Duplicate found at line 147 of file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_1/misc/blk_mem_gen_v8_4.vhd
+	(Active) Duplicate found at line 195467 of file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_1/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Fri Nov 21 08:43:30 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1/cpu_top.dcp' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [Project 1-1859] Fail to add auto incremental checkpoint /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to utils_1 fileset.
+launch_runs impl_1 -jobs 96
+[Fri Nov 21 08:49:09 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+[Fri Nov 21 08:49:09 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:21 ; elapsed = 00:00:09 . Memory (MB): peak = 9712.785 ; gain = 24.012 ; free physical = 197504 ; free virtual = 356130
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.05 . Memory (MB): peak = 9896.875 ; gain = 0.000 ; free physical = 197541 ; free virtual = 356182
+INFO: [Netlist 29-17] Analyzing 435 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.51 . Memory (MB): peak = 9920.879 ; gain = 5.000 ; free physical = 197407 ; free virtual = 356048
+Restored from archive | CPU: 1.270000 secs | Memory: 6.804413 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.51 . Memory (MB): peak = 9920.879 ; gain = 5.000 ; free physical = 197407 ; free virtual = 356048
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9920.879 ; gain = 0.000 ; free physical = 197407 ; free virtual = 356048
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 83 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 33 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 38 instances
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 8 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
+
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1/cpu_top.dcp' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [Project 1-1859] Fail to add auto incremental checkpoint /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to utils_1 fileset.
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Nov 21 08:55:59 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+[Fri Nov 21 08:55:59 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1/cpu_top.dcp' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [Project 1-1859] Fail to add auto incremental checkpoint /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to utils_1 fileset.
+launch_runs impl_1 -jobs 96
+[Fri Nov 21 10:04:05 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+[Fri Nov 21 10:04:05 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 9997.914 ; gain = 0.000 ; free physical = 200795 ; free virtual = 359412
+INFO: [Netlist 29-17] Analyzing 435 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00.45 ; elapsed = 00:00:00.45 . Memory (MB): peak = 9997.914 ; gain = 0.000 ; free physical = 200642 ; free virtual = 359259
+Restored from archive | CPU: 0.460000 secs | Memory: 6.936874 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.45 ; elapsed = 00:00:00.45 . Memory (MB): peak = 9997.914 ; gain = 0.000 ; free physical = 200642 ; free virtual = 359259
+launch_runs impl_1 -to_step write_bitstream -jobs 96
+[Fri Nov 21 10:09:37 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
