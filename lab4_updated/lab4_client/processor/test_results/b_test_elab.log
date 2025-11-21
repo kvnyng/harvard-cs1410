@@ -23,5 +23,5 @@ Compiling module work.alu
 Compiling module work.control_unit
 Compiling module work.cpu
 Compiling module work.cpu_tests_tb
-WARNING: [XSIM 43-3373] "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_client/processor/tb/cpu_tests_tb.sv" Line 247. System function $fgets is used as system task. This system function should have a LHS e.g. x=$fgets().
+WARNING: [XSIM 43-3373] "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_client/processor/tb/cpu_tests_tb.sv" Line 241. System function $fgets is used as system task. This system function should have a LHS e.g. x=$fgets().
 Built simulation snapshot cpu_tests_tb_sim

@@ -8,7 +8,7 @@ Reg 6 ($a2)   :  0xxxxxxxxx
 Reg 7 ($a3)   :  0xxxxxxxxx
 Reg 8 ($t0)   :  0x00000002
 Reg 9 ($t1)   :  0x00000640
-Reg 10 ($t2)  :  0x00000000
+Reg 10 ($t2)  :  0x00000002
 Reg 11 ($t3)  :  0x00000003
 Reg 12 ($t4)  :  0x00000030
 Reg 13 ($t5)  :  0x00000000

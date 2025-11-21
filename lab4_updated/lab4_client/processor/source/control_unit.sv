@@ -75,8 +75,10 @@ module control_unit
     end
     
     // Debug signal assignments
-    assign dbg_current_state = logic'(s);
-    assign dbg_next_state = logic'(ns);
+    // CRITICAL: Cast enum to logic correctly - use explicit bit selection
+    // The enum is defined as logic [3:0], so we can directly select the bits
+    assign dbg_current_state = s[3:0];
+    assign dbg_next_state = ns[3:0];
     assign dbg_opcode_raw = opcode;
     assign dbg_opcode_reg = opcode;
     assign dbg_opcode_used = opcode;
@@ -259,15 +261,20 @@ module control_unit
                 if (isLW) begin
                     ns = S3_MEMRD;
                     $display("[CONTROL] S2_ADDR: LW detected -> S3_MEMRD");
+                    $display("[CONTROL] S2_ADDR: === STEP 1: ADDRESS CALCULATION (LW) ===");
+                    $display("[CONTROL] S2_ADDR: opcode=0x%02h, imm_16 should be 0x0004, ALUSrcA=1, ALUSrcB=10", opcode);
                 end else begin
                     ns = S5_MEMWR;
                     $display("[CONTROL] S2_ADDR: SW detected -> S5_MEMWR");
+                    $display("[CONTROL] S2_ADDR: === STEP 1: ADDRESS CALCULATION (SW) ===");
+                    $display("[CONTROL] S2_ADDR: opcode=0x%02h, imm_16 should be 0x0004, ALUSrcA=1, ALUSrcB=10", opcode);
                 end
             end
 
             S3_MEMRD: begin
                 IorD = 1;
                 ns = S4_MEMWB;
+                $display("[CONTROL] S3_MEMRD: === STEP 2: MEMORY READ ===");
                 $display("[CONTROL] S3_MEMRD: Reading from memory, IorD=1 -> S4_MEMWB");
             end
 
@@ -275,6 +282,7 @@ module control_unit
                 IorD = 1;
                 // MDRWrite handled by data_reg_en in CPU
                 ns = S10_WBI;
+                $display("[CONTROL] S4_MEMWB: === STEP 3: CAPTURE MEMORY DATA ===");
                 $display("[CONTROL] S4_MEMWB: Memory data ready, IorD=1 -> S10_WBI");
             end
 
@@ -282,6 +290,7 @@ module control_unit
                 IorD     = 1;
                 MemWrite = 1;
                 ns = S0_FETCH;
+                $display("[CONTROL] S5_MEMWR: === STEP 2: MEMORY WRITE ===");
                 $display("[CONTROL] S5_MEMWR: Writing to memory, IorD=1, MemWrite=1 -> S0_FETCH");
             end
 
@@ -291,6 +300,7 @@ module control_unit
                 ALUControl = aluop_to_alucontrol(2'b10, funct, opcode);  // R-type
                 UseShamt = isSHIFT;  // Use shamt for shift instructions
                 ns = S7_ALUWB;
+                $display("[CONTROL] S6_EXEC: R-type execution, ALUSrcA=1, ALUSrcB=00, ALUControl=%0d, UseShamt=%0d -> S7_ALUWB", ALUControl, UseShamt);
             end
 
             S7_ALUWB: begin
@@ -317,12 +327,14 @@ module control_unit
                 // ExtOp = 0 for ANDI, ORI, XORI (zero extend), 1 for others (sign extend)
                 ExtOp = ~(isANDI || isORI || isXORI);
                 ns = S10_WBI;
+                $display("[CONTROL] S9_EXI: I-type execution, ALUSrcA=1, ALUSrcB=10, ALUControl=%0d, ExtOp=%0d -> S10_WBI", ALUControl, ExtOp);
             end
 
             S10_WBI: begin
                 RegDst = 0;
                 if (isLW) begin
                     MemToReg = 1;
+                    $display("[CONTROL] S10_WBI: === STEP 4: REGISTER WRITEBACK (LW) ===");
                 end else begin
                     MemToReg = 0;
                 end

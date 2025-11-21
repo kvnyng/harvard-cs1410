@@ -172,6 +172,12 @@ module cpu
     // Debug signals from control unit (use logic to match control_unit output)
     logic [3:0] dbg_ctrl_current_state, dbg_ctrl_next_state;
     
+    // Get state from control unit for enable signals (declared early for use in A/B register enables)
+    logic [3:0] current_state;
+    logic [3:0] next_state;
+    assign current_state = dbg_ctrl_current_state;
+    assign next_state = dbg_ctrl_next_state;
+    
     // MemToReg mux: MemToReg = 0 selects ALUOut, MemToReg = 1 selects data_reg
     // Note: ALUOut will be connected later after ALU_Reg is instantiated
     // For JAL, we use ALUResult directly (which has PC+4 calculated in S9)
@@ -221,13 +227,13 @@ module cpu
     );
     
     // Register File A and B - store register file outputs
-    // CRITICAL: These should always update to track register file outputs (matching working codebase)
+    // These are pipeline registers that should always update to track register file outputs
     // The control unit FSM ensures timing by waiting in S1 (decode) before executing
     // This gives time for register file addresses to propagate and outputs to stabilize
-    logic [31:0] Register_File_A;  // Stores RD1 (rs data)
-    logic [31:0] Register_File_B;  // Stores RD2 (rt data)
+    logic [31:0] Register_File_A;  // Stores RD1 (rs data) - A register
+    logic [31:0] Register_File_B;  // Stores RD2 (rt data) - B register
     
-    // Always update Register_File_A and Register_File_B (like working codebase)
+    // Always update A and B registers (matching server/reference pattern)
     // The FSM timing ensures values are stable when needed
     reg_reset #(
         .N(32)
@@ -375,23 +381,22 @@ module cpu
         .zero(alu_zero)     // ALU zero flag (zero line)
     );
     
-    // Get state from control unit for data_reg_en and ALUOut_en
-    logic [3:0] current_state;
-    assign current_state = dbg_ctrl_current_state;
-    
     // ALU Register - stores ALU result
-    // CRITICAL: We need to preserve ALU results in certain states:
-    // - S8_BRANCH: preserve branch target from S1_DECODE (don't overwrite with comparison result)
-    // - S3_MEMRD, S4_MEMWB: preserve memory address from S2_ADDR (don't overwrite with undefined ALU result)
+    // Enable ALUOut updates in states where we compute new ALU results:
+    // - S1_DECODE (state 2): compute branch target (PC + offset)
+    // - S2_ADDR (state 3): compute memory address (rs + offset)
+    // - S6_EXEC (state 7): compute R-type result
+    // - S9_EXI (state 10): compute I-type result
+    // This preserves values in other states (S3_MEMRD, S4_MEMWB, S5_MEMWR, S8_BRANCH)
     logic [31:0] ALUOut;  // ALU register output
     logic ALUOut_en;      // ALUOut enable signal
     
-    // Enable ALUOut updates only when we're actually computing a new ALU result
-    // Disable in: 
-    //   - S8_BRANCH (preserve branch target from S1_DECODE)
-    //   - S3_MEMRD, S4_MEMWB (preserve memory address from S2_ADDR for LW)
-    //   - S5_MEMWR (preserve memory address from S2_ADDR for SW)
-    assign ALUOut_en = (current_state != 4'd8) && (current_state != 4'd3) && (current_state != 4'd4) && (current_state != 4'd5);
+    // Enable ALUOut in states where we compute new ALU results (positive logic)
+    // Match reference pattern: enable in S1_DECODE, S2_ADDR, S6_EXEC, S9_EXI
+    assign ALUOut_en = (current_state == 4'd2) ||  // S1_DECODE
+                       (current_state == 4'd3) ||  // S2_ADDR
+                       (current_state == 4'd7) ||  // S6_EXEC
+                       (current_state == 4'd10);   // S9_EXI
     
     reg_en #(
         .N(32),
@@ -453,7 +458,7 @@ module cpu
         .in0(ALUResult),        // Input 00: ALUResult (PC+4) - combinational ALU output
         .in1(ALUOut),           // Input 01: ALUOut (branch target) - registered ALU output
         .in2(jump_addr),        // Input 10: jump address
-        .in3(Register_File_A),  // Input 11: Register_File_A (for JR)
+        .in3(reg_file_r0_data),  // Input 11: Register file output (rs) for JR
         .out(PC_prime)          // Output: PC' (PC prime) feeds into PC_Reg
     );
     
@@ -471,10 +476,12 @@ module cpu
     
     // For shift instructions (SLL, SRL, SRA), use shamt as ALU input B and rt as ALU input A
     // Use UseShamt control signal from control unit
-    // For shift instructions: ALU A = rt (Register_File_B), ALU B = shamt
-    // For non-shift R-type: ALU A = rs (Register_File_A), ALU B = rt (Register_File_B)
-    assign alu_src_b_mux_in0 = UseShamt ? {27'b0, shamt} : Register_File_B;
-    assign alu_src_a_mux_in1 = UseShamt ? Register_File_B : Register_File_A;
+    // For shift instructions: ALU A = rt (register file output), ALU B = shamt
+    // For non-shift R-type: ALU A = rs (register file output), ALU B = rt (register file output)
+    // NOTE: Use register file outputs directly (like reference), not A/B registers
+    //       A/B registers are used for memory writes, not ALU inputs
+    assign alu_src_b_mux_in0 = UseShamt ? {27'b0, shamt} : reg_file_r1_data;
+    assign alu_src_a_mux_in1 = UseShamt ? reg_file_r1_data : reg_file_r0_data;
     
     // Control unit output signals are declared above (before datapath usage)
     
@@ -523,7 +530,8 @@ module cpu
     // Data register enable (MDRWrite): enable in S4_MEMWB to capture memory read data
     // The memory read is combinational, but we capture in S4_MEMWB to ensure address is stable
     // This matches the working codebase behavior
-    assign data_reg_en = (current_state == 4'd4);  // S4_MEMWB - capture memory read data
+    // NOTE: S4_MEMWB is state 5, not 4!
+    assign data_reg_en = (current_state == 4'd5);  // S4_MEMWB (state 5) - capture memory read data
     
     // Branch Logic - connect after control unit and ALU are instantiated
     // BEQ: branch when rs == rt (alu_zero == 1)
@@ -533,6 +541,91 @@ module cpu
     
     // OR gate: (Branch condition) OR PCWrite
     assign PCEn = branch_condition | PCWrite;
+    
+    // Debug: Monitor register writes and memory operations
+    always_ff @(posedge clk) begin
+        if (!rst && clk_en) begin
+            // Monitor ALL register writes
+            if (RegWrite) begin
+                $display("[CPU] REGISTER WRITE: w_addr=%0d, w_data=0x%08h (%0d), RegDst=%0d, MemToReg=%0d, WriteRA=%0d, state=%0d",
+                    reg_file_w_addr, reg_file_w_data, reg_file_w_data, RegDst, MemToReg, WriteRA, current_state);
+                $display("[CPU]   ALUOut=0x%08h (%0d), ALUResult=0x%08h (%0d), data_reg=0x%08h (%0d), PC_plus_4=0x%08h (%0d)", 
+                    ALUOut, ALUOut, ALUResult, ALUResult, data_reg, data_reg, PC_plus_4, PC_plus_4);
+                $display("[CPU]   dbg_ctrl_current_state=%0d, ALUOut_en=%0d", dbg_ctrl_current_state, ALUOut_en);
+            end
+            // Monitor ALU computation in S9_EXI (I-type) and S6_EXEC (R-type) - use always_comb to see values immediately
+            // Also monitor in always_comb to see values before clock edge
+            if (current_state == 4'd7) begin  // S6_EXEC
+                $display("[CPU] S6_EXEC: ALUResult=0x%08h (%0d), ALUOut=0x%08h (%0d), ALUOut_en=%0d",
+                    ALUResult, ALUResult, ALUOut, ALUOut, ALUOut_en);
+                $display("[CPU]   alu_src_a=0x%08h (%0d), alu_src_b=0x%08h (%0d), ALUSrcA=%0d, ALUSrcB=%0b, ALUControl=%0d",
+                    alu_src_a, alu_src_a, alu_src_b, alu_src_b, ALUSrcA, ALUSrcB, ALUControl);
+            end
+            if (current_state == 4'd10) begin  // S9_EXI
+                $display("[CPU] S9_EXI (always_ff): ALUResult=0x%08h (%0d), ALUOut=0x%08h (%0d), ALUOut_en=%0d, current_state=%0d",
+                    ALUResult, ALUResult, ALUOut, ALUOut, ALUOut_en, current_state);
+                $display("[CPU]   alu_src_a=0x%08h (%0d), alu_src_b=0x%08h (%0d), ALUSrcA=%0d, ALUSrcB=%0b, ALUControl=%0d",
+                    alu_src_a, alu_src_a, alu_src_b, alu_src_b, ALUSrcA, ALUSrcB, ALUControl);
+                $display("[CPU]   reg_file_r0_data=0x%08h (%0d), ImmValue=0x%08h (%0d), instruction_reg[15:0]=0x%04h",
+                    reg_file_r0_data, reg_file_r0_data, ImmValue, ImmValue, instruction_reg[15:0]);
+            end
+            if (current_state == 4'd11) begin  // S10_WBI
+                $display("[CPU] S10_WBI (always_ff): ALUOut=0x%08h (%0d), ALUOut_en=%0d, ALUResult=0x%08h (%0d), current_state=%0d",
+                    ALUOut, ALUOut, ALUOut_en, ALUResult, ALUResult, current_state);
+            end
+            // Monitor state transitions to see when ALUOut_en changes
+            if (current_state == 4'd11) begin  // S10_WBI
+                $display("[CPU] S10_WBI: ALUOut=0x%08h (%0d), ALUOut_en=%0d (should be 0 to preserve value)", ALUOut, ALUOut, ALUOut_en);
+            end
+            if (current_state == 4'd8) begin  // S7_ALUWB
+                $display("[CPU] S7_ALUWB: ALUOut=0x%08h (%0d), ALUOut_en=%0d (should be 0 to preserve value)", ALUOut, ALUOut, ALUOut_en);
+            end
+            // STEP 1: Address calculation (S2_ADDR)
+            if (current_state == 4'd3 && (opcode == `OP_LW || opcode == `OP_SW)) begin  // S2_ADDR
+                $display("[CPU] STEP 1 - ADDRESS CALCULATION (opcode=0x%02h):", opcode);
+                $display("[CPU]   rs (reg_file_r0_data) = 0x%08h (%0d)", reg_file_r0_data, reg_file_r0_data);
+                $display("[CPU]   imm_16 = 0x%04h (%0d)", imm_16, imm_16);
+                $display("[CPU]   ImmValue = 0x%08h (%0d)", ImmValue, ImmValue);
+                $display("[CPU]   ALUResult = 0x%08h (%0d) [Expected: 0x00000644 (1604)]", ALUResult, ALUResult);
+                $display("[CPU]   ALUOut = 0x%08h (%0d), ALUOut_en = %0d", ALUOut, ALUOut, ALUOut_en);
+            end
+        // STEP 2: Memory write (S5_MEMWR for SW)
+        if (current_state == 4'd6 && opcode == `OP_SW) begin  // S5_MEMWR (state 6)
+            $display("[CPU] STEP 2 - MEMORY WRITE (SW):");
+            $display("[CPU]   mem_addr = 0x%08h (%0d) [Expected: 0x00000644 (1604)]", mem_addr, mem_addr);
+            $display("[CPU]   w_data = 0x%08h (%0d) [Expected: 0x00000002 (2)]", w_data, w_data);
+            $display("[CPU]   wr_en = %0d [Expected: 1]", wr_en);
+            $display("[CPU]   IorD = %0d [Expected: 1]", IorD);
+            $display("[CPU]   ALUOut = 0x%08h (%0d)", ALUOut, ALUOut);
+        end
+        // STEP 2: Memory read (S3_MEMRD for LW)
+        if (current_state == 4'd4 && opcode == `OP_LW) begin  // S3_MEMRD (state 4)
+            $display("[CPU] STEP 2 - MEMORY READ (LW):");
+            $display("[CPU]   mem_addr = 0x%08h (%0d) [Expected: 0x00000644 (1604)]", mem_addr, mem_addr);
+            $display("[CPU]   r_data = 0x%08h (%0d) [Expected: 0x00000002 (2)]", r_data, r_data);
+            $display("[CPU]   IorD = %0d [Expected: 1]", IorD);
+            $display("[CPU]   ALUOut = 0x%08h (%0d)", ALUOut, ALUOut);
+        end
+        // STEP 3: Capture memory data (S4_MEMWB for LW)
+        if (current_state == 4'd5 && opcode == `OP_LW) begin  // S4_MEMWB (state 5)
+            $display("[CPU] STEP 3 - CAPTURE MEMORY DATA (LW):");
+            $display("[CPU]   mem_addr = 0x%08h (%0d)", mem_addr, mem_addr);
+            $display("[CPU]   r_data = 0x%08h (%0d) [Expected: 0x00000002 (2)]", r_data, r_data);
+            $display("[CPU]   data_reg_en = %0d [Expected: 1]", data_reg_en);
+            $display("[CPU]   data_reg = 0x%08h (%0d) [Expected: 0x00000002 (2)]", data_reg, data_reg);
+        end
+        // STEP 4: Register writeback (S10_WBI for LW)
+        if (current_state == 4'd11 && opcode == `OP_LW) begin  // S10_WBI (state 11)
+            $display("[CPU] STEP 4 - REGISTER WRITEBACK (LW):");
+            $display("[CPU]   reg_file_w_addr = %0d ($t2) [Expected: 10]", reg_file_w_addr);
+            $display("[CPU]   reg_file_w_data = 0x%08h (%0d) [Expected: 0x00000002 (2)]", reg_file_w_data, reg_file_w_data);
+            $display("[CPU]   RegWrite = %0d [Expected: 1]", RegWrite);
+            $display("[CPU]   MemToReg = %0d [Expected: 1]", MemToReg);
+            $display("[CPU]   data_reg = 0x%08h (%0d)", data_reg, data_reg);
+            $display("[CPU]   ALUOut = 0x%08h (%0d)", ALUOut, ALUOut);
+        end
+        end
+    end
     
 
 

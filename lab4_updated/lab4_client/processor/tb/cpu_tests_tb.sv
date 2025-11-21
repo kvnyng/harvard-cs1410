@@ -135,26 +135,26 @@ module cpu_tests_tb();
                                 cpu_inst.dbg_Register_File_B, cpu_inst.dbg_Register_File_B);
                         end
                         4'd3: begin // S2_ADDR
-                            $display("  [SW S2_ADDR] Calculating address: rs + imm");
+                            $display("  [SW S2_ADDR] === STEP 1: ADDRESS CALCULATION ===");
                             $display("  [SW S2_ADDR] rs ($t1) = 0x%08h (%0d)", 
                                 cpu_inst.dbg_Register_File_A, cpu_inst.dbg_Register_File_A);
                             $display("  [SW S2_ADDR] imm_16 = 0x%04h (%0d)", 
                                 cpu_inst.dbg_imm_16, cpu_inst.dbg_imm_16);
                             $display("  [SW S2_ADDR] SignImm = 0x%08h (%0d)", 
                                 cpu_inst.dbg_SignImm, cpu_inst.dbg_SignImm);
-                            $display("  [SW S2_ADDR] ZeroImm = 0x%08h (%0d)", 
-                                cpu_inst.dbg_ZeroImm, cpu_inst.dbg_ZeroImm);
                             $display("  [SW S2_ADDR] ImmValue = 0x%08h (%0d)", 
                                 cpu_inst.dbg_ImmValue, cpu_inst.dbg_ImmValue);
-                            $display("  [SW S2_ADDR] ALUResult = 0x%08h (%0d)", 
+                            $display("  [SW S2_ADDR] ALUResult = 0x%08h (%0d) [Expected: 0x00000644 (1604)]", 
                                 cpu_inst.dbg_ALUResult, cpu_inst.dbg_ALUResult);
+                            $display("  [SW S2_ADDR] ALUOut = 0x%08h (%0d)", 
+                                cpu_inst.dbg_ALUOut, cpu_inst.dbg_ALUOut);
                         end
-                        4'd5: begin // S5_MEMWR
-                            $display("  [SW S5_MEMWR] Writing to memory");
-                            $display("  [SW S5_MEMWR] mem_addr = 0x%08h (%0d)", mem_addr, mem_addr);
-                            $display("  [SW S5_MEMWR] w_data = 0x%08h (%0d)", w_data, w_data);
-                            $display("  [SW S5_MEMWR] wr_en = %0d", wr_en);
-                            $display("  [SW S5_MEMWR] IorD should be 1, checking...");
+                        4'd6: begin // S5_MEMWR
+                            $display("  [SW S5_MEMWR] === STEP 2: MEMORY WRITE ===");
+                            $display("  [SW S5_MEMWR] mem_addr = 0x%08h (%0d) [Expected: 0x00000644 (1604)]", mem_addr, mem_addr);
+                            $display("  [SW S5_MEMWR] w_data = 0x%08h (%0d) [Expected: 0x00000002 (2)]", w_data, w_data);
+                            $display("  [SW S5_MEMWR] wr_en = %0d [Expected: 1]", wr_en);
+                            $display("  [SW S5_MEMWR] ALUOut = 0x%08h (%0d)", cpu_inst.dbg_ALUOut, cpu_inst.dbg_ALUOut);
                         end
                     endcase
                 end
@@ -162,47 +162,41 @@ module cpu_tests_tb();
                 // Check for LW (opcode 0x23 = 35)
                 if (cpu_inst.dbg_opcode == 6'h23) begin
                     case (cpu_inst.dbg_current_state)
-                        4'd1: begin // S1_DECODE
-                            $display("  [LW DECODE] rs=$t1=%0d, rt=$t2=%0d, imm=4", 
-                                cpu_inst.dbg_instruction_reg_rs, cpu_inst.dbg_instruction_reg_rt);
-                            $display("  [LW DECODE] Register_File_A ($t1) = 0x%08h (%0d)", 
-                                cpu_inst.dbg_Register_File_A, cpu_inst.dbg_Register_File_A);
-                        end
-                        4'd2: begin // S2_ADDR
-                            $display("  [LW S2_ADDR] Calculating address: rs + imm");
+                        4'd3: begin // S2_ADDR
+                            $display("  [LW S2_ADDR] === STEP 1: ADDRESS CALCULATION ===");
                             $display("  [LW S2_ADDR] rs ($t1) = 0x%08h (%0d)", 
                                 cpu_inst.dbg_Register_File_A, cpu_inst.dbg_Register_File_A);
                             $display("  [LW S2_ADDR] imm_16 = 0x%04h (%0d)", 
                                 cpu_inst.dbg_imm_16, cpu_inst.dbg_imm_16);
                             $display("  [LW S2_ADDR] SignImm = 0x%08h (%0d)", 
                                 cpu_inst.dbg_SignImm, cpu_inst.dbg_SignImm);
-                            $display("  [LW S2_ADDR] ZeroImm = 0x%08h (%0d)", 
-                                cpu_inst.dbg_ZeroImm, cpu_inst.dbg_ZeroImm);
                             $display("  [LW S2_ADDR] ImmValue = 0x%08h (%0d)", 
                                 cpu_inst.dbg_ImmValue, cpu_inst.dbg_ImmValue);
-                            $display("  [LW S2_ADDR] ALUResult = 0x%08h (%0d)", 
+                            $display("  [LW S2_ADDR] ALUResult = 0x%08h (%0d) [Expected: 0x00000644 (1604)]", 
                                 cpu_inst.dbg_ALUResult, cpu_inst.dbg_ALUResult);
+                            $display("  [LW S2_ADDR] ALUOut = 0x%08h (%0d)", 
+                                cpu_inst.dbg_ALUOut, cpu_inst.dbg_ALUOut);
                         end
-                        4'd3: begin // S3_MEMRD
-                            $display("  [LW S3_MEMRD] Reading from memory");
-                            $display("  [LW S3_MEMRD] mem_addr = 0x%08h (%0d)", mem_addr, mem_addr);
+                        4'd4: begin // S3_MEMRD
+                            $display("  [LW S3_MEMRD] === STEP 2: MEMORY READ ===");
+                            $display("  [LW S3_MEMRD] mem_addr = 0x%08h (%0d) [Expected: 0x00000644 (1604)]", mem_addr, mem_addr);
                             $display("  [LW S3_MEMRD] ALUOut = 0x%08h (%0d)", 
                                 cpu_inst.dbg_ALUOut, cpu_inst.dbg_ALUOut);
-                            $display("  [LW S3_MEMRD] r_data = 0x%08h (%0d)", r_data, r_data);
+                            $display("  [LW S3_MEMRD] r_data = 0x%08h (%0d) [Expected: 0x00000002 (2)]", r_data, r_data);
                         end
-                        4'd4: begin // S4_MEMWB
-                            $display("  [LW S4_MEMWB] Capturing memory data");
+                        4'd5: begin // S4_MEMWB
+                            $display("  [LW S4_MEMWB] === STEP 3: CAPTURE MEMORY DATA ===");
                             $display("  [LW S4_MEMWB] mem_addr = 0x%08h (%0d)", mem_addr, mem_addr);
-                            $display("  [LW S4_MEMWB] r_data = 0x%08h (%0d)", r_data, r_data);
+                            $display("  [LW S4_MEMWB] r_data = 0x%08h (%0d) [Expected: 0x00000002 (2)]", r_data, r_data);
                             $display("  [LW S4_MEMWB] ALUOut = 0x%08h (%0d)", 
                                 cpu_inst.dbg_ALUOut, cpu_inst.dbg_ALUOut);
                         end
-                        4'd10: begin // S10_WBI
-                            $display("  [LW S10_WBI] Writing back to register");
+                        4'd11: begin // S10_WBI
+                            $display("  [LW S10_WBI] === STEP 4: REGISTER WRITEBACK ===");
                             $display("  [LW S10_WBI] w_addr = %0d ($t2)", cpu_inst.dbg_reg_file_w_addr);
-                            $display("  [LW S10_WBI] w_data = 0x%08h (%0d)", 
+                            $display("  [LW S10_WBI] w_data = 0x%08h (%0d) [Expected: 0x00000002 (2)]", 
                                 cpu_inst.dbg_reg_file_w_data, cpu_inst.dbg_reg_file_w_data);
-                            $display("  [LW S10_WBI] RegWrite = %0d", cpu_inst.dbg_RegWrite);
+                            $display("  [LW S10_WBI] RegWrite = %0d [Expected: 1]", cpu_inst.dbg_RegWrite);
                         end
                     endcase
                 end
