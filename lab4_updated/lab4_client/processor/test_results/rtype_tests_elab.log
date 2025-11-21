@@ -1,0 +1,27 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /software/xilinx-tools-2022/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab cpu_tests_tb -s cpu_tests_tb_sim -debug typical 
+Multi-threading is on. Using 94 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'dbg_reg_file_r0_addr' remains unconnected for this instance [/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_client/processor/tb/cpu_tests_tb.sv:48]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.$unit_cpu_svh_3147212122
+Compiling module work.rw_ram
+Compiling module work.reg_en(INIT=32'b0100000000000000...
+Compiling module work.reg_en
+Compiling module work.reg_file
+Compiling module work.reg_reset
+Compiling module work.sign_extend
+Compiling module work.barrel_shifter
+Compiling module work.mux(N=32)
+Compiling module work.mux_1bit(N=32)
+Compiling module work.alu
+Compiling module work.control_unit
+Compiling module work.cpu
+Compiling module work.cpu_tests_tb
+WARNING: [XSIM 43-3373] "/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_client/processor/tb/cpu_tests_tb.sv" Line 247. System function $fgets is used as system task. This system function should have a LHS e.g. x=$fgets().
+Built simulation snapshot cpu_tests_tb_sim

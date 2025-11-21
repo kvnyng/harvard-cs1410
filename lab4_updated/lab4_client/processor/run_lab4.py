@@ -66,25 +66,15 @@ def convert_list_to_bytearray(input_list):
 def print_bytearray_buf_to_file(buffer, r, c, filename="fpga_output.txt"):
     """Write bytearray buffer contents to a file in hexadecimal format"""
     with open(filename, 'w') as f:
-        rows = 0
-        columns = 0
+        word_count = 0
         for byte in range(0, len(buffer), 4):
-            if rows == r:
+            if word_count >= r * c:
                 break
             
-            if columns == c:
-                rows += 1
-                if rows == r:
-                    break
-                
-                columns = 1
-                word = int.from_bytes(buffer[byte:byte+4], byteorder='little')
-                f.write(f"{hex(byte)} | 0x{word:08X}\n")
-                continue
-            
             word = int.from_bytes(buffer[byte:byte+4], byteorder='little')
+            # Address is the byte offset (0x0, 0x4, 0x8, etc.)
             f.write(f"{hex(byte)} | 0x{word:08X}\n")
-            columns += 1
+            word_count += 1
         
         f.write("\n")
     

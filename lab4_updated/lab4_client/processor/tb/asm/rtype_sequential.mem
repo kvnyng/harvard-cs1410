@@ -1,0 +1,26 @@
+// Sequential R-Type Instructions Test Program
+// Memory file for testing sequential R-type instructions
+// Format: One instruction per line (32-bit hex)
+
+// Setup instructions (I-type, needed to initialize registers):
+// ADDI $2, $0, 5   = 0x20020005  (Set $2 = 5)
+// ADDI $3, $0, 3   = 0x20030003  (Set $3 = 3)
+// ADDI $4, $0, 10  = 0x2004000A  (Set $4 = 10)
+// ADDI $5, $0, 0xFFFFFFFF = 0x2005FFFF (Set $5 = -1, but will be sign-extended)
+
+// R-type test instructions sequence:
+// ADD $1, $2, $3   = 0x00421820  ($1 = $2 + $3 = 5 + 3 = 8)
+// SUB $6, $4, $2   = 0x00823022  ($6 = $4 - $2 = 10 - 5 = 5)
+// AND $7, $2, $3   = 0x00433824  ($7 = $2 & $3 = 5 & 3 = 1)
+// OR  $8, $2, $3   = 0x00434025  ($8 = $2 | $3 = 5 | 3 = 7)
+// XOR $9, $2, $3   = 0x00434826  ($9 = $2 ^ $3 = 5 ^ 3 = 6)
+// NOR $10, $2, $3  = 0x00435027  ($10 = ~($2 | $3) = ~7 = 0xFFFFFFF8)
+// SLT $11, $2, $4  = 0x0044582A  ($11 = ($2 < $4) ? 1 : 0 = 1)
+// SLT $12, $4, $2  = 0x0082602A  ($12 = ($4 < $2) ? 1 : 0 = 0)
+// SLL $13, $2, 2   = 0x00026880  ($13 = $2 << 2 = 5 << 2 = 20)
+// SRL $14, $4, 1   = 0x00047042  ($14 = $4 >> 1 = 10 >> 1 = 5)
+// SRA $15, $5, 1   = 0x00057843  ($15 = $5 >>> 1 = -1 >>> 1 = -1)
+
+// Note: This file documents the instruction sequence
+// Actual hex values would be loaded into instruction memory
+

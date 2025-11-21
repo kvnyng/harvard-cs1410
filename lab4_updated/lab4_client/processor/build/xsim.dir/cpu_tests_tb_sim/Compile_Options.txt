@@ -1,0 +1,1 @@
+"cpu_tests_tb" -s "cpu_tests_tb_sim" -debug "typical" 

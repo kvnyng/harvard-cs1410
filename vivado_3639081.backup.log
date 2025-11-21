@@ -1,0 +1,460 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Fri Nov 14 02:42:44 2025
+# Process ID: 3639081
+# Current directory: /home/khyang/harvard/cs1410_lab
+# Command line: vivado .
+# Log file: /home/khyang/harvard/cs1410_lab/vivado.log
+# Journal file: /home/khyang/harvard/cs1410_lab/vivado.jou
+# Running On: sec-academic-1.int.seas.harvard.edu, OS: Linux, CPU Frequency: 1200.072 MHz, CPU Physical cores: 26, Host memory: 539830 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /software/xilinx-tools-2022/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.xpr
+WARNING: [Project 1-865] Could not find the file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.dcp
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.sim/sim_1/behav/xsim/glbl.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/lab4_STAFF/lab4/lab4_server/source/cpu.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.ip_user_files/ip/blk_mem_gen_1/blk_mem_gen_1_stub.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_mux3.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_mux6.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_cpu.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_cpu_top.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_aludec.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_controller.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_fsm.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_mux2.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_zeroext.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_datapath.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_sl2.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_signext.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/source/STAFF_rw_ram.sv'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1/cpu_top.dcp'.
+WARNING: [Project 1-865] Could not find the file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1/cpu_top.dcp
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-865] Could not find the file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.dcp
+WARNING: [Project 1-865] Could not find the file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1/cpu_top.dcp
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.ip_user_files'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/software/xilinx-tools-2022/Vivado/2022.2/data/ip'.
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 96
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci' is already up-to-date
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Fri Nov 14 02:43:15 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+source ./lab4_updated/lab4_server/create_blk_mem_gen_0.tcl
+# set existing_ip_files [get_files -quiet {*/blk_mem_gen_0.xci}]
+# if {[llength $existing_ip_files] > 0} {
+#     puts "Removing existing blk_mem_gen_0 IP..."
+#     remove_files $existing_ip_files
+# }
+Removing existing blk_mem_gen_0 IP...
+# puts "Creating new blk_mem_gen_0 IP..."
+Creating new blk_mem_gen_0 IP...
+# create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name blk_mem_gen_0
+# set_property -dict [list \
+#     CONFIG.Memory_Type {True_Dual_Port_RAM} \
+#     CONFIG.Write_Width_A {32} \
+#     CONFIG.Write_Depth_A {2048} \
+#     CONFIG.Read_Width_A {32} \
+#     CONFIG.Write_Width_B {32} \
+#     CONFIG.Read_Width_B {32} \
+#     CONFIG.Enable_A {Always_Enabled} \
+#     CONFIG.Enable_B {Always_Enabled} \
+#     CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
+#     CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
+#     CONFIG.Use_Byte_Write_Enable {false} \
+#     CONFIG.Operating_Mode_A {WRITE_FIRST} \
+#     CONFIG.Operating_Mode_B {WRITE_FIRST} \
+#     CONFIG.Assume_Synchronous_Clk {false} \
+#     CONFIG.Port_B_Clock {100} \
+#     CONFIG.Port_B_Enable_Rate {100} \
+# ] [get_ips blk_mem_gen_0]
+# set mem_type [get_property CONFIG.Memory_Type [get_ips blk_mem_gen_0]]
+# if {$mem_type != "True_Dual_Port_RAM"} {
+#     puts "ERROR: Memory_Type is still $mem_type, not True_Dual_Port_RAM!"
+#     puts "Attempting to set it directly..."
+#     set_property CONFIG.Memory_Type {True_Dual_Port_RAM} [get_ips blk_mem_gen_0]
+#     set mem_type [get_property CONFIG.Memory_Type [get_ips blk_mem_gen_0]]
+#     puts "Memory_Type is now: $mem_type"
+# }
+# puts "Generating IP outputs..."
+Generating IP outputs...
+# generate_target {all} [get_ips blk_mem_gen_0]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'blk_mem_gen_0'...
+# set mem_type [get_property CONFIG.Memory_Type [get_ips blk_mem_gen_0]]
+# set width_a [get_property CONFIG.Write_Width_A [get_ips blk_mem_gen_0]]
+# set depth_a [get_property CONFIG.Write_Depth_A [get_ips blk_mem_gen_0]]
+# puts ""
+
+# puts "blk_mem_gen_0 IP created and configured successfully!"
+blk_mem_gen_0 IP created and configured successfully!
+# puts "Final configuration:"
+Final configuration:
+# puts "  Memory Type: $mem_type"
+  Memory Type: True_Dual_Port_RAM
+# puts "  Write Width A: $width_a"
+  Write Width A: 32
+# puts "  Write Depth A: $depth_a"
+  Write Depth A: 2048
+# puts "  Memory configuration: True Dual Port RAM, 32-bit x 2048 words"
+  Memory configuration: True Dual Port RAM, 32-bit x 2048 words
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 96
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: blk_mem_gen_0
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Fri Nov 14 02:47:43 2025] Launched blk_mem_gen_0_synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/blk_mem_gen_0_synth_1/runme.log
+[Fri Nov 14 02:47:44 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+source ./lab4_updated/lab4_server/create_blk_mem_gen_0.tcl
+# set existing_ip_files [get_files -quiet {*/blk_mem_gen_0.xci}]
+# if {[llength $existing_ip_files] > 0} {
+#     puts "Removing existing blk_mem_gen_0 IP..."
+#     remove_files $existing_ip_files
+# }
+Removing existing blk_mem_gen_0 IP...
+INFO: [Project 1-386] Moving file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/sources_1/ip/blk_mem_gen_0_2/blk_mem_gen_0.xci' from fileset 'blk_mem_gen_0' to fileset 'sources_1'.
+# puts "Creating new blk_mem_gen_0 IP..."
+Creating new blk_mem_gen_0 IP...
+# create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name blk_mem_gen_0
+# set_property -dict [list \
+#     CONFIG.Memory_Type {True_Dual_Port_RAM} \
+#     CONFIG.Write_Width_A {32} \
+#     CONFIG.Write_Depth_A {2048} \
+#     CONFIG.Read_Width_A {32} \
+#     CONFIG.Write_Width_B {32} \
+#     CONFIG.Read_Width_B {32} \
+#     CONFIG.Enable_A {Use_ENA_Pin} \
+#     CONFIG.Enable_B {Use_ENB_Pin} \
+#     CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
+#     CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
+#     CONFIG.Use_Byte_Write_Enable {false} \
+#     CONFIG.Operating_Mode_A {WRITE_FIRST} \
+#     CONFIG.Operating_Mode_B {WRITE_FIRST} \
+#     CONFIG.Assume_Synchronous_Clk {false} \
+# ] [get_ips blk_mem_gen_0]
+# set mem_type [get_property CONFIG.Memory_Type [get_ips blk_mem_gen_0]]
+# if {$mem_type != "True_Dual_Port_RAM"} {
+#     puts "ERROR: Memory_Type is still $mem_type, not True_Dual_Port_RAM!"
+#     puts "Attempting to set it directly..."
+#     set_property CONFIG.Memory_Type {True_Dual_Port_RAM} [get_ips blk_mem_gen_0]
+#     set mem_type [get_property CONFIG.Memory_Type [get_ips blk_mem_gen_0]]
+#     puts "Memory_Type is now: $mem_type"
+# }
+# puts "Generating IP outputs..."
+Generating IP outputs...
+# generate_target {all} [get_ips blk_mem_gen_0]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'blk_mem_gen_0'...
+# set mem_type [get_property CONFIG.Memory_Type [get_ips blk_mem_gen_0]]
+# set width_a [get_property CONFIG.Write_Width_A [get_ips blk_mem_gen_0]]
+# set depth_a [get_property CONFIG.Write_Depth_A [get_ips blk_mem_gen_0]]
+# set enable_a [get_property CONFIG.Enable_A [get_ips blk_mem_gen_0]]
+# set enable_b [get_property CONFIG.Enable_B [get_ips blk_mem_gen_0]]
+# puts ""
+
+# puts "blk_mem_gen_0 IP created and configured successfully!"
+blk_mem_gen_0 IP created and configured successfully!
+# puts "Final configuration:"
+Final configuration:
+# puts "  Memory Type: $mem_type"
+  Memory Type: True_Dual_Port_RAM
+# puts "  Write Width A: $width_a"
+  Write Width A: 32
+# puts "  Write Depth A: $depth_a"
+  Write Depth A: 2048
+# puts "  Enable A: $enable_a (ena port will be created)"
+  Enable A: Use_ENA_Pin (ena port will be created)
+# puts "  Enable B: $enable_b (enb port will be created)"
+  Enable B: Use_ENB_Pin (enb port will be created)
+# puts "  Memory configuration: True Dual Port RAM, 32-bit x 2048 words"
+  Memory configuration: True Dual Port RAM, 32-bit x 2048 words
+# puts "  Ports: clka, ena, wea, addra[10:0], dina[31:0], douta[31:0]"
+  Ports: clka, ena, wea, addra[10:0], dina[31:0], douta[31:0]
+# puts "         clkb, enb, web, addrb[10:0], dinb[31:0], doutb[31:0]"
+         clkb, enb, web, addrb[10:0], dinb[31:0], doutb[31:0]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 96
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: blk_mem_gen_0
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Fri Nov 14 02:52:31 2025] Launched blk_mem_gen_0_synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/blk_mem_gen_0_synth_1/runme.log
+[Fri Nov 14 02:52:31 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 96
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Fri Nov 14 02:56:08 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 96
+[Fri Nov 14 02:57:23 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
+source ./lab4_updated/lab4_server/clean_and_recreate_blk_mem_gen_0.tcl
+# puts "Cleaning up all blk_mem_gen_0 IP instances and files..."
+Cleaning up all blk_mem_gen_0 IP instances and files...
+# set ip_instances [get_ips -quiet blk_mem_gen_0*]
+# if {[llength $ip_instances] > 0} {
+#     puts "Removing IP instances: $ip_instances"
+#     foreach ip $ip_instances {
+#         remove_files [get_files -quiet -of_objects [get_ips $ip]]
+#     }
+# }
+Removing IP instances: blk_mem_gen_0
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/blk_mem_gen_0_sim_netlist.vhdl
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/blk_mem_gen_0_sim_netlist.v
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/blk_mem_gen_0_stub.vhdl
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/blk_mem_gen_0_stub.v
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/blk_mem_gen_0.dcp
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/doc/blk_mem_gen_v8_4_changelog.txt
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/blk_mem_gen_0.vho
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/blk_mem_gen_0.veo
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/simulation/blk_mem_gen_v8_4.v
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/sim/blk_mem_gen_0.v
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/blk_mem_gen_0_ooc.xdc
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_3/synth/blk_mem_gen_0.vhd
+from the fileset 'blk_mem_gen_0'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+# set ip_files [get_files -quiet {*/blk_mem_gen_0*.xci}]
+# if {[llength $ip_files] > 0} {
+#     puts "Removing IP files: $ip_files"
+#     remove_files $ip_files
+# }
+Removing IP files: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/sources_1/ip/blk_mem_gen_0_3/blk_mem_gen_0.xci
+INFO: [Project 1-386] Moving file '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/sources_1/ip/blk_mem_gen_0_3/blk_mem_gen_0.xci' from fileset 'blk_mem_gen_0' to fileset 'sources_1'.
+# set ip_dirs [glob -nocomplain -type d "project_1.gen/sources_1/ip/blk_mem_gen_0*"]
+# if {[llength $ip_dirs] > 0} {
+#     puts "Found generated IP directories (will be cleaned on next generation)"
+# }
+# puts "Cleanup complete. Creating new blk_mem_gen_0 IP..."
+Cleanup complete. Creating new blk_mem_gen_0 IP...
+# create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name blk_mem_gen_0
+# set_property -dict [list \
+#     CONFIG.Memory_Type {True_Dual_Port_RAM} \
+#     CONFIG.Write_Width_A {32} \
+#     CONFIG.Write_Depth_A {2048} \
+#     CONFIG.Read_Width_A {32} \
+#     CONFIG.Write_Width_B {32} \
+#     CONFIG.Read_Width_B {32} \
+#     CONFIG.Enable_A {Use_ENA_Pin} \
+#     CONFIG.Enable_B {Use_ENB_Pin} \
+#     CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
+#     CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
+#     CONFIG.Use_Byte_Write_Enable {false} \
+#     CONFIG.Operating_Mode_A {WRITE_FIRST} \
+#     CONFIG.Operating_Mode_B {WRITE_FIRST} \
+#     CONFIG.Assume_Synchronous_Clk {false} \
+#     CONFIG.Use_RSTA_Pin {false} \
+#     CONFIG.Use_RSTB_Pin {false} \
+#     CONFIG.Load_Init_File {false} \
+# ] [get_ips blk_mem_gen_0]
+# puts "Generating IP outputs..."
+Generating IP outputs...
+# generate_target {all} [get_ips blk_mem_gen_0]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'blk_mem_gen_0'...
+# set mem_type [get_property CONFIG.Memory_Type [get_ips blk_mem_gen_0]]
+# set width_a [get_property CONFIG.Write_Width_A [get_ips blk_mem_gen_0]]
+# set depth_a [get_property CONFIG.Write_Depth_A [get_ips blk_mem_gen_0]]
+# puts ""
+
+# puts "blk_mem_gen_0 IP created successfully!"
+blk_mem_gen_0 IP created successfully!
+# puts "Configuration: $mem_type, ${width_a}-bit x ${depth_a} words"
+Configuration: True_Dual_Port_RAM, 32-bit x 2048 words
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1/cpu_top.dcp' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [Project 1-1859] Fail to add auto incremental checkpoint /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to utils_1 fileset.
+launch_runs impl_1 -jobs 96
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: blk_mem_gen_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 9aa2b89a9d695baf to dir: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.cache/ip/2022.2/9/a/9aa2b89a9d695baf/blk_mem_gen_0.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0.dcp.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0.dcp
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.cache/ip/2022.2/9/a/9aa2b89a9d695baf/blk_mem_gen_0_stub.v to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0_stub.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0_stub.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.cache/ip/2022.2/9/a/9aa2b89a9d695baf/blk_mem_gen_0_stub.vhdl to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0_stub.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0_stub.vhdl
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.cache/ip/2022.2/9/a/9aa2b89a9d695baf/blk_mem_gen_0_sim_netlist.v to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0_sim_netlist.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0_sim_netlist.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.cache/ip/2022.2/9/a/9aa2b89a9d695baf/blk_mem_gen_0_sim_netlist.vhdl to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0_sim_netlist.vhdl
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP blk_mem_gen_0, cache-ID = 9aa2b89a9d695baf; cache size = 0.669 MB.
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0.xci' is already up-to-date
+[Fri Nov 14 03:00:04 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+[Fri Nov 14 03:00:04 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
+source ./lab4_updated/lab4_server/clean_and_recreate_blk_mem_gen_0.tcl
+# puts "Cleaning up all blk_mem_gen_0 IP instances and files..."
+Cleaning up all blk_mem_gen_0 IP instances and files...
+# set ip_instances [get_ips -quiet blk_mem_gen_0*]
+# if {[llength $ip_instances] > 0} {
+#     puts "Removing IP instances: $ip_instances"
+#     foreach ip $ip_instances {
+#         remove_files [get_files -quiet -of_objects [get_ips $ip]]
+#     }
+# }
+Removing IP instances: blk_mem_gen_0
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0_stub.vhdl
+from the fileset 'sources_1'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0_stub.v
+from the fileset 'sources_1'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0.dcp
+from the fileset 'sources_1'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/doc/blk_mem_gen_v8_4_changelog.txt
+from the fileset 'sources_1'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0.vho
+from the fileset 'sources_1'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0.veo
+from the fileset 'sources_1'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/simulation/blk_mem_gen_v8_4.v
+from the fileset 'sources_1'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/sim/blk_mem_gen_0.v
+from the fileset 'sources_1'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0_ooc.xdc
+from the fileset 'sources_1'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+CRITICAL WARNING: [filemgmt 20-1679] Unable to remove the file: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_4/synth/blk_mem_gen_0.vhd
+from the fileset 'sources_1'.
+File is part of a sub-design (IP, Block Design, DSP Design, etc.) and must be removed via the sub-design parent.
+# set ip_files [get_files -quiet {*/blk_mem_gen_0*.xci}]
+# if {[llength $ip_files] > 0} {
+#     puts "Removing IP files: $ip_files"
+#     remove_files $ip_files
+# }
+Removing IP files: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/sources_1/ip/blk_mem_gen_0_4/blk_mem_gen_0.xci
+# set ip_dirs [glob -nocomplain -type d "project_1.gen/sources_1/ip/blk_mem_gen_0*"]
+# if {[llength $ip_dirs] > 0} {
+#     puts "Found generated IP directories (will be cleaned on next generation)"
+# }
+# puts "Cleanup complete. Creating new blk_mem_gen_0 IP..."
+Cleanup complete. Creating new blk_mem_gen_0 IP...
+# create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name blk_mem_gen_0
+# set_property -dict [list \
+#     CONFIG.Memory_Type {True_Dual_Port_RAM} \
+#     CONFIG.Write_Width_A {32} \
+#     CONFIG.Write_Depth_A {2048} \
+#     CONFIG.Read_Width_A {32} \
+#     CONFIG.Write_Width_B {32} \
+#     CONFIG.Read_Width_B {32} \
+#     CONFIG.Enable_A {Use_ENA_Pin} \
+#     CONFIG.Enable_B {Use_ENB_Pin} \
+#     CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
+#     CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
+#     CONFIG.Use_Byte_Write_Enable {false} \
+#     CONFIG.Operating_Mode_A {WRITE_FIRST} \
+#     CONFIG.Operating_Mode_B {WRITE_FIRST} \
+#     CONFIG.Assume_Synchronous_Clk {false} \
+#     CONFIG.Use_RSTA_Pin {false} \
+#     CONFIG.Use_RSTB_Pin {false} \
+#     CONFIG.Load_Init_File {false} \
+# ] [get_ips blk_mem_gen_0]
+# puts "Generating IP outputs..."
+Generating IP outputs...
+# generate_target {all} [get_ips blk_mem_gen_0]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'blk_mem_gen_0'...
+# set mem_type [get_property CONFIG.Memory_Type [get_ips blk_mem_gen_0]]
+# set width_a [get_property CONFIG.Write_Width_A [get_ips blk_mem_gen_0]]
+# set depth_a [get_property CONFIG.Write_Depth_A [get_ips blk_mem_gen_0]]
+# puts ""
+
+# puts "blk_mem_gen_0 IP created successfully!"
+blk_mem_gen_0 IP created successfully!
+# puts "Configuration: $mem_type, ${width_a}-bit x ${depth_a} words"
+Configuration: True_Dual_Port_RAM, 32-bit x 2048 words
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1/cpu_top.dcp' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [Project 1-1859] Fail to add auto incremental checkpoint /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to utils_1 fileset.
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 96
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: blk_mem_gen_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 9aa2b89a9d695baf to dir: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_5
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.cache/ip/2022.2/9/a/9aa2b89a9d695baf/blk_mem_gen_0.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0.dcp.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0.dcp
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.cache/ip/2022.2/9/a/9aa2b89a9d695baf/blk_mem_gen_0_stub.v to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0_stub.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0_stub.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.cache/ip/2022.2/9/a/9aa2b89a9d695baf/blk_mem_gen_0_stub.vhdl to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0_stub.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0_stub.vhdl
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.cache/ip/2022.2/9/a/9aa2b89a9d695baf/blk_mem_gen_0_sim_netlist.v to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0_sim_netlist.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0_sim_netlist.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.cache/ip/2022.2/9/a/9aa2b89a9d695baf/blk_mem_gen_0_sim_netlist.vhdl to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.gen/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0_sim_netlist.vhdl
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP blk_mem_gen_0, cache-ID = 9aa2b89a9d695baf; cache size = 0.669 MB.
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0.xci' is already up-to-date
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Fri Nov 14 03:07:35 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+WARNING: [filemgmt 56-12] File '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/utils_1/imports/synth_1/cpu_top.dcp' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [Project 1-1859] Fail to add auto incremental checkpoint /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/cpu_top.dcp to utils_1 fileset.
+launch_runs impl_1 -jobs 96
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP '/home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.srcs/sources_1/ip/blk_mem_gen_0_5/blk_mem_gen_0.xci' is already up-to-date
+[Fri Nov 14 03:08:52 2025] Launched synth_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/synth_1/runme.log
+[Fri Nov 14 03:08:52 2025] Launched impl_1...
+Run output will be captured here: /home/khyang/harvard/cs1410_lab/lab4_updated/lab4_server/project_1.runs/impl_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Nov 14 03:11:21 2025...

@@ -1,0 +1,4 @@
+// Data memory file for R-type test
+// Initially empty - R-type instructions don't use data memory
+// Format: One 32-bit hex value per line
+
